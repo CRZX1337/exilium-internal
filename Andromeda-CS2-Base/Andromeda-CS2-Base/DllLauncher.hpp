@@ -6,7 +6,6 @@
 struct ManualMapParam_t
 {
 	uint64_t ArgsSize = 0;
-	DWORD64 DllLoaderCode = 0;
 	char DllPath[MAX_PATH] = { 0 };
 };
 
