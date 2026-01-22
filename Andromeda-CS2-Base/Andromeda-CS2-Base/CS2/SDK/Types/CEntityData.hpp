@@ -17,6 +17,7 @@
 
 #include <CS2/SDK/Math/Rect_t.hpp>
 #include <CS2/SDK/Update/Offsets.hpp>
+#include <CS2/SDK/Update/VMT_Index.hpp>
 #include <CS2/SDK/CSchemaOffset.hpp>
 #include <CS2/SDK/Interface/CShemaSystemSDK.hpp>
 
@@ -115,7 +116,7 @@ public:
 		CSchemaClassBinding* pBinding = nullptr;
 
 		VirtualFn( void )( CEntityInstance* , CSchemaClassBinding** );
-		vget< Fn >( this , index::CSchemaSystem::SchemaClassInfo )( this , &pBinding );
+		vget< Fn >( this , SDK::VMT_Index::CSchemaSystem::SchemaClassInfo )( this , &pBinding );
 
 		return pBinding;
 	}

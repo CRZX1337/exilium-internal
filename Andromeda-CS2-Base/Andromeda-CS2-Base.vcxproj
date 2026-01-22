@@ -198,6 +198,7 @@
     <ClCompile Include="Andromeda-CS2-Base\CS2\Protobuf\networksystem_protomessages.pb.cc" />
     <ClCompile Include="Andromeda-CS2-Base\CS2\Protobuf\network_connection.pb.cc" />
     <ClCompile Include="Andromeda-CS2-Base\CS2\Protobuf\prediction_events.pb.cc" />
+    <ClCompile Include="Andromeda-CS2-Base\CS2\Protobuf\source2_steam_stats.pb.cc" />
     <ClCompile Include="Andromeda-CS2-Base\CS2\Protobuf\steamdatagram_messages_auth.pb.cc" />
     <ClCompile Include="Andromeda-CS2-Base\CS2\Protobuf\steamdatagram_messages_sdr.pb.cc" />
     <ClCompile Include="Andromeda-CS2-Base\CS2\Protobuf\steammessages.pb.cc" />
@@ -376,6 +377,7 @@
     <ClInclude Include="Andromeda-CS2-Base\CS2\Protobuf\networksystem_protomessages.pb.h" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\Protobuf\network_connection.pb.h" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\Protobuf\prediction_events.pb.h" />
+    <ClInclude Include="Andromeda-CS2-Base\CS2\Protobuf\source2_steam_stats.pb.h" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\Protobuf\steamdatagram_messages_auth.pb.h" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\Protobuf\steamdatagram_messages_sdr.pb.h" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\Protobuf\steammessages.pb.h" />
@@ -451,6 +453,7 @@
     <ClInclude Include="Andromeda-CS2-Base\CS2\SDK\Update\CUserCmd.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\SDK\Update\GameTrace.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\SDK\Update\Offsets.hpp" />
+    <ClInclude Include="Andromeda-CS2-Base\CS2\SDK\Update\VMT_Index.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\DllLauncher.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\DllMain.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\GameClient\CEntityCache\CEntityCache.hpp" />

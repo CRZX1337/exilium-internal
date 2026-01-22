@@ -243,7 +243,7 @@ GetGameEntitySystemPointer:;
 	{
 		if ( !g_ppCGlobalVarsBase )
 		{
-			auto ppCGlobalVarsBase = reinterpret_cast<uintptr_t>( FindPattern( CLIENT_DLL , XorStr( "48 8B ? ? ? ? ? 44 8B B7 08 01 00 00 8B 70 04 B8 FF FF 00 00 89 B7 08 01 00 00 66 01 87 FC 00 00 00" ) ) );
+			auto ppCGlobalVarsBase = reinterpret_cast<uintptr_t>( FindPattern( CLIENT_DLL , XorStr( "48 8B ? ? ? ? ? 8B 48 04 FF C1 89 8B 88 06 00 00 48 8B CB E8 ? ? ? ? F3 0F 10 ? ? ? ? ? 48 8D 4C 24 60 E8 ? ? ? ? 45 8B CE" ) ) );
 
 			if ( !ppCGlobalVarsBase )
 				return nullptr;
@@ -283,7 +283,7 @@ GetGameEntitySystemPointer:;
 	{
 		if ( !g_ppCUserCmd )
 		{
-			auto ppCUserCmd = reinterpret_cast<uintptr_t>( FindPattern( CLIENT_DLL , XorStr( "48 8B 0D ? ? ? ? E8 ? ? ? ? 48 8B CF 4C 8B F8" ) ) );
+			auto ppCUserCmd = reinterpret_cast<uintptr_t>( FindPattern( CLIENT_DLL , XorStr( "48 8B 0D ? ? ? ? E8 ? ? ? ? 48 8B CF 48 8B F0" ) ) );
 
 			if ( !ppCUserCmd )
 				return nullptr;

@@ -115,9 +115,9 @@ public:
 
 namespace IEngineCVar_Search
 {
-	inline CBasePattern GetFirstCvarIteratorFn = { VmpStr( "IEngineCVar::GetFirstCvarIterator" ) , VmpStr( "48 89 74 24 10 57 48 83 EC 30 0F B7 41 50 48 8B F1 B9 FF FF 00 00" ) , TIER0_DLL };
-	inline CBasePattern GetNextCvarIteratorFn = { VmpStr( "IEngineCVar::GetNextCvarIterator" ) , VmpStr( "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 56 41 57 48 83 EC 30 BD FF FF 00 00 49 8B D8 4C 8B F2 48 8B F1 66 44 3B C5 74 5B 41 BF FF 7F 00 00 66 44 85 7E 42" ) , TIER0_DLL };
-	inline CBasePattern FindVarByIndexFn = { VmpStr( "IEngineCVar::FindVarByIndex" ) , VmpStr( "B8 FF FF 00 00 66 3B D0 74 27 B8 FF 7F 00 00 66 85 41 42 75 0D 33 C9 0F B7 C2 48 03 C0 48 8B 04 C1 C3" ) , TIER0_DLL };
+	inline CBasePattern GetFirstCvarIteratorFn = { VmpStr( "IEngineCVar::GetFirstCvarIterator" ) , VmpStr( "48 89 74 24 ? 48 89 7C 24 ? 41 56 48 83 EC ? 48 8B F2 48 8D B9" ) , TIER0_DLL };
+	inline CBasePattern GetNextCvarIteratorFn = { VmpStr( "IEngineCVar::GetNextCvarIterator" ) , VmpStr( "40 53 55 56 41 56 41 57 48 83 EC ? 49 8B D8 48 8D B1 ? ? ? ? 4C 8B F2 48 8B E9 FF 15 ? ? ? ? 8B D0 39 46 ? 75 ? 66 FF 46 ? EB ? 8B 06 90 85 C0 75 ? B9 ? ? ? ? F0 0F B1 0E 75 ? 66 C7 46 ? ? ? 89 56 ? EB ? 48 8B CE E8 ? ? ? ? 41 BF ? ? ? ? 48 89 7C 24 ? 4C 89 6C 24 ? 66 41 3B DF 74 ? 41 BD ? ? ? ? 66 44 85 6D" ) , TIER0_DLL };
+	inline CBasePattern FindVarByIndexFn = { VmpStr( "IEngineCVar::FindVarByIndex" ) , VmpStr( "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B DA 48 8D B9 ? ? ? ? 48 8B F1 FF 15 ? ? ? ? 8B D0 39 47 ? 75 ? 66 FF 47 ? EB ? 8B 07 90 85 C0 75 ? B9 ? ? ? ? F0 0F B1 0F 75 ? 66 C7 47 ? ? ? 89 57 ? EB ? 48 8B CF E8 ? ? ? ? BA" ) , TIER0_DLL };
 }
 
 class IEngineCVar
@@ -126,7 +126,7 @@ public:
 	DECLARATE_CS2_FUNCTION( void , GetFirstCvarIterator , ( uint64_t& idx ) , IEngineCVar , ( IEngineCVar* , uint64_t& ) , ( this , idx ) );
 	DECLARATE_CS2_FUNCTION( void , GetNextCvarIterator , ( uint64_t& idx ) , IEngineCVar , ( IEngineCVar* , uint64_t* , uint64_t ) , ( this , &idx , idx ) );
 	DECLARATE_CS2_FUNCTION( CConVar* , FindVarByIndex , ( uint64_t idx ) , IEngineCVar , ( IEngineCVar* , uint64_t ) , ( this , idx ) );
-	
+
 public:
 	auto Find( const char* pszName ) -> CConVar*
 	{

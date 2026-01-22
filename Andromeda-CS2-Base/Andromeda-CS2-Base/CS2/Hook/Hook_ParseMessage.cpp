@@ -12,7 +12,7 @@ auto Hook_CDemoRecorder( CDemoRecorder* pDemoRecorder , CNetworkSerializerPB* pS
 {
 	if ( pSerializer->messageID == GE_SosStartSoundEvent )
 	{
-		CMsgSosStartSoundEvent* pMessage = reinterpret_cast<CMsgSosStartSoundEvent*>( (PBYTE)pNetMessage + g_CDemorecorder_ParseMessage );
+		CMsgSosStartSoundEvent* pMessage = reinterpret_cast<CMsgSosStartSoundEvent*>( (PBYTE)pNetMessage + g_ProtobufMsgOffset );
 
 		if ( pMessage )
 		{

@@ -5,28 +5,16 @@
 
 #include <CS2/CBasePattern.hpp>
 #include <CS2/SDK/SDK.hpp>
+#include <CS2/SDK/Update/VMT_Index.hpp>
 
 #define SCHEMA_SYSTEM_INTERFACE_VERSION "SchemaSystem_001"
-
-#pragma region CSchemaSystemIndex
-
-namespace index
-{
-	namespace CSchemaSystem
-	{
-		constexpr auto GlobalTypeScope = 11;
-		constexpr auto SchemaClassInfo = 42;
-	}
-}
-
-#pragma endregion
 
 #pragma region GeneratorOffset
 
 namespace GeneratorOffset
 {
 	constexpr auto GetNumSchema = 0x74;
-	constexpr auto GetClassContainer = 0x580; // 49 8D 9F ? ? ? ? 48 8B CB E8 ? ? ? ? 48 8B 43 ? 48 8B CB 48 89 43 ? E8 ? ? ? ? 48 83 C3 ? 48 83 EF
+	constexpr auto GetClassContainer = 0x5C0; // 49 8D 9F ? ? ? ? 48 8B CB E8 ? ? ? ? 48 8B 43 ? 48 8B CB 48 89 43 ? E8 ? ? ? ? 48 83 C3 ? 48 83 EF
 }
 
 #pragma endregion
@@ -145,7 +133,7 @@ public:
 	auto GlobalTypeScope() -> CSchemaSystemTypeScope*
 	{
 		VirtualFn( CSchemaSystemTypeScope* )( CSchemaSystem* );
-		return vget< Fn >( this , index::CSchemaSystem::GlobalTypeScope )( this );
+		return vget< Fn >( this , SDK::VMT_Index::CSchemaSystem::GlobalTypeScope )( this );
 	}
 
 	auto GetAllTypeScope() -> CSchemaSystemTypeScope**

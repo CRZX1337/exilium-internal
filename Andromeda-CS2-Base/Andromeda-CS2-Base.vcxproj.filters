@@ -459,6 +459,9 @@
     <ClCompile Include="Andromeda-CS2-Base\GameClient\CL_VisibleCheck.cpp">
       <Filter>Andromeda-CS2-Base\GameClient</Filter>
     </ClCompile>
+    <ClCompile Include="Andromeda-CS2-Base\CS2\Protobuf\source2_steam_stats.pb.cc">
+      <Filter>Andromeda-CS2-Base\CS2\Protobuf</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Andromeda-CS2-Base\DllLauncher.hpp">
@@ -1093,6 +1096,12 @@
     </ClInclude>
     <ClInclude Include="Andromeda-CS2-Base\GameClient\CL_VisibleCheck.hpp">
       <Filter>Andromeda-CS2-Base\GameClient</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-CS2-Base\CS2\SDK\Update\VMT_Index.hpp">
+      <Filter>Andromeda-CS2-Base\CS2\SDK\Update</Filter>
+    </ClInclude>
+    <ClInclude Include="Andromeda-CS2-Base\CS2\Protobuf\source2_steam_stats.pb.h">
+      <Filter>Andromeda-CS2-Base\CS2\Protobuf</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
