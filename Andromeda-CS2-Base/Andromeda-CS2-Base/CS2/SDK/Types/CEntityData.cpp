@@ -183,7 +183,8 @@ auto C_BaseEntity::ComputeHitboxSurroundingBox( Vector3& mins , Vector3& maxs ) 
 
 auto C_BaseEntity::SetBodyGroup() -> void
 {
-	return C_BaseEntity_SetBodyGroup( this , 0 , 1 );
+	C_BaseEntity_SetBodyGroup( this , m_iTeamNum() == TEAM_TT ? 0 : 1 , 1 );
+	C_BaseEntity_UpdateBodyGroupChoice( this );
 }
 
 auto C_BaseEntity::GetBoneIdByName( const char* szName ) -> int

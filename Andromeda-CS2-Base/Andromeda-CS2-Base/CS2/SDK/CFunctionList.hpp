@@ -141,6 +141,8 @@ public:
 	CBasePattern CTraceFilter_Constructor = { VmpStr( "CTraceFilter::Constructor" ) , VmpStr( "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 0F B6 41 ? 33 FF 24" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern CCSGO_HudWeaponSelection_ClearHudWeaponIcon = { VmpStr( "CCSGO_HudWeaponSelection::ClearHudWeaponIcon" ) , VmpStr( "E8 ? ? ? ? 8B F8 C6 84 24" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
 	CBasePattern C_BaseEntity_GetHitBoxSet = { VmpStr( "C_BaseEntity::GetHitBoxSet" ) , VmpStr( "48 89 5C 24 ? 48 89 74 24 ? 57 48 81 EC ? ? ? ? 8B DA 48 8B F9 E8 ? ? ? ? 48 8B F0" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern C_BaseEntity_UpdateBodyGroupChoice = { VmpStr( "C_BaseEntity::UpdateBodyGroupChoice" ) , VmpStr( "E8 ? ? ? ? 4C 8B AC 24 ? ? ? ? 48 8B BC 24" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
+
 };
 
 auto GetFunctionList() -> CFunctionList*;
