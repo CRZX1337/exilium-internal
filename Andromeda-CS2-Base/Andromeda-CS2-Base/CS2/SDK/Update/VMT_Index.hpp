@@ -2,13 +2,17 @@
 
 namespace SDK::VMT_Index
 {
-	enum CSchemaSystem : int
+	enum CSchemaSystem : uint32_t
 	{
 		GlobalTypeScope = 11 ,
 		SchemaClassInfo = 46 ,
 	};
-	enum IVEngineClient2 : int
+	enum IVEngineClient2 : uint32_t
 	{
-		GetScreenSize = 59 ,
+		GetScreenSize = 60 ,
+	};
+	enum CEntityInstance : uint32_t
+	{
+		PostDataUpdate = 10 ,
 	};
 }

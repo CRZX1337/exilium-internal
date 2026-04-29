@@ -130,7 +130,7 @@ public:
 	CBasePattern C_BaseModelEntity_SetModel = { VmpStr( "C_BaseModelEntity::SetModel" ) , VmpStr( "40 53 48 83 EC ? 48 8B D9 4C 8B C2 48 8B 0D ? ? ? ? 48 8D 54 24 40" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern CGameSceneNode_SetMeshGroupMask = { VmpStr( "CGameSceneNode::SetMeshGroupMask" ) , VmpStr( "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8D 99 ? ? ? ? 48 8B 71" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern C_CSWeaponBase_UpdateSubclass = { VmpStr( "C_CSWeaponBase::UpdateSubclass" ) , VmpStr( "4C 8B DC 53 48 81 EC ? ? ? ? 48 8B 41" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
-	CBasePattern C_CSWeaponBase_UpdateSkin = { VmpStr( "C_CSWeaponBase::UpdateSkin" ) , VmpStr( "48 89 5C 24 08 57 48 83 EC 20 8B DA 48 8B F9 E8 8C 22 12 00" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern C_CSWeaponBase_UpdateSkin = { VmpStr( "C_CSWeaponBase::UpdateSkin" ) , VmpStr( "48 89 5C 24 08 57 48 83 EC 20 8B DA 48 8B F9 E8 ? ? ? ? F6 C3 01 74 0A 33 D2 48 8B CF E8 ? ? ? ? 48 8D 8F 60 19 00 00" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern C_CSWeaponBase_UpdateCompositeMaterial = { VmpStr( "C_CSWeaponBase::UpdateCompositeMaterial" ) , VmpStr( "E8 ? ? ? ? 48 8D 8B ? ? ? ? 48 89 BC 24" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
 	CBasePattern C_BaseEntity_SetBodyGroup = { VmpStr( "C_BaseEntity::SetBodyGroup" ) , VmpStr( "85 D2 0F 88 CB 01 00 00" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern GetCUserCmdTick = { VmpStr( "GetCUserCmdTick" ) , VmpStr( "48 83 EC ? 4C 8B 0D ? ? ? ? 4C 8B DA" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
