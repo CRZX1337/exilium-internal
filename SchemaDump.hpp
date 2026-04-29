@@ -8854,14 +8854,16 @@ class CCSPlayerAnimationState // server
 	bool m_bWasStationaryLastUpdate; // 0x001D
 	GameTick_t m_actionStartTick; // 0x0020
 	GameTick_t m_staticAimTimerStartTick; // 0x0024
-	GameTick_t m_plantAndTurnStartTick; // 0x0028
-	float32 m_flTurnOnSpotAngle; // 0x002C
-	float32 m_flPreviousAimYaw; // 0x0030
-	float32 m_flPreviousHorizontalSpeed; // 0x0034
-	float32 m_flFootIKOffsetLeft; // 0x0038
-	float32 m_flFootIKOffsetRight; // 0x003C
-	float32 m_flWeaponDropPercentageDueToMovement; // 0x0040
-	float32 m_flWeaponDropSmoothDampVelocity; // 0x0044
+	GameTick_t m_stutterStepStartTick; // 0x0028
+	GameTick_t m_plantAndTurnStartTick; // 0x002C
+	bool m_bIsStutterStep; // 0x0030
+	float32 m_flTurnOnSpotAngle; // 0x0034
+	float32 m_flPreviousAimYaw; // 0x0038
+	float32 m_flPreviousHorizontalSpeed; // 0x003C
+	float32 m_flFootIKOffsetLeft; // 0x0040
+	float32 m_flFootIKOffsetRight; // 0x0044
+	float32 m_flWeaponDropPercentageDueToMovement; // 0x0048
+	float32 m_flWeaponDropSmoothDampVelocity; // 0x004C
 };
 class C_OP_SetControlPointToHand : public CParticleFunctionPreEmission // particles
 {
@@ -17731,57 +17733,57 @@ class CEnvShake : public CPointEntity // server
 class CCSPlayer_MovementServices : public CPlayer_MovementServices_Humanoid // server
 {
 	CCSPlayerAnimationState m_AnimationState; // 0x02E0
-	Vector m_vecLadderNormal; // 0x03C0
-	int32 m_nLadderSurfacePropIndex; // 0x03CC
-	bool m_bDucked; // 0x03D0
-	float32 m_flDuckAmount; // 0x03D4
-	float32 m_flDuckSpeed; // 0x03D8
-	bool m_bDuckOverride; // 0x03DC
-	bool m_bDesiresDuck; // 0x03DD
-	bool m_bDucking; // 0x03DE
-	float32 m_flDuckRootOffset; // 0x03E0
-	float32 m_flDuckViewOffset; // 0x03E4
-	float32 m_flLastDuckTime; // 0x03E8
-	float32 m_flBombPlantViewOffset; // 0x03EC
-	Vector2D m_vecLastPositionAtFullCrouchSpeed; // 0x03F8
-	bool m_duckUntilOnGround; // 0x0400
-	bool m_bHasWalkMovedSinceLastJump; // 0x0401
-	bool m_bInStuckTest; // 0x0402
-	int32 m_nTraceCount; // 0x0610
-	int32 m_StuckLast; // 0x0614
-	bool m_bSpeedCropped; // 0x0618
-	int32 m_nOldWaterLevel; // 0x061C
-	float32 m_flWaterEntryTime; // 0x0620
-	Vector m_vecForward; // 0x0624
-	Vector m_vecLeft; // 0x0630
-	Vector m_vecUp; // 0x063C
-	int32 m_nGameCodeHasMovedPlayerAfterCommand; // 0x0648
-	bool m_bMadeFootstepNoise; // 0x064C
-	int32 m_iFootsteps; // 0x0650
-	GameTime_t m_fStashGrenadeParameterWhen; // 0x0654
-	uint64 m_nButtonDownMaskPrev; // 0x0658
-	bool m_bUseFrictionStashedSpeed; // 0x0660
-	float32 m_flUseFrictionStashedSpeedUntilFrac; // 0x0664
-	float32 m_flFrictionStashedSpeed; // 0x0668
-	float32 m_flStamina; // 0x066C
-	float32 m_flHeightAtJumpStart; // 0x0670
-	float32 m_flMaxJumpHeightThisJump; // 0x0674
-	float32 m_flMaxJumpHeightLastJump; // 0x0678
-	float32 m_flStaminaAtJumpStart; // 0x067C
-	float32 m_flVelMulAtJumpStart; // 0x0680
-	float32 m_flAccumulatedJumpError; // 0x0684
-	CCSPlayerLegacyJump m_LegacyJump; // 0x0688
-	CCSPlayerModernJump m_ModernJump; // 0x06A0
-	GameTick_t m_nLastJumpTick; // 0x06D8
-	float32 m_flLastJumpFrac; // 0x06DC
-	float32 m_flLastJumpVelocityZ; // 0x06E0
-	bool m_bJumpApexPending; // 0x06E4
-	float32 m_flTicksSinceLastSurfingDetected; // 0x06E8
-	bool m_bWasSurfing; // 0x06EC
-	Vector2D m_vecWalkWishVel; // 0x077C
-	GameTime_t m_gtLastTimeOnStaticWorldGround; // 0x0FA8
-	GameTime_t m_gtLastTimeInAir; // 0x0FAC
-	bool m_bHasEverProcessedCommand; // 0x0FB0
+	Vector m_vecLadderNormal; // 0x03D0
+	int32 m_nLadderSurfacePropIndex; // 0x03DC
+	bool m_bDucked; // 0x03E0
+	float32 m_flDuckAmount; // 0x03E4
+	float32 m_flDuckSpeed; // 0x03E8
+	bool m_bDuckOverride; // 0x03EC
+	bool m_bDesiresDuck; // 0x03ED
+	bool m_bDucking; // 0x03EE
+	float32 m_flDuckRootOffset; // 0x03F0
+	float32 m_flDuckViewOffset; // 0x03F4
+	float32 m_flLastDuckTime; // 0x03F8
+	float32 m_flBombPlantViewOffset; // 0x03FC
+	Vector2D m_vecLastPositionAtFullCrouchSpeed; // 0x0408
+	bool m_duckUntilOnGround; // 0x0410
+	bool m_bHasWalkMovedSinceLastJump; // 0x0411
+	bool m_bInStuckTest; // 0x0412
+	int32 m_nTraceCount; // 0x0620
+	int32 m_StuckLast; // 0x0624
+	bool m_bSpeedCropped; // 0x0628
+	int32 m_nOldWaterLevel; // 0x062C
+	float32 m_flWaterEntryTime; // 0x0630
+	Vector m_vecForward; // 0x0634
+	Vector m_vecLeft; // 0x0640
+	Vector m_vecUp; // 0x064C
+	int32 m_nGameCodeHasMovedPlayerAfterCommand; // 0x0658
+	bool m_bMadeFootstepNoise; // 0x065C
+	int32 m_iFootsteps; // 0x0660
+	GameTime_t m_fStashGrenadeParameterWhen; // 0x0664
+	uint64 m_nButtonDownMaskPrev; // 0x0668
+	bool m_bUseFrictionStashedSpeed; // 0x0670
+	float32 m_flUseFrictionStashedSpeedUntilFrac; // 0x0674
+	float32 m_flFrictionStashedSpeed; // 0x0678
+	float32 m_flStamina; // 0x067C
+	float32 m_flHeightAtJumpStart; // 0x0680
+	float32 m_flMaxJumpHeightThisJump; // 0x0684
+	float32 m_flMaxJumpHeightLastJump; // 0x0688
+	float32 m_flStaminaAtJumpStart; // 0x068C
+	float32 m_flVelMulAtJumpStart; // 0x0690
+	float32 m_flAccumulatedJumpError; // 0x0694
+	CCSPlayerLegacyJump m_LegacyJump; // 0x0698
+	CCSPlayerModernJump m_ModernJump; // 0x06B0
+	GameTick_t m_nLastJumpTick; // 0x06E8
+	float32 m_flLastJumpFrac; // 0x06EC
+	float32 m_flLastJumpVelocityZ; // 0x06F0
+	bool m_bJumpApexPending; // 0x06F4
+	float32 m_flTicksSinceLastSurfingDetected; // 0x06F8
+	bool m_bWasSurfing; // 0x06FC
+	Vector2D m_vecWalkWishVel; // 0x078C
+	GameTime_t m_gtLastTimeOnStaticWorldGround; // 0x0FB8
+	GameTime_t m_gtLastTimeInAir; // 0x0FBC
+	bool m_bHasEverProcessedCommand; // 0x0FC0
 };
 class SellbackPurchaseEntry_t // server
 {
@@ -18013,25 +18015,26 @@ class CCS2PawnGraphController : public CCS2WeaponGraphController // server
 	CAnimGraph2ParamOptionalRef< float32 > m_flPreviousMoveSpeedHorizontal; // 0x0618
 	CAnimGraph2ParamOptionalRef< float32 > m_flCrouchAmount; // 0x0630
 	CAnimGraph2ParamOptionalRef< bool > m_bIsWalking; // 0x0648
-	CAnimGraph2ParamOptionalRef< float32 > m_flWeaponDropAmount; // 0x0660
-	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_groundAction; // 0x0678
-	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_groundActionDirectionID; // 0x0690
-	CAnimGraph2ParamOptionalRef< float32 > m_flGroundTurnAngleOrVelocity; // 0x06A8
-	CAnimGraph2ParamOptionalRef< float32 > m_flLadderCycle; // 0x06C0
-	CAnimGraph2ParamOptionalRef< float32 > m_flLadderYaw; // 0x06D8
-	CAnimGraph2ParamOptionalRef< float32 > m_flLadderYawBackwards; // 0x06F0
-	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_airAction; // 0x0708
-	CAnimGraph2ParamOptionalRef< float32 > m_flAirHeightAboveGround; // 0x0720
-	CAnimGraph2ParamOptionalRef< CNmTarget > m_leftFootTarget; // 0x0738
-	CAnimGraph2ParamOptionalRef< CNmTarget > m_rightFootTarget; // 0x0750
-	CAnimGraph2ParamOptionalRef< float32 > m_flFlashedAmount; // 0x0768
-	CAnimGraph2ParamOptionalRef< float32 > m_flAimPitchAngle; // 0x0780
-	CAnimGraph2ParamOptionalRef< float32 > m_flAimYawAngle; // 0x0798
-	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_flinchHead; // 0x07B0
-	CAnimGraph2ParamOptionalRef< bool > m_flinchHeadRestart; // 0x07C8
-	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_flinchBody; // 0x07E0
-	CAnimGraph2ParamOptionalRef< bool > m_flinchBodyRestart; // 0x07F8
-	CAnimGraph2ParamOptionalRef< bool > m_flinchIsOnFire; // 0x0810
+	CAnimGraph2ParamOptionalRef< bool > m_bIsStutterStep; // 0x0660
+	CAnimGraph2ParamOptionalRef< float32 > m_flWeaponDropAmount; // 0x0678
+	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_groundAction; // 0x0690
+	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_groundActionDirectionID; // 0x06A8
+	CAnimGraph2ParamOptionalRef< float32 > m_flGroundTurnAngleOrVelocity; // 0x06C0
+	CAnimGraph2ParamOptionalRef< float32 > m_flLadderCycle; // 0x06D8
+	CAnimGraph2ParamOptionalRef< float32 > m_flLadderYaw; // 0x06F0
+	CAnimGraph2ParamOptionalRef< float32 > m_flLadderYawBackwards; // 0x0708
+	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_airAction; // 0x0720
+	CAnimGraph2ParamOptionalRef< float32 > m_flAirHeightAboveGround; // 0x0738
+	CAnimGraph2ParamOptionalRef< CNmTarget > m_leftFootTarget; // 0x0750
+	CAnimGraph2ParamOptionalRef< CNmTarget > m_rightFootTarget; // 0x0768
+	CAnimGraph2ParamOptionalRef< float32 > m_flFlashedAmount; // 0x0780
+	CAnimGraph2ParamOptionalRef< float32 > m_flAimPitchAngle; // 0x0798
+	CAnimGraph2ParamOptionalRef< float32 > m_flAimYawAngle; // 0x07B0
+	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_flinchHead; // 0x07C8
+	CAnimGraph2ParamOptionalRef< bool > m_flinchHeadRestart; // 0x07E0
+	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_flinchBody; // 0x07F8
+	CAnimGraph2ParamOptionalRef< bool > m_flinchBodyRestart; // 0x0810
+	CAnimGraph2ParamOptionalRef< bool > m_flinchIsOnFire; // 0x0828
 };
 class EngineCountdownTimer // server
 {
@@ -21129,7 +21132,6 @@ class CMapInfo : public CPointEntity // server
 	int32 m_iHostageCount; // 0x04BC
 	bool m_bFadePlayerVisibilityFarZ; // 0x04C0
 	bool m_bRainTraceToSkyEnabled; // 0x04C1
-	bool m_bGPUCullSkybox; // 0x04C2
 	float32 m_flEnvRainStrength; // 0x04C4
 	float32 m_flEnvPuddleRippleStrength; // 0x04C8
 	float32 m_flEnvPuddleRippleDirection; // 0x04CC
@@ -24066,55 +24068,55 @@ class C_SoundEventAABBEntity : public C_SoundEventEntity // client
 class CCSPlayer_MovementServices : public CPlayer_MovementServices_Humanoid // client
 {
 	CCSPlayerAnimationState m_AnimationState; // 0x02E0
-	Vector m_vecLadderNormal; // 0x03C0
-	int32 m_nLadderSurfacePropIndex; // 0x03CC
-	bool m_bDucked; // 0x03D0
-	float32 m_flDuckAmount; // 0x03D4
-	float32 m_flDuckSpeed; // 0x03D8
-	bool m_bDuckOverride; // 0x03DC
-	bool m_bDesiresDuck; // 0x03DD
-	bool m_bDucking; // 0x03DE
-	float32 m_flDuckRootOffset; // 0x03E0
-	float32 m_flDuckViewOffset; // 0x03E4
-	float32 m_flLastDuckTime; // 0x03E8
-	float32 m_flBombPlantViewOffset; // 0x03EC
-	Vector2D m_vecLastPositionAtFullCrouchSpeed; // 0x03F8
-	bool m_duckUntilOnGround; // 0x0400
-	bool m_bHasWalkMovedSinceLastJump; // 0x0401
-	bool m_bInStuckTest; // 0x0402
-	int32 m_nTraceCount; // 0x0610
-	int32 m_StuckLast; // 0x0614
-	bool m_bSpeedCropped; // 0x0618
-	int32 m_nOldWaterLevel; // 0x061C
-	float32 m_flWaterEntryTime; // 0x0620
-	Vector m_vecForward; // 0x0624
-	Vector m_vecLeft; // 0x0630
-	Vector m_vecUp; // 0x063C
-	int32 m_nGameCodeHasMovedPlayerAfterCommand; // 0x0648
-	GameTime_t m_fStashGrenadeParameterWhen; // 0x064C
-	uint64 m_nButtonDownMaskPrev; // 0x0650
-	bool m_bUseFrictionStashedSpeed; // 0x0658
-	float32 m_flUseFrictionStashedSpeedUntilFrac; // 0x065C
-	float32 m_flFrictionStashedSpeed; // 0x0660
-	float32 m_flStamina; // 0x0664
-	float32 m_flHeightAtJumpStart; // 0x0668
-	float32 m_flMaxJumpHeightThisJump; // 0x066C
-	float32 m_flMaxJumpHeightLastJump; // 0x0670
-	float32 m_flStaminaAtJumpStart; // 0x0674
-	float32 m_flVelMulAtJumpStart; // 0x0678
-	float32 m_flAccumulatedJumpError; // 0x067C
-	CCSPlayerLegacyJump m_LegacyJump; // 0x0680
-	CCSPlayerModernJump m_ModernJump; // 0x0698
-	GameTick_t m_nLastJumpTick; // 0x06D0
-	float32 m_flLastJumpFrac; // 0x06D4
-	float32 m_flLastJumpVelocityZ; // 0x06D8
-	bool m_bJumpApexPending; // 0x06DC
-	float32 m_flTicksSinceLastSurfingDetected; // 0x06E0
-	bool m_bWasSurfing; // 0x06E4
-	Vector2D m_vecWalkWishVel; // 0x0774
-	GameTime_t m_gtLastTimeOnStaticWorldGround; // 0x0FA0
-	GameTime_t m_gtLastTimeInAir; // 0x0FA4
-	bool m_bHasEverProcessedCommand; // 0x0FA8
+	Vector m_vecLadderNormal; // 0x03D0
+	int32 m_nLadderSurfacePropIndex; // 0x03DC
+	bool m_bDucked; // 0x03E0
+	float32 m_flDuckAmount; // 0x03E4
+	float32 m_flDuckSpeed; // 0x03E8
+	bool m_bDuckOverride; // 0x03EC
+	bool m_bDesiresDuck; // 0x03ED
+	bool m_bDucking; // 0x03EE
+	float32 m_flDuckRootOffset; // 0x03F0
+	float32 m_flDuckViewOffset; // 0x03F4
+	float32 m_flLastDuckTime; // 0x03F8
+	float32 m_flBombPlantViewOffset; // 0x03FC
+	Vector2D m_vecLastPositionAtFullCrouchSpeed; // 0x0408
+	bool m_duckUntilOnGround; // 0x0410
+	bool m_bHasWalkMovedSinceLastJump; // 0x0411
+	bool m_bInStuckTest; // 0x0412
+	int32 m_nTraceCount; // 0x0620
+	int32 m_StuckLast; // 0x0624
+	bool m_bSpeedCropped; // 0x0628
+	int32 m_nOldWaterLevel; // 0x062C
+	float32 m_flWaterEntryTime; // 0x0630
+	Vector m_vecForward; // 0x0634
+	Vector m_vecLeft; // 0x0640
+	Vector m_vecUp; // 0x064C
+	int32 m_nGameCodeHasMovedPlayerAfterCommand; // 0x0658
+	GameTime_t m_fStashGrenadeParameterWhen; // 0x065C
+	uint64 m_nButtonDownMaskPrev; // 0x0660
+	bool m_bUseFrictionStashedSpeed; // 0x0668
+	float32 m_flUseFrictionStashedSpeedUntilFrac; // 0x066C
+	float32 m_flFrictionStashedSpeed; // 0x0670
+	float32 m_flStamina; // 0x0674
+	float32 m_flHeightAtJumpStart; // 0x0678
+	float32 m_flMaxJumpHeightThisJump; // 0x067C
+	float32 m_flMaxJumpHeightLastJump; // 0x0680
+	float32 m_flStaminaAtJumpStart; // 0x0684
+	float32 m_flVelMulAtJumpStart; // 0x0688
+	float32 m_flAccumulatedJumpError; // 0x068C
+	CCSPlayerLegacyJump m_LegacyJump; // 0x0690
+	CCSPlayerModernJump m_ModernJump; // 0x06A8
+	GameTick_t m_nLastJumpTick; // 0x06E0
+	float32 m_flLastJumpFrac; // 0x06E4
+	float32 m_flLastJumpVelocityZ; // 0x06E8
+	bool m_bJumpApexPending; // 0x06EC
+	float32 m_flTicksSinceLastSurfingDetected; // 0x06F0
+	bool m_bWasSurfing; // 0x06F4
+	Vector2D m_vecWalkWishVel; // 0x0784
+	GameTime_t m_gtLastTimeOnStaticWorldGround; // 0x0FB0
+	GameTime_t m_gtLastTimeInAir; // 0x0FB4
+	bool m_bHasEverProcessedCommand; // 0x0FB8
 };
 class SellbackPurchaseEntry_t // client
 {
@@ -24186,25 +24188,26 @@ class CCS2PawnGraphController : public CCS2WeaponGraphController // client
 	CAnimGraph2ParamOptionalRef< float32 > m_flPreviousMoveSpeedHorizontal; // 0x0330
 	CAnimGraph2ParamOptionalRef< float32 > m_flCrouchAmount; // 0x0348
 	CAnimGraph2ParamOptionalRef< bool > m_bIsWalking; // 0x0360
-	CAnimGraph2ParamOptionalRef< float32 > m_flWeaponDropAmount; // 0x0378
-	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_groundAction; // 0x0390
-	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_groundActionDirectionID; // 0x03A8
-	CAnimGraph2ParamOptionalRef< float32 > m_flGroundTurnAngleOrVelocity; // 0x03C0
-	CAnimGraph2ParamOptionalRef< float32 > m_flLadderCycle; // 0x03D8
-	CAnimGraph2ParamOptionalRef< float32 > m_flLadderYaw; // 0x03F0
-	CAnimGraph2ParamOptionalRef< float32 > m_flLadderYawBackwards; // 0x0408
-	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_airAction; // 0x0420
-	CAnimGraph2ParamOptionalRef< float32 > m_flAirHeightAboveGround; // 0x0438
-	CAnimGraph2ParamOptionalRef< CNmTarget > m_leftFootTarget; // 0x0450
-	CAnimGraph2ParamOptionalRef< CNmTarget > m_rightFootTarget; // 0x0468
-	CAnimGraph2ParamOptionalRef< float32 > m_flFlashedAmount; // 0x0480
-	CAnimGraph2ParamOptionalRef< float32 > m_flAimPitchAngle; // 0x0498
-	CAnimGraph2ParamOptionalRef< float32 > m_flAimYawAngle; // 0x04B0
-	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_flinchHead; // 0x04C8
-	CAnimGraph2ParamOptionalRef< bool > m_flinchHeadRestart; // 0x04E0
-	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_flinchBody; // 0x04F8
-	CAnimGraph2ParamOptionalRef< bool > m_flinchBodyRestart; // 0x0510
-	CAnimGraph2ParamOptionalRef< bool > m_flinchIsOnFire; // 0x0528
+	CAnimGraph2ParamOptionalRef< bool > m_bIsStutterStep; // 0x0378
+	CAnimGraph2ParamOptionalRef< float32 > m_flWeaponDropAmount; // 0x0390
+	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_groundAction; // 0x03A8
+	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_groundActionDirectionID; // 0x03C0
+	CAnimGraph2ParamOptionalRef< float32 > m_flGroundTurnAngleOrVelocity; // 0x03D8
+	CAnimGraph2ParamOptionalRef< float32 > m_flLadderCycle; // 0x03F0
+	CAnimGraph2ParamOptionalRef< float32 > m_flLadderYaw; // 0x0408
+	CAnimGraph2ParamOptionalRef< float32 > m_flLadderYawBackwards; // 0x0420
+	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_airAction; // 0x0438
+	CAnimGraph2ParamOptionalRef< float32 > m_flAirHeightAboveGround; // 0x0450
+	CAnimGraph2ParamOptionalRef< CNmTarget > m_leftFootTarget; // 0x0468
+	CAnimGraph2ParamOptionalRef< CNmTarget > m_rightFootTarget; // 0x0480
+	CAnimGraph2ParamOptionalRef< float32 > m_flFlashedAmount; // 0x0498
+	CAnimGraph2ParamOptionalRef< float32 > m_flAimPitchAngle; // 0x04B0
+	CAnimGraph2ParamOptionalRef< float32 > m_flAimYawAngle; // 0x04C8
+	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_flinchHead; // 0x04E0
+	CAnimGraph2ParamOptionalRef< bool > m_flinchHeadRestart; // 0x04F8
+	CAnimGraph2ParamOptionalRef< CGlobalSymbol > m_flinchBody; // 0x0510
+	CAnimGraph2ParamOptionalRef< bool > m_flinchBodyRestart; // 0x0528
+	CAnimGraph2ParamOptionalRef< bool > m_flinchIsOnFire; // 0x0540
 };
 class EngineCountdownTimer // client
 {
@@ -25831,7 +25834,6 @@ class CMapInfo : public C_PointEntity // client
 	int32 m_iHostageCount; // 0x0614
 	bool m_bFadePlayerVisibilityFarZ; // 0x0618
 	bool m_bRainTraceToSkyEnabled; // 0x0619
-	bool m_bGPUCullSkybox; // 0x061A
 	float32 m_flEnvRainStrength; // 0x061C
 	float32 m_flEnvPuddleRippleStrength; // 0x0620
 	float32 m_flEnvPuddleRippleDirection; // 0x0624

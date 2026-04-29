@@ -7,7 +7,7 @@
 #define CONFIG_FILE					"config.json"
 
 #define CHEAT_NAME					"Andromeda CS2 Base"
-#define CHEAT_VERSION				"1.1.3"
+#define CHEAT_VERSION				"1.1.2"
 
 // Project Buid Config:
 

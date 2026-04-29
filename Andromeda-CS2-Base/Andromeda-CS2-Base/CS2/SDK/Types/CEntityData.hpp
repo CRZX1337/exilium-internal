@@ -21,6 +21,14 @@
 #include <CS2/SDK/CSchemaOffset.hpp>
 #include <CS2/SDK/Interface/CShemaSystemSDK.hpp>
 
+namespace index
+{
+	namespace CEntityInstance
+	{
+		constexpr auto PostDataUpdate = 7;
+	}
+}
+
 class C_BaseEntity;
 class CEconItem;
 class CEconItemDefinition;
@@ -117,7 +125,7 @@ public:
 	auto PostDataUpdate() -> void
 	{
 		VirtualFn( void )( CEntityInstance* , int UpdateType );
-		return vget< Fn >( this , SDK::VMT_Index::CEntityInstance::PostDataUpdate )( this , 1 );
+		return vget< Fn >( this , index::CEntityInstance::PostDataUpdate )( this , 1 );
 	}
 
 public:
