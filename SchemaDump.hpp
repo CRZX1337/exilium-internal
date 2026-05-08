@@ -17523,98 +17523,98 @@ class CPlayer_FlashlightServices : public CPlayerPawnComponent // server
 };
 class CCSPlayerController : public CBasePlayerController // server
 {
-	CCSPlayerController_InGameMoneyServices* m_pInGameMoneyServices; // 0x07D8
-	CCSPlayerController_InventoryServices* m_pInventoryServices; // 0x07E0
-	CCSPlayerController_ActionTrackingServices* m_pActionTrackingServices; // 0x07E8
-	CCSPlayerController_DamageServices* m_pDamageServices; // 0x07F0
-	uint32 m_iPing; // 0x07F8
-	bool m_bHasCommunicationAbuseMute; // 0x07FC
-	uint32 m_uiCommunicationMuteFlags; // 0x0800
-	CUtlSymbolLarge m_szCrosshairCodes; // 0x0808
-	uint8 m_iPendingTeamNum; // 0x0810
-	GameTime_t m_flForceTeamTime; // 0x0814
-	int32 m_iCompTeammateColor; // 0x0818
-	bool m_bEverPlayedOnTeam; // 0x081C
-	bool m_bAttemptedToGetColor; // 0x081D
-	int32 m_iTeammatePreferredColor; // 0x0820
-	bool m_bTeamChanged; // 0x0824
-	bool m_bInSwitchTeam; // 0x0825
-	bool m_bHasSeenJoinGame; // 0x0826
-	bool m_bJustBecameSpectator; // 0x0827
-	bool m_bSwitchTeamsOnNextRoundReset; // 0x0828
-	bool m_bRemoveAllItemsOnNextRoundReset; // 0x0829
-	GameTime_t m_flLastJoinTeamTime; // 0x082C
-	CUtlSymbolLarge m_szClan; // 0x0830
-	int32 m_iCoachingTeam; // 0x0838
-	uint64 m_nPlayerDominated; // 0x0840
-	uint64 m_nPlayerDominatingMe; // 0x0848
-	int32 m_iCompetitiveRanking; // 0x0850
-	int32 m_iCompetitiveWins; // 0x0854
-	int8 m_iCompetitiveRankType; // 0x0858
-	int32 m_iCompetitiveRankingPredicted_Win; // 0x085C
-	int32 m_iCompetitiveRankingPredicted_Loss; // 0x0860
-	int32 m_iCompetitiveRankingPredicted_Tie; // 0x0864
-	int32 m_nEndMatchNextMapVote; // 0x0868
-	uint16 m_unActiveQuestId; // 0x086C
-	uint32 m_rtActiveMissionPeriod; // 0x0870
-	QuestProgress::Reason m_nQuestProgressReason; // 0x0874
-	uint32 m_unPlayerTvControlFlags; // 0x0878
-	int32 m_iDraftIndex; // 0x08A8
-	uint32 m_msQueuedModeDisconnectionTimestamp; // 0x08AC
-	uint32 m_uiAbandonRecordedReason; // 0x08B0
-	uint32 m_eNetworkDisconnectionReason; // 0x08B4
-	bool m_bCannotBeKicked; // 0x08B8
-	bool m_bEverFullyConnected; // 0x08B9
-	bool m_bAbandonAllowsSurrender; // 0x08BA
-	bool m_bAbandonOffersInstantSurrender; // 0x08BB
-	bool m_bDisconnection1MinWarningPrinted; // 0x08BC
-	bool m_bScoreReported; // 0x08BD
-	int32 m_nDisconnectionTick; // 0x08C0
-	bool m_bControllingBot; // 0x08D0
-	bool m_bHasControlledBotThisRound; // 0x08D1
-	bool m_bHasBeenControlledByPlayerThisRound; // 0x08D2
-	int32 m_nBotsControlledThisRound; // 0x08D4
-	bool m_bCanControlObservedBot; // 0x08D8
-	CHandle< CCSPlayerPawn > m_hPlayerPawn; // 0x08DC
-	CHandle< CCSObserverPawn > m_hObserverPawn; // 0x08E0
-	int32 m_DesiredObserverMode; // 0x08E4
-	CEntityHandle m_hDesiredObserverTarget; // 0x08E8
-	bool m_bPawnIsAlive; // 0x08EC
-	uint32 m_iPawnHealth; // 0x08F0
-	int32 m_iPawnArmor; // 0x08F4
-	bool m_bPawnHasDefuser; // 0x08F8
-	bool m_bPawnHasHelmet; // 0x08F9
-	uint16 m_nPawnCharacterDefIndex; // 0x08FA
-	int32 m_iPawnLifetimeStart; // 0x08FC
-	int32 m_iPawnLifetimeEnd; // 0x0900
-	int32 m_iPawnBotDifficulty; // 0x0904
-	CHandle< CCSPlayerController > m_hOriginalControllerOfCurrentPawn; // 0x0908
-	int32 m_iScore; // 0x090C
-	int32 m_iRoundScore; // 0x0910
-	int32 m_iRoundsWon; // 0x0914
-	uint8[8] m_recentKillQueue; // 0x0918
-	uint8 m_nFirstKill; // 0x0920
-	uint8 m_nKillCount; // 0x0921
-	bool m_bMvpNoMusic; // 0x0922
-	int32 m_eMvpReason; // 0x0924
-	int32 m_iMusicKitID; // 0x0928
-	int32 m_iMusicKitMVPs; // 0x092C
-	int32 m_iMVPs; // 0x0930
-	int32 m_nUpdateCounter; // 0x0934
-	float32 m_flSmoothedPing; // 0x0938
-	IntervalTimer m_lastHeldVoteTimer; // 0x0940
-	bool m_bShowHints; // 0x0958
-	int32 m_iNextTimeCheck; // 0x095C
-	bool m_bJustDidTeamKill; // 0x0960
-	bool m_bPunishForTeamKill; // 0x0961
-	bool m_bGaveTeamDamageWarning; // 0x0962
-	bool m_bGaveTeamDamageWarningThisRound; // 0x0963
-	float64 m_dblLastReceivedPacketPlatFloatTime; // 0x0968
-	GameTime_t m_LastTeamDamageWarningTime; // 0x0970
-	GameTime_t m_LastTimePlayerWasDisconnectedForPawnsRemove; // 0x0974
-	uint32 m_nSuspiciousHitCount; // 0x0978
-	uint32 m_nNonSuspiciousHitStreak; // 0x097C
-	bool m_bFireBulletsSeedSynchronized; // 0x0A21
+	CCSPlayerController_InGameMoneyServices* m_pInGameMoneyServices; // 0x07E0
+	CCSPlayerController_InventoryServices* m_pInventoryServices; // 0x07E8
+	CCSPlayerController_ActionTrackingServices* m_pActionTrackingServices; // 0x07F0
+	CCSPlayerController_DamageServices* m_pDamageServices; // 0x07F8
+	uint32 m_iPing; // 0x0800
+	bool m_bHasCommunicationAbuseMute; // 0x0804
+	uint32 m_uiCommunicationMuteFlags; // 0x0808
+	CUtlSymbolLarge m_szCrosshairCodes; // 0x0810
+	uint8 m_iPendingTeamNum; // 0x0818
+	GameTime_t m_flForceTeamTime; // 0x081C
+	int32 m_iCompTeammateColor; // 0x0820
+	bool m_bEverPlayedOnTeam; // 0x0824
+	bool m_bAttemptedToGetColor; // 0x0825
+	int32 m_iTeammatePreferredColor; // 0x0828
+	bool m_bTeamChanged; // 0x082C
+	bool m_bInSwitchTeam; // 0x082D
+	bool m_bHasSeenJoinGame; // 0x082E
+	bool m_bJustBecameSpectator; // 0x082F
+	bool m_bSwitchTeamsOnNextRoundReset; // 0x0830
+	bool m_bRemoveAllItemsOnNextRoundReset; // 0x0831
+	GameTime_t m_flLastJoinTeamTime; // 0x0834
+	CUtlSymbolLarge m_szClan; // 0x0838
+	int32 m_iCoachingTeam; // 0x0840
+	uint64 m_nPlayerDominated; // 0x0848
+	uint64 m_nPlayerDominatingMe; // 0x0850
+	int32 m_iCompetitiveRanking; // 0x0858
+	int32 m_iCompetitiveWins; // 0x085C
+	int8 m_iCompetitiveRankType; // 0x0860
+	int32 m_iCompetitiveRankingPredicted_Win; // 0x0864
+	int32 m_iCompetitiveRankingPredicted_Loss; // 0x0868
+	int32 m_iCompetitiveRankingPredicted_Tie; // 0x086C
+	int32 m_nEndMatchNextMapVote; // 0x0870
+	uint16 m_unActiveQuestId; // 0x0874
+	uint32 m_rtActiveMissionPeriod; // 0x0878
+	QuestProgress::Reason m_nQuestProgressReason; // 0x087C
+	uint32 m_unPlayerTvControlFlags; // 0x0880
+	int32 m_iDraftIndex; // 0x08B0
+	uint32 m_msQueuedModeDisconnectionTimestamp; // 0x08B4
+	uint32 m_uiAbandonRecordedReason; // 0x08B8
+	uint32 m_eNetworkDisconnectionReason; // 0x08BC
+	bool m_bCannotBeKicked; // 0x08C0
+	bool m_bEverFullyConnected; // 0x08C1
+	bool m_bAbandonAllowsSurrender; // 0x08C2
+	bool m_bAbandonOffersInstantSurrender; // 0x08C3
+	bool m_bDisconnection1MinWarningPrinted; // 0x08C4
+	bool m_bScoreReported; // 0x08C5
+	int32 m_nDisconnectionTick; // 0x08C8
+	bool m_bControllingBot; // 0x08D8
+	bool m_bHasControlledBotThisRound; // 0x08D9
+	bool m_bHasBeenControlledByPlayerThisRound; // 0x08DA
+	int32 m_nBotsControlledThisRound; // 0x08DC
+	bool m_bCanControlObservedBot; // 0x08E0
+	CHandle< CCSPlayerPawn > m_hPlayerPawn; // 0x08E4
+	CHandle< CCSObserverPawn > m_hObserverPawn; // 0x08E8
+	int32 m_DesiredObserverMode; // 0x08EC
+	CEntityHandle m_hDesiredObserverTarget; // 0x08F0
+	bool m_bPawnIsAlive; // 0x08F4
+	uint32 m_iPawnHealth; // 0x08F8
+	int32 m_iPawnArmor; // 0x08FC
+	bool m_bPawnHasDefuser; // 0x0900
+	bool m_bPawnHasHelmet; // 0x0901
+	uint16 m_nPawnCharacterDefIndex; // 0x0902
+	int32 m_iPawnLifetimeStart; // 0x0904
+	int32 m_iPawnLifetimeEnd; // 0x0908
+	int32 m_iPawnBotDifficulty; // 0x090C
+	CHandle< CCSPlayerController > m_hOriginalControllerOfCurrentPawn; // 0x0910
+	int32 m_iScore; // 0x0914
+	int32 m_iRoundScore; // 0x0918
+	int32 m_iRoundsWon; // 0x091C
+	uint8[8] m_recentKillQueue; // 0x0920
+	uint8 m_nFirstKill; // 0x0928
+	uint8 m_nKillCount; // 0x0929
+	bool m_bMvpNoMusic; // 0x092A
+	int32 m_eMvpReason; // 0x092C
+	int32 m_iMusicKitID; // 0x0930
+	int32 m_iMusicKitMVPs; // 0x0934
+	int32 m_iMVPs; // 0x0938
+	int32 m_nUpdateCounter; // 0x093C
+	float32 m_flSmoothedPing; // 0x0940
+	IntervalTimer m_lastHeldVoteTimer; // 0x0948
+	bool m_bShowHints; // 0x0960
+	int32 m_iNextTimeCheck; // 0x0964
+	bool m_bJustDidTeamKill; // 0x0968
+	bool m_bPunishForTeamKill; // 0x0969
+	bool m_bGaveTeamDamageWarning; // 0x096A
+	bool m_bGaveTeamDamageWarningThisRound; // 0x096B
+	float64 m_dblLastReceivedPacketPlatFloatTime; // 0x0970
+	GameTime_t m_LastTeamDamageWarningTime; // 0x0978
+	GameTime_t m_LastTimePlayerWasDisconnectedForPawnsRemove; // 0x097C
+	uint32 m_nSuspiciousHitCount; // 0x0980
+	uint32 m_nNonSuspiciousHitStreak; // 0x0984
+	bool m_bFireBulletsSeedSynchronized; // 0x0A29
 };
 class CPhysLength : public CPhysConstraint // server
 {
@@ -17730,58 +17730,58 @@ class CEnvShake : public CPointEntity // server
 };
 class CCSPlayer_MovementServices : public CPlayer_MovementServices_Humanoid // server
 {
-	CCSPlayerAnimationState m_AnimationState; // 0x02E0
-	Vector m_vecLadderNormal; // 0x03C0
-	int32 m_nLadderSurfacePropIndex; // 0x03CC
-	bool m_bDucked; // 0x03D0
-	float32 m_flDuckAmount; // 0x03D4
-	float32 m_flDuckSpeed; // 0x03D8
-	bool m_bDuckOverride; // 0x03DC
-	bool m_bDesiresDuck; // 0x03DD
-	bool m_bDucking; // 0x03DE
-	float32 m_flDuckRootOffset; // 0x03E0
-	float32 m_flDuckViewOffset; // 0x03E4
-	float32 m_flLastDuckTime; // 0x03E8
-	float32 m_flBombPlantViewOffset; // 0x03EC
-	Vector2D m_vecLastPositionAtFullCrouchSpeed; // 0x03F8
-	bool m_duckUntilOnGround; // 0x0400
-	bool m_bHasWalkMovedSinceLastJump; // 0x0401
-	bool m_bInStuckTest; // 0x0402
-	int32 m_nTraceCount; // 0x0610
-	int32 m_StuckLast; // 0x0614
-	bool m_bSpeedCropped; // 0x0618
-	int32 m_nOldWaterLevel; // 0x061C
-	float32 m_flWaterEntryTime; // 0x0620
-	Vector m_vecForward; // 0x0624
-	Vector m_vecLeft; // 0x0630
-	Vector m_vecUp; // 0x063C
-	int32 m_nGameCodeHasMovedPlayerAfterCommand; // 0x0648
-	bool m_bMadeFootstepNoise; // 0x064C
-	int32 m_iFootsteps; // 0x0650
-	GameTime_t m_fStashGrenadeParameterWhen; // 0x0654
-	uint64 m_nButtonDownMaskPrev; // 0x0658
-	bool m_bUseFrictionStashedSpeed; // 0x0660
-	float32 m_flUseFrictionStashedSpeedUntilFrac; // 0x0664
-	float32 m_flFrictionStashedSpeed; // 0x0668
-	float32 m_flStamina; // 0x066C
-	float32 m_flHeightAtJumpStart; // 0x0670
-	float32 m_flMaxJumpHeightThisJump; // 0x0674
-	float32 m_flMaxJumpHeightLastJump; // 0x0678
-	float32 m_flStaminaAtJumpStart; // 0x067C
-	float32 m_flVelMulAtJumpStart; // 0x0680
-	float32 m_flAccumulatedJumpError; // 0x0684
-	CCSPlayerLegacyJump m_LegacyJump; // 0x0688
-	CCSPlayerModernJump m_ModernJump; // 0x06A0
-	GameTick_t m_nLastJumpTick; // 0x06D8
-	float32 m_flLastJumpFrac; // 0x06DC
-	float32 m_flLastJumpVelocityZ; // 0x06E0
-	bool m_bJumpApexPending; // 0x06E4
-	float32 m_flTicksSinceLastSurfingDetected; // 0x06E8
-	bool m_bWasSurfing; // 0x06EC
-	Vector2D m_vecWalkWishVel; // 0x077C
-	GameTime_t m_gtLastTimeOnStaticWorldGround; // 0x0FA8
-	GameTime_t m_gtLastTimeInAir; // 0x0FAC
-	bool m_bHasEverProcessedCommand; // 0x0FB0
+	CCSPlayerAnimationState m_AnimationState; // 0x0310
+	bool m_bUsingGroundTopologyOffset; // 0x03F0
+	float32 m_flUsingGroundTopologyOffsetTransitionSmoothing; // 0x03F4
+	Vector m_vecLadderNormal; // 0x03F8
+	int32 m_nLadderSurfacePropIndex; // 0x0404
+	bool m_bDucked; // 0x0408
+	float32 m_flDuckAmount; // 0x040C
+	float32 m_flDuckSpeed; // 0x0410
+	bool m_bDuckOverride; // 0x0414
+	bool m_bDesiresDuck; // 0x0415
+	bool m_bDucking; // 0x0416
+	float32 m_flDuckRootOffset; // 0x0418
+	float32 m_flDuckViewOffset; // 0x041C
+	float32 m_flLastDuckTime; // 0x0420
+	float32 m_flBombPlantViewOffset; // 0x0424
+	Vector2D m_vecLastPositionAtFullCrouchSpeed; // 0x0430
+	bool m_duckUntilOnGround; // 0x0438
+	bool m_bHasWalkMovedSinceLastJump; // 0x0439
+	bool m_bInStuckTest; // 0x043A
+	int32 m_nTraceCount; // 0x0648
+	int32 m_StuckLast; // 0x064C
+	bool m_bSpeedCropped; // 0x0650
+	int32 m_nOldWaterLevel; // 0x0654
+	float32 m_flWaterEntryTime; // 0x0658
+	Vector m_vecForward; // 0x065C
+	Vector m_vecLeft; // 0x0668
+	Vector m_vecUp; // 0x0674
+	int32 m_nGameCodeHasMovedPlayerAfterCommand; // 0x0680
+	bool m_bMadeFootstepNoise; // 0x0684
+	int32 m_iFootsteps; // 0x0688
+	GameTime_t m_fStashGrenadeParameterWhen; // 0x068C
+	uint64 m_nButtonDownMaskPrev; // 0x0690
+	bool m_bUseFrictionStashedSpeed; // 0x0698
+	float32 m_flUseFrictionStashedSpeedUntilFrac; // 0x069C
+	float32 m_flFrictionStashedSpeed; // 0x06A0
+	float32 m_flStamina; // 0x06A4
+	float32 m_flHeightAtJumpStart; // 0x06A8
+	float32 m_flMaxJumpHeightThisJump; // 0x06AC
+	float32 m_flMaxJumpHeightLastJump; // 0x06B0
+	float32 m_flStaminaAtJumpStart; // 0x06B4
+	float32 m_flVelMulAtJumpStart; // 0x06B8
+	float32 m_flAccumulatedJumpError; // 0x06BC
+	CCSPlayerLegacyJump m_LegacyJump; // 0x06C0
+	CCSPlayerModernJump m_ModernJump; // 0x06D8
+	GameTick_t m_nLastJumpTick; // 0x0710
+	float32 m_flLastJumpFrac; // 0x0714
+	float32 m_flLastJumpVelocityZ; // 0x0718
+	bool m_bJumpApexPending; // 0x071C
+	float32 m_flTicksSinceLastSurfingDetected; // 0x0720
+	bool m_bWasSurfing; // 0x0724
+	Vector2D m_vecWalkWishVel; // 0x07B4
+	bool m_bHasEverProcessedCommand; // 0x0FE0
 };
 class SellbackPurchaseEntry_t // server
 {
@@ -21617,21 +21617,22 @@ class CBasePlayerController : public CBaseEntity // server
 	CUtlVector< CHandle< CBasePlayerController > > m_hSplitScreenPlayers; // 0x04F0
 	bool m_bIsHLTV; // 0x0508
 	PlayerConnectedState m_iConnected; // 0x050C
-	char[128] m_iszPlayerName; // 0x0510
-	CUtlString m_szNetworkIDString; // 0x0590
-	float32 m_fLerpTime; // 0x0598
-	bool m_bLagCompensation; // 0x059C
-	bool m_bPredict; // 0x059D
-	bool m_bIsLowViolence; // 0x05A4
-	bool m_bGamePaused; // 0x05A5
-	ChatIgnoreType_t m_iIgnoreGlobalChat; // 0x06E0
-	float32 m_flLastPlayerTalkTime; // 0x06E4
-	float32 m_flLastEntitySteadyState; // 0x06E8
-	int32 m_nAvailableEntitySteadyState; // 0x06EC
-	bool m_bHasAnySteadyStateEnts; // 0x06F0
-	uint64 m_steamID; // 0x0700
-	bool m_bNoClipEnabled; // 0x0708
-	uint32 m_iDesiredFOV; // 0x070C
+	PlayerConnectedState m_iMostConnected; // 0x0510
+	char[128] m_iszPlayerName; // 0x0514
+	CUtlString m_szNetworkIDString; // 0x0598
+	float32 m_fLerpTime; // 0x05A0
+	bool m_bLagCompensation; // 0x05A4
+	bool m_bPredict; // 0x05A5
+	bool m_bIsLowViolence; // 0x05AC
+	bool m_bGamePaused; // 0x05AD
+	ChatIgnoreType_t m_iIgnoreGlobalChat; // 0x06E8
+	float32 m_flLastPlayerTalkTime; // 0x06EC
+	float32 m_flLastEntitySteadyState; // 0x06F0
+	int32 m_nAvailableEntitySteadyState; // 0x06F4
+	bool m_bHasAnySteadyStateEnts; // 0x06F8
+	uint64 m_steamID; // 0x0708
+	bool m_bNoClipEnabled; // 0x0710
+	uint32 m_iDesiredFOV; // 0x0714
 };
 class C_CSGO_TeamIntroCharacterPosition : public C_CSGO_TeamPreviewCharacterPosition // client
 {
@@ -22352,10 +22353,10 @@ class CCSPlayerLegacyJump // client
 class C_WeaponNOVA : public C_CSWeaponBaseShotgun // client
 {
 };
-class C_DEagle : public C_CSWeaponBaseGun // client
+class C_CS2HudModelAddon : public C_LateUpdatedAnimating // client
 {
 };
-class C_CS2HudModelAddon : public C_LateUpdatedAnimating // client
+class C_DEagle : public C_CSWeaponBaseGun // client
 {
 };
 class C_TriggerMultiple : public C_BaseTrigger // client
@@ -22972,57 +22973,56 @@ class C_CSPlayerPawn : public C_CSPlayerPawnBase // client
 	float32 m_flViewmodelOffsetZ; // 0x1B78
 	float32 m_flViewmodelFOV; // 0x1B7C
 	uint32[5] m_vecPlayerPatchEconIndices; // 0x1B80
-	Color m_GunGameImmunityColor; // 0x1BC0
-	CUtlVector< C_BulletHitModel* > m_vecBulletHitModels; // 0x1C10
-	bool m_bIsWalking; // 0x1C28
-	EntitySpottedState_t m_entitySpottedState; // 0x1C30
-	bool m_bIsScoped; // 0x1C48
-	bool m_bResumeZoom; // 0x1C49
-	bool m_bIsDefusing; // 0x1C4A
-	bool m_bIsGrabbingHostage; // 0x1C4B
-	CSPlayerBlockingUseAction_t m_iBlockingUseActionInProgress; // 0x1C4C
-	GameTime_t m_flEmitSoundTime; // 0x1C50
-	bool m_bInNoDefuseArea; // 0x1C54
-	int32 m_nWhichBombZone; // 0x1C58
-	int32 m_iShotsFired; // 0x1C5C
-	float32 m_flFlinchStack; // 0x1C60
-	float32 m_flVelocityModifier; // 0x1C64
-	bool m_bWaitForNoAttack; // 0x1C68
-	float32 m_ignoreLadderJumpTime; // 0x1C6C
-	bool m_bKilledByHeadshot; // 0x1C71
-	int32 m_ArmorValue; // 0x1C74
-	uint16 m_unCurrentEquipmentValue; // 0x1C78
-	uint16 m_unRoundStartEquipmentValue; // 0x1C7A
-	uint16 m_unFreezetimeEndEquipmentValue; // 0x1C7C
-	CEntityIndex m_nLastKillerIndex; // 0x1C80
-	bool m_bOldIsScoped; // 0x1C84
-	bool m_bHasDeathInfo; // 0x1C85
-	float32 m_flDeathInfoTime; // 0x1C88
-	Vector m_vecDeathInfoOrigin; // 0x1C8C
-	GameTime_t m_grenadeParameterStashTime; // 0x1CC8
-	bool m_bGrenadeParametersStashed; // 0x1CCC
-	QAngle m_angStashedShootAngles; // 0x1CD0
-	Vector m_vecStashedGrenadeThrowPosition; // 0x1CDC
-	Vector m_vecStashedVelocity; // 0x1CE8
-	QAngle[2] m_angShootAngleHistory; // 0x1CF4
-	Vector[2] m_vecThrowPositionHistory; // 0x1D0C
-	Vector[2] m_vecVelocityHistory; // 0x1D24
-	bool m_bShouldAutobuyDMWeapons; // 0x3270
-	GameTime_t m_fImmuneToGunGameDamageTime; // 0x3274
-	bool m_bGunGameImmunity; // 0x3278
-	GameTime_t m_fImmuneToGunGameDamageTimeLast; // 0x327C
-	float32 m_fMolotovDamageTime; // 0x3280
-	bool m_bThirdpersonActiveWeaponCanSafelyOcclude; // 0x3288
-	ParticleIndex_t m_nPlayerInfernoBodyFx; // 0x328C
-	QAngle m_angEyeAngles; // 0x3300
-	GameTime_t[4] m_arrOldEyeAnglesTimes; // 0x3390
-	QAngle[4] m_arrOldEyeAngles; // 0x33A0
-	QAngle m_angEyeAnglesVelocity; // 0x33D0
-	CEntityIndex m_iIDEntIndex; // 0x33DC
-	CountdownTimer m_delayTargetIDTimer; // 0x33E0
-	CEntityIndex m_iTargetItemEntIdx; // 0x33F8
-	CEntityIndex m_iOldIDEntIndex; // 0x33FC
-	CountdownTimer m_holdTargetIDTimer; // 0x3400
+	Color m_GunGameImmunityColor; // 0x1BC8
+	CUtlVector< C_BulletHitModel* > m_vecBulletHitModels; // 0x1C18
+	bool m_bIsWalking; // 0x1C30
+	EntitySpottedState_t m_entitySpottedState; // 0x1C38
+	bool m_bIsScoped; // 0x1C50
+	bool m_bResumeZoom; // 0x1C51
+	bool m_bIsDefusing; // 0x1C52
+	bool m_bIsGrabbingHostage; // 0x1C53
+	CSPlayerBlockingUseAction_t m_iBlockingUseActionInProgress; // 0x1C54
+	GameTime_t m_flEmitSoundTime; // 0x1C58
+	bool m_bInNoDefuseArea; // 0x1C5C
+	int32 m_nWhichBombZone; // 0x1C60
+	int32 m_iShotsFired; // 0x1C64
+	float32 m_flFlinchStack; // 0x1C68
+	float32 m_flVelocityModifier; // 0x1C6C
+	bool m_bWaitForNoAttack; // 0x1C70
+	float32 m_ignoreLadderJumpTime; // 0x1C74
+	bool m_bKilledByHeadshot; // 0x1C79
+	int32 m_ArmorValue; // 0x1C7C
+	uint16 m_unCurrentEquipmentValue; // 0x1C80
+	uint16 m_unRoundStartEquipmentValue; // 0x1C82
+	uint16 m_unFreezetimeEndEquipmentValue; // 0x1C84
+	CEntityIndex m_nLastKillerIndex; // 0x1C88
+	bool m_bOldIsScoped; // 0x1C8C
+	bool m_bHasDeathInfo; // 0x1C8D
+	float32 m_flDeathInfoTime; // 0x1C90
+	Vector m_vecDeathInfoOrigin; // 0x1C94
+	GameTime_t m_grenadeParameterStashTime; // 0x1CD0
+	bool m_bGrenadeParametersStashed; // 0x1CD4
+	QAngle m_angStashedShootAngles; // 0x1CD8
+	Vector m_vecStashedGrenadeThrowPosition; // 0x1CE4
+	Vector m_vecStashedVelocity; // 0x1CF0
+	QAngle[2] m_angShootAngleHistory; // 0x1CFC
+	Vector[2] m_vecThrowPositionHistory; // 0x1D14
+	Vector[2] m_vecVelocityHistory; // 0x1D2C
+	bool m_bShouldAutobuyDMWeapons; // 0x3280
+	GameTime_t m_fImmuneToGunGameDamageTime; // 0x3284
+	bool m_bGunGameImmunity; // 0x3288
+	GameTime_t m_fImmuneToGunGameDamageTimeLast; // 0x328C
+	float32 m_fMolotovDamageTime; // 0x3290
+	ParticleIndex_t m_nPlayerInfernoBodyFx; // 0x32FC
+	QAngle m_angEyeAngles; // 0x3370
+	GameTime_t[4] m_arrOldEyeAnglesTimes; // 0x3400
+	QAngle[4] m_arrOldEyeAngles; // 0x3410
+	QAngle m_angEyeAnglesVelocity; // 0x3440
+	CEntityIndex m_iIDEntIndex; // 0x344C
+	CountdownTimer m_delayTargetIDTimer; // 0x3450
+	CEntityIndex m_iTargetItemEntIdx; // 0x3468
+	CEntityIndex m_iOldIDEntIndex; // 0x346C
+	CountdownTimer m_holdTargetIDTimer; // 0x3470
 };
 class C_CSGO_TeamIntroTerroristPosition : public C_CSGO_TeamIntroCharacterPosition // client
 {
@@ -23972,74 +23972,74 @@ class CPlayer_FlashlightServices : public CPlayerPawnComponent // client
 };
 class CCSPlayerController : public CBasePlayerController // client
 {
-	CCSPlayerController_InGameMoneyServices* m_pInGameMoneyServices; // 0x0800
-	CCSPlayerController_InventoryServices* m_pInventoryServices; // 0x0808
-	CCSPlayerController_ActionTrackingServices* m_pActionTrackingServices; // 0x0810
-	CCSPlayerController_DamageServices* m_pDamageServices; // 0x0818
-	uint32 m_iPing; // 0x0820
-	bool m_bHasCommunicationAbuseMute; // 0x0824
-	uint32 m_uiCommunicationMuteFlags; // 0x0828
-	CUtlSymbolLarge m_szCrosshairCodes; // 0x0830
-	uint8 m_iPendingTeamNum; // 0x0838
-	GameTime_t m_flForceTeamTime; // 0x083C
-	int32 m_iCompTeammateColor; // 0x0840
-	bool m_bEverPlayedOnTeam; // 0x0844
-	GameTime_t m_flPreviousForceJoinTeamTime; // 0x0848
-	CUtlSymbolLarge m_szClan; // 0x0850
-	CUtlString m_sSanitizedPlayerName; // 0x0858
-	int32 m_iCoachingTeam; // 0x0860
-	uint64 m_nPlayerDominated; // 0x0868
-	uint64 m_nPlayerDominatingMe; // 0x0870
-	int32 m_iCompetitiveRanking; // 0x0878
-	int32 m_iCompetitiveWins; // 0x087C
-	int8 m_iCompetitiveRankType; // 0x0880
-	int32 m_iCompetitiveRankingPredicted_Win; // 0x0884
-	int32 m_iCompetitiveRankingPredicted_Loss; // 0x0888
-	int32 m_iCompetitiveRankingPredicted_Tie; // 0x088C
-	int32 m_nEndMatchNextMapVote; // 0x0890
-	uint16 m_unActiveQuestId; // 0x0894
-	uint32 m_rtActiveMissionPeriod; // 0x0898
-	QuestProgress::Reason m_nQuestProgressReason; // 0x089C
-	uint32 m_unPlayerTvControlFlags; // 0x08A0
-	int32 m_iDraftIndex; // 0x08D0
-	uint32 m_msQueuedModeDisconnectionTimestamp; // 0x08D4
-	uint32 m_uiAbandonRecordedReason; // 0x08D8
-	uint32 m_eNetworkDisconnectionReason; // 0x08DC
-	bool m_bCannotBeKicked; // 0x08E0
-	bool m_bEverFullyConnected; // 0x08E1
-	bool m_bAbandonAllowsSurrender; // 0x08E2
-	bool m_bAbandonOffersInstantSurrender; // 0x08E3
-	bool m_bDisconnection1MinWarningPrinted; // 0x08E4
-	bool m_bScoreReported; // 0x08E5
-	int32 m_nDisconnectionTick; // 0x08E8
-	bool m_bControllingBot; // 0x08F8
-	bool m_bHasControlledBotThisRound; // 0x08F9
-	bool m_bHasBeenControlledByPlayerThisRound; // 0x08FA
-	int32 m_nBotsControlledThisRound; // 0x08FC
-	bool m_bCanControlObservedBot; // 0x0900
-	CHandle< C_CSPlayerPawn > m_hPlayerPawn; // 0x0904
-	CHandle< C_CSObserverPawn > m_hObserverPawn; // 0x0908
-	bool m_bPawnIsAlive; // 0x090C
-	uint32 m_iPawnHealth; // 0x0910
-	int32 m_iPawnArmor; // 0x0914
-	bool m_bPawnHasDefuser; // 0x0918
-	bool m_bPawnHasHelmet; // 0x0919
-	uint16 m_nPawnCharacterDefIndex; // 0x091A
-	int32 m_iPawnLifetimeStart; // 0x091C
-	int32 m_iPawnLifetimeEnd; // 0x0920
-	int32 m_iPawnBotDifficulty; // 0x0924
-	CHandle< CCSPlayerController > m_hOriginalControllerOfCurrentPawn; // 0x0928
-	int32 m_iScore; // 0x092C
-	uint8[8] m_recentKillQueue; // 0x0930
-	uint8 m_nFirstKill; // 0x0938
-	uint8 m_nKillCount; // 0x0939
-	bool m_bMvpNoMusic; // 0x093A
-	int32 m_eMvpReason; // 0x093C
-	int32 m_iMusicKitID; // 0x0940
-	int32 m_iMusicKitMVPs; // 0x0944
-	int32 m_iMVPs; // 0x0948
-	bool m_bIsPlayerNameDirty; // 0x094C
-	bool m_bFireBulletsSeedSynchronized; // 0x094D
+	CCSPlayerController_InGameMoneyServices* m_pInGameMoneyServices; // 0x0808
+	CCSPlayerController_InventoryServices* m_pInventoryServices; // 0x0810
+	CCSPlayerController_ActionTrackingServices* m_pActionTrackingServices; // 0x0818
+	CCSPlayerController_DamageServices* m_pDamageServices; // 0x0820
+	uint32 m_iPing; // 0x0828
+	bool m_bHasCommunicationAbuseMute; // 0x082C
+	uint32 m_uiCommunicationMuteFlags; // 0x0830
+	CUtlSymbolLarge m_szCrosshairCodes; // 0x0838
+	uint8 m_iPendingTeamNum; // 0x0840
+	GameTime_t m_flForceTeamTime; // 0x0844
+	int32 m_iCompTeammateColor; // 0x0848
+	bool m_bEverPlayedOnTeam; // 0x084C
+	GameTime_t m_flPreviousForceJoinTeamTime; // 0x0850
+	CUtlSymbolLarge m_szClan; // 0x0858
+	CUtlString m_sSanitizedPlayerName; // 0x0860
+	int32 m_iCoachingTeam; // 0x0868
+	uint64 m_nPlayerDominated; // 0x0870
+	uint64 m_nPlayerDominatingMe; // 0x0878
+	int32 m_iCompetitiveRanking; // 0x0880
+	int32 m_iCompetitiveWins; // 0x0884
+	int8 m_iCompetitiveRankType; // 0x0888
+	int32 m_iCompetitiveRankingPredicted_Win; // 0x088C
+	int32 m_iCompetitiveRankingPredicted_Loss; // 0x0890
+	int32 m_iCompetitiveRankingPredicted_Tie; // 0x0894
+	int32 m_nEndMatchNextMapVote; // 0x0898
+	uint16 m_unActiveQuestId; // 0x089C
+	uint32 m_rtActiveMissionPeriod; // 0x08A0
+	QuestProgress::Reason m_nQuestProgressReason; // 0x08A4
+	uint32 m_unPlayerTvControlFlags; // 0x08A8
+	int32 m_iDraftIndex; // 0x08D8
+	uint32 m_msQueuedModeDisconnectionTimestamp; // 0x08DC
+	uint32 m_uiAbandonRecordedReason; // 0x08E0
+	uint32 m_eNetworkDisconnectionReason; // 0x08E4
+	bool m_bCannotBeKicked; // 0x08E8
+	bool m_bEverFullyConnected; // 0x08E9
+	bool m_bAbandonAllowsSurrender; // 0x08EA
+	bool m_bAbandonOffersInstantSurrender; // 0x08EB
+	bool m_bDisconnection1MinWarningPrinted; // 0x08EC
+	bool m_bScoreReported; // 0x08ED
+	int32 m_nDisconnectionTick; // 0x08F0
+	bool m_bControllingBot; // 0x0900
+	bool m_bHasControlledBotThisRound; // 0x0901
+	bool m_bHasBeenControlledByPlayerThisRound; // 0x0902
+	int32 m_nBotsControlledThisRound; // 0x0904
+	bool m_bCanControlObservedBot; // 0x0908
+	CHandle< C_CSPlayerPawn > m_hPlayerPawn; // 0x090C
+	CHandle< C_CSObserverPawn > m_hObserverPawn; // 0x0910
+	bool m_bPawnIsAlive; // 0x0914
+	uint32 m_iPawnHealth; // 0x0918
+	int32 m_iPawnArmor; // 0x091C
+	bool m_bPawnHasDefuser; // 0x0920
+	bool m_bPawnHasHelmet; // 0x0921
+	uint16 m_nPawnCharacterDefIndex; // 0x0922
+	int32 m_iPawnLifetimeStart; // 0x0924
+	int32 m_iPawnLifetimeEnd; // 0x0928
+	int32 m_iPawnBotDifficulty; // 0x092C
+	CHandle< CCSPlayerController > m_hOriginalControllerOfCurrentPawn; // 0x0930
+	int32 m_iScore; // 0x0934
+	uint8[8] m_recentKillQueue; // 0x0938
+	uint8 m_nFirstKill; // 0x0940
+	uint8 m_nKillCount; // 0x0941
+	bool m_bMvpNoMusic; // 0x0942
+	int32 m_eMvpReason; // 0x0944
+	int32 m_iMusicKitID; // 0x0948
+	int32 m_iMusicKitMVPs; // 0x094C
+	int32 m_iMVPs; // 0x0950
+	bool m_bIsPlayerNameDirty; // 0x0954
+	bool m_bFireBulletsSeedSynchronized; // 0x0955
 };
 class C_CSGO_TeamIntroCounterTerroristPosition : public C_CSGO_TeamIntroCharacterPosition // client
 {
@@ -24065,56 +24065,56 @@ class C_SoundEventAABBEntity : public C_SoundEventEntity // client
 };
 class CCSPlayer_MovementServices : public CPlayer_MovementServices_Humanoid // client
 {
-	CCSPlayerAnimationState m_AnimationState; // 0x02E0
-	Vector m_vecLadderNormal; // 0x03C0
-	int32 m_nLadderSurfacePropIndex; // 0x03CC
-	bool m_bDucked; // 0x03D0
-	float32 m_flDuckAmount; // 0x03D4
-	float32 m_flDuckSpeed; // 0x03D8
-	bool m_bDuckOverride; // 0x03DC
-	bool m_bDesiresDuck; // 0x03DD
-	bool m_bDucking; // 0x03DE
-	float32 m_flDuckRootOffset; // 0x03E0
-	float32 m_flDuckViewOffset; // 0x03E4
-	float32 m_flLastDuckTime; // 0x03E8
-	float32 m_flBombPlantViewOffset; // 0x03EC
-	Vector2D m_vecLastPositionAtFullCrouchSpeed; // 0x03F8
-	bool m_duckUntilOnGround; // 0x0400
-	bool m_bHasWalkMovedSinceLastJump; // 0x0401
-	bool m_bInStuckTest; // 0x0402
-	int32 m_nTraceCount; // 0x0610
-	int32 m_StuckLast; // 0x0614
-	bool m_bSpeedCropped; // 0x0618
-	int32 m_nOldWaterLevel; // 0x061C
-	float32 m_flWaterEntryTime; // 0x0620
-	Vector m_vecForward; // 0x0624
-	Vector m_vecLeft; // 0x0630
-	Vector m_vecUp; // 0x063C
-	int32 m_nGameCodeHasMovedPlayerAfterCommand; // 0x0648
-	GameTime_t m_fStashGrenadeParameterWhen; // 0x064C
-	uint64 m_nButtonDownMaskPrev; // 0x0650
-	bool m_bUseFrictionStashedSpeed; // 0x0658
-	float32 m_flUseFrictionStashedSpeedUntilFrac; // 0x065C
-	float32 m_flFrictionStashedSpeed; // 0x0660
-	float32 m_flStamina; // 0x0664
-	float32 m_flHeightAtJumpStart; // 0x0668
-	float32 m_flMaxJumpHeightThisJump; // 0x066C
-	float32 m_flMaxJumpHeightLastJump; // 0x0670
-	float32 m_flStaminaAtJumpStart; // 0x0674
-	float32 m_flVelMulAtJumpStart; // 0x0678
-	float32 m_flAccumulatedJumpError; // 0x067C
-	CCSPlayerLegacyJump m_LegacyJump; // 0x0680
-	CCSPlayerModernJump m_ModernJump; // 0x0698
-	GameTick_t m_nLastJumpTick; // 0x06D0
-	float32 m_flLastJumpFrac; // 0x06D4
-	float32 m_flLastJumpVelocityZ; // 0x06D8
-	bool m_bJumpApexPending; // 0x06DC
-	float32 m_flTicksSinceLastSurfingDetected; // 0x06E0
-	bool m_bWasSurfing; // 0x06E4
-	Vector2D m_vecWalkWishVel; // 0x0774
-	GameTime_t m_gtLastTimeOnStaticWorldGround; // 0x0FA0
-	GameTime_t m_gtLastTimeInAir; // 0x0FA4
-	bool m_bHasEverProcessedCommand; // 0x0FA8
+	CCSPlayerAnimationState m_AnimationState; // 0x0310
+	bool m_bUsingGroundTopologyOffset; // 0x03F0
+	float32 m_flUsingGroundTopologyOffsetTransitionSmoothing; // 0x03F4
+	Vector m_vecLadderNormal; // 0x03F8
+	int32 m_nLadderSurfacePropIndex; // 0x0404
+	bool m_bDucked; // 0x0408
+	float32 m_flDuckAmount; // 0x040C
+	float32 m_flDuckSpeed; // 0x0410
+	bool m_bDuckOverride; // 0x0414
+	bool m_bDesiresDuck; // 0x0415
+	bool m_bDucking; // 0x0416
+	float32 m_flDuckRootOffset; // 0x0418
+	float32 m_flDuckViewOffset; // 0x041C
+	float32 m_flLastDuckTime; // 0x0420
+	float32 m_flBombPlantViewOffset; // 0x0424
+	Vector2D m_vecLastPositionAtFullCrouchSpeed; // 0x0430
+	bool m_duckUntilOnGround; // 0x0438
+	bool m_bHasWalkMovedSinceLastJump; // 0x0439
+	bool m_bInStuckTest; // 0x043A
+	int32 m_nTraceCount; // 0x0648
+	int32 m_StuckLast; // 0x064C
+	bool m_bSpeedCropped; // 0x0650
+	int32 m_nOldWaterLevel; // 0x0654
+	float32 m_flWaterEntryTime; // 0x0658
+	Vector m_vecForward; // 0x065C
+	Vector m_vecLeft; // 0x0668
+	Vector m_vecUp; // 0x0674
+	int32 m_nGameCodeHasMovedPlayerAfterCommand; // 0x0680
+	GameTime_t m_fStashGrenadeParameterWhen; // 0x0684
+	uint64 m_nButtonDownMaskPrev; // 0x0688
+	bool m_bUseFrictionStashedSpeed; // 0x0690
+	float32 m_flUseFrictionStashedSpeedUntilFrac; // 0x0694
+	float32 m_flFrictionStashedSpeed; // 0x0698
+	float32 m_flStamina; // 0x069C
+	float32 m_flHeightAtJumpStart; // 0x06A0
+	float32 m_flMaxJumpHeightThisJump; // 0x06A4
+	float32 m_flMaxJumpHeightLastJump; // 0x06A8
+	float32 m_flStaminaAtJumpStart; // 0x06AC
+	float32 m_flVelMulAtJumpStart; // 0x06B0
+	float32 m_flAccumulatedJumpError; // 0x06B4
+	CCSPlayerLegacyJump m_LegacyJump; // 0x06B8
+	CCSPlayerModernJump m_ModernJump; // 0x06D0
+	GameTick_t m_nLastJumpTick; // 0x0708
+	float32 m_flLastJumpFrac; // 0x070C
+	float32 m_flLastJumpVelocityZ; // 0x0710
+	bool m_bJumpApexPending; // 0x0714
+	float32 m_flTicksSinceLastSurfingDetected; // 0x0718
+	bool m_bWasSurfing; // 0x071C
+	Vector2D m_vecWalkWishVel; // 0x07AC
+	bool m_bHasEverProcessedCommand; // 0x0FD8
 };
 class SellbackPurchaseEntry_t // client
 {
@@ -25362,8 +25362,8 @@ class C_ModelPointEntity : public C_BaseModelEntity // client
 };
 class C_CSGO_PreviewPlayer : public C_CSPlayerPawn // client
 {
-	CGlobalSymbol m_animgraphCharacterModeString; // 0x3420
-	float32 m_flInitialModelScale; // 0x3428
+	CGlobalSymbol m_animgraphCharacterModeString; // 0x3490
+	float32 m_flInitialModelScale; // 0x3498
 };
 class C_RectLight : public C_BarnLight // client
 {
@@ -26092,11 +26092,12 @@ class CBasePlayerController : public C_BaseEntity // client
 	CUtlVector< CHandle< CBasePlayerController > > m_hSplitScreenPlayers; // 0x06D0
 	bool m_bIsHLTV; // 0x06E8
 	PlayerConnectedState m_iConnected; // 0x06EC
-	char[128] m_iszPlayerName; // 0x06F0
-	uint64 m_steamID; // 0x0778
-	bool m_bIsLocalPlayerController; // 0x0780
-	bool m_bNoClipEnabled; // 0x0781
-	uint32 m_iDesiredFOV; // 0x0784
+	PlayerConnectedState m_iMostConnected; // 0x06F0
+	char[128] m_iszPlayerName; // 0x06F4
+	uint64 m_steamID; // 0x0780
+	bool m_bIsLocalPlayerController; // 0x0788
+	bool m_bNoClipEnabled; // 0x0789
+	uint32 m_iDesiredFOV; // 0x078C
 };
 class C_CSGO_EndOfMatchLineupEndpoint : public C_BaseEntity // client
 {

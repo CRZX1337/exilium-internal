@@ -138,6 +138,8 @@
   <ItemGroup>
     <ClCompile Include="Andromeda-CS2-Base\AndromedaClient\CAndromedaClient.cpp" />
     <ClCompile Include="Andromeda-CS2-Base\AndromedaClient\CAndromedaGUI.cpp" />
+    <ClCompile Include="Andromeda-CS2-Base\AndromedaClient\Features\CInventoryChanger\CInventoryChanger.cpp" />
+    <ClCompile Include="Andromeda-CS2-Base\AndromedaClient\Features\CInventoryChanger\CInventoryItemsManager.cpp" />
     <ClCompile Include="Andromeda-CS2-Base\AndromedaClient\Features\CVisual\CVisual.cpp" />
     <ClCompile Include="Andromeda-CS2-Base\AndromedaClient\Fonts\CFont.cpp" />
     <ClCompile Include="Andromeda-CS2-Base\AndromedaClient\Fonts\CFontManager.cpp" />
@@ -163,6 +165,7 @@
     <ClCompile Include="Andromeda-CS2-Base\CS2\Hook\Hook_AntiTamper.cpp" />
     <ClCompile Include="Andromeda-CS2-Base\CS2\Hook\Hook_CreateMove.cpp" />
     <ClCompile Include="Andromeda-CS2-Base\CS2\Hook\Hook_CreateSwapChain.cpp" />
+    <ClCompile Include="Andromeda-CS2-Base\CS2\Hook\Hook_EquipItemInLoadout.cpp" />
     <ClCompile Include="Andromeda-CS2-Base\CS2\Hook\Hook_FireEventClientSide.cpp" />
     <ClCompile Include="Andromeda-CS2-Base\CS2\Hook\Hook_FrameStageNotify.cpp" />
     <ClCompile Include="Andromeda-CS2-Base\CS2\Hook\Hook_GetMatricesForView.cpp" />
@@ -254,6 +257,8 @@
   <ItemGroup>
     <ClInclude Include="Andromeda-CS2-Base\AndromedaClient\CAndromedaClient.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\AndromedaClient\CAndromedaGUI.hpp" />
+    <ClInclude Include="Andromeda-CS2-Base\AndromedaClient\Features\CInventoryChanger\CInventoryChanger.hpp" />
+    <ClInclude Include="Andromeda-CS2-Base\AndromedaClient\Features\CInventoryChanger\CInventoryItemsManager.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\AndromedaClient\Features\CVisual\CVisual.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\AndromedaClient\Fonts\CFont.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\AndromedaClient\Fonts\CFontManager.hpp" />
@@ -343,6 +348,7 @@
     <ClInclude Include="Andromeda-CS2-Base\CS2\Hook\Hook_AntiTamper.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\Hook\Hook_CreateMove.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\Hook\Hook_CreateSwapChain.hpp" />
+    <ClInclude Include="Andromeda-CS2-Base\CS2\Hook\Hook_EquipItemInLoadout.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\Hook\Hook_FireEventClientSide.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\Hook\Hook_FrameStageNotify.hpp" />
     <ClInclude Include="Andromeda-CS2-Base\CS2\Hook\Hook_GetMatricesForView.hpp" />

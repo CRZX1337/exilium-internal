@@ -119,6 +119,7 @@ DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , CTraceFilter_Constructor , ( CTraceF
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , CCSGO_HudWeaponSelection_ClearHudWeaponIcon , ( CCSGO_HudWeaponSelection* pCCSGO_HudWeaponSelection , int unk1 , int64_t unk2 ) , ( CCSGO_HudWeaponSelection* , int , int64_t ) , ( pCCSGO_HudWeaponSelection , unk1 , unk2 ) );
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( CHitBoxSet* , C_BaseEntity_GetHitBoxSet , ( C_BaseEntity* pC_BaseEntity , uint32_t Index = 0 ) , ( C_BaseEntity* , uint32_t ) , ( pC_BaseEntity , Index ) );
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , C_BaseEntity_UpdateBodyGroupChoice , ( C_BaseEntity* pC_BaseEntity ) , ( C_BaseEntity* ) , ( pC_BaseEntity ) );
+DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , C_EconItemView_set_attribute_value_by_name , ( C_EconItemView* pC_EconItemView , const char* szAttributeName , float flValue ) , ( C_EconItemView* , const char* , float ) , ( pC_EconItemView , szAttributeName , flValue ) );
 
 // Helpers:
 

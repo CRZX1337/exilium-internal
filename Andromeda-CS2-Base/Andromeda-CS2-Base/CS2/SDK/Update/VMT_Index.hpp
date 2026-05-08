@@ -11,8 +11,8 @@ namespace SDK::VMT_Index
 	{
 		GetScreenSize = 60 ,
 	};
-	enum CEntityInstance : uint32_t
+	enum CGameSceneNode : uint32_t
 	{
-		PostDataUpdate = 10 ,
+		PostDataUpdate = 22 ,
 	};
 }

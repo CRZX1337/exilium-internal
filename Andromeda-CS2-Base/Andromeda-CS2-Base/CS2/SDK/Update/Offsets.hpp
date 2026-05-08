@@ -11,7 +11,7 @@ static constexpr auto g_CompositeMaterialOffset = 0x608;
 
 // 48 8D 58 ? 49 89 4B
 static constexpr auto g_CEconItemSchema_GetSortedItemDefinitionMap = 0x128;
-static constexpr auto g_CEconItemSchema_GetPaintKits = 0x2E8;
+static constexpr auto g_CEconItemSchema_GetPaintKits = 0x2F0;
 
 // E8 ? ? ? ? 48 85 C0 74 ? 48 8B 40 ? 4C 8B C7
 /*

@@ -10,6 +10,7 @@
 #include <AndromedaClient/Fonts/CFontManager.hpp>
 #include <AndromedaClient/Render/CRenderStackSystem.hpp>
 #include <AndromedaClient/Features/CVisual/CVisual.hpp>
+#include <AndromedaClient/Features/CInventoryChanger/CInventoryChanger.hpp>
 
 #include <GameClient/CEntityCache/CEntityCache.hpp>
 
@@ -22,12 +23,12 @@ auto CAndromedaClient::OnInit() -> void
 
 auto CAndromedaClient::OnFrameStageNotify( int FrameStage ) -> void
 {
-
+	GetInventoryChanger()->OnFrameStageNotify( FrameStage );
 }
 
 auto CAndromedaClient::OnFireEventClientSide( IGameEvent* pGameEvent ) -> void
 {
-
+	GetInventoryChanger()->OnFireEventClientSide( pGameEvent );
 }
 
 auto CAndromedaClient::OnAddEntity( CEntityInstance* pInst , CHandle handle ) -> void

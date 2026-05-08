@@ -70,6 +70,7 @@ auto CFunctionList::OnInit() -> bool
 		&CCSGO_HudWeaponSelection_ClearHudWeaponIcon,
 		&C_BaseEntity_GetHitBoxSet,
 		&C_BaseEntity_UpdateBodyGroupChoice,
+		&C_EconItemView_set_attribute_value_by_name,
 	};
 
 	auto Searched = true;

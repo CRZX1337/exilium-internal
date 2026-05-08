@@ -114,13 +114,6 @@ public:
 	}
 
 public:
-	auto PostDataUpdate() -> void
-	{
-		VirtualFn( void )( CEntityInstance* , int UpdateType );
-		return vget< Fn >( this , SDK::VMT_Index::CEntityInstance::PostDataUpdate )( this , 1 );
-	}
-
-public:
 	SCHEMA_OFFSET( "CEntityInstance" , "m_pEntity" , pEntityIdentity , CEntityIdentity* );
 };
 
@@ -147,6 +140,13 @@ public:
 public:
 	auto SetMeshGroupMask( uint64_t meshGroupMask ) -> void;
 	auto GetBonePosition( int32 BoneIndex , Vector3& BonePos ) -> bool;
+
+public:
+	auto PostDataUpdate() -> void
+	{
+		VirtualFn( void )( CGameSceneNode* , int64_t UpdateType , int64_t unk1 );
+		return vget< Fn >( this , SDK::VMT_Index::CGameSceneNode::PostDataUpdate )( this , 0 , 0 );
+	}
 
 public:
 	auto GetSkeletonInstance() -> CSkeletonInstance*
@@ -190,6 +190,7 @@ public:
 	auto GetSOCData() -> CEconItem*;
 	auto GetStaticData() -> CEconItemDefinition*;
 	auto GetBasePlayerWeaponVData() -> CCSWeaponBaseVData*;
+	auto GetCustomPaintKitIndex() -> int;
 
 public:
 	SCHEMA_OFFSET( "C_EconItemView" , "m_bRestoreCustomMaterialAfterPrecache" , m_bRestoreCustomMaterialAfterPrecache , bool );
@@ -506,6 +507,9 @@ public:
 	PSCHEMA_OFFSET( "C_EconEntity" , "m_AttributeManager" , m_AttributeManager , C_AttributeContainer );
 	SCHEMA_OFFSET( "C_EconEntity" , "m_OriginalOwnerXuidLow" , m_OriginalOwnerXuidLow , uint32 );
 	SCHEMA_OFFSET( "C_EconEntity" , "m_OriginalOwnerXuidHigh" , m_OriginalOwnerXuidHigh , uint32 );
+	SCHEMA_OFFSET( "C_EconEntity" , "m_nFallbackPaintKit" , m_nFallbackPaintKit , int32 );
+	SCHEMA_OFFSET( "C_EconEntity" , "m_nFallbackSeed" , m_nFallbackSeed , int32 );
+	SCHEMA_OFFSET( "C_EconEntity" , "m_flFallbackWear" , m_flFallbackWear , float32 );
 
 	inline auto GetOriginalOwnerXuid() -> uint64_t
 	{

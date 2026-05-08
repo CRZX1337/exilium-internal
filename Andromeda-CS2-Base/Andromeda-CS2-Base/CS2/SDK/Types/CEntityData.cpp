@@ -183,8 +183,7 @@ auto C_BaseEntity::ComputeHitboxSurroundingBox( Vector3& mins , Vector3& maxs ) 
 
 auto C_BaseEntity::SetBodyGroup() -> void
 {
-	C_BaseEntity_SetBodyGroup( this , m_iTeamNum() == TEAM_TT ? 0 : 1 , 1 );
-	C_BaseEntity_UpdateBodyGroupChoice( this );
+	return C_BaseEntity_SetBodyGroup( this , m_iTeamNum() == TEAM_TT ? 0 : 1 , 1 );
 }
 
 auto C_BaseEntity::GetBoneIdByName( const char* szName ) -> int
@@ -285,6 +284,11 @@ auto C_EconItemView::GetStaticData() -> CEconItemDefinition*
 auto C_EconItemView::GetBasePlayerWeaponVData() -> CCSWeaponBaseVData*
 {
 	return C_EconItemView_GetBasePlayerWeaponVData( this );
+}
+
+auto C_EconItemView::GetCustomPaintKitIndex() -> int
+{
+	return C_EconItemView_GetCustomPaintKitIndex( this );
 }
 
 auto C_BaseModelEntity::SetModel( const char* szModel ) -> void

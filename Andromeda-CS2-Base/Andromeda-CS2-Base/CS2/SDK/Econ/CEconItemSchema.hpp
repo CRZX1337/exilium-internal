@@ -21,6 +21,11 @@ public:
     char pad3[0x8];  // no idea
     char pad4[0x4];  // no idea
     int nRarity;
+
+    uint8_t m_use_legacy_model()
+    {
+        return *reinterpret_cast<uint8_t*>( (std::uintptr_t)this + 0xAE );
+    }
 };
 
 class CMusicKit

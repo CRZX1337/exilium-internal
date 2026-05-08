@@ -22,6 +22,7 @@
 #include <CS2/Hook/Hook_UpdateInPVS.hpp>
 #include <CS2/Hook/Hook_AntiTamper.hpp>
 #include <CS2/Hook/Hook_IsLoadoutAllowed.hpp>
+#include <CS2/Hook/Hook_EquipItemInLoadout.hpp>
 
 static CHook_Loader g_CHook_Loader{};
 
@@ -74,7 +75,8 @@ auto CHook_Loader::InstallSecondHook() -> bool
 		// he is no longer needed
 		//{ { XorStr( "Hook::UpdateInPVS" ) , XorStr( "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B D9 8B F2 48 8B 89 ? ? ? ? 48 8B 01 FF 50 ? 33 FF 48 85 C0 74 ? 48 8B 80 ? ? ? ? EB ? 48 8B C7 39 B8 ? ? ? ? 0F 8F ? ? ? ? 0F B6 48 ? 80 F9" ) , CLIENT_DLL } , &Hook_UpdateInPVS , reinterpret_cast<LPVOID*>( &UpdateInPVS_o ) },
 		{ { XorStr( "Hook::AntiTamper" ) , XorStr( "40 53 41 57 48 83 EC ? 48 89 74 24 ? 48 8B F1" ) , CLIENT_DLL } , &Hook_AntiTamper , reinterpret_cast<LPVOID*>( &AntiTamper_o ) },
-		{ {XorStr("Hook::IsLoadoutAllowed") , XorStr("48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B E9 48 8B 0D ? ? ? ? ? ? ? FF 50") , CLIENT_DLL } ,&Hook_IsLoadoutAllowed , reinterpret_cast<LPVOID*>(&IsLoadoutAllowed_o) , true , true }
+		{ {XorStr("Hook::IsLoadoutAllowed") , XorStr("48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B E9 48 8B 0D ? ? ? ? ? ? ? FF 50") , CLIENT_DLL } ,&Hook_IsLoadoutAllowed , reinterpret_cast<LPVOID*>(&IsLoadoutAllowed_o) , true , true } ,
+		{ { XorStr( "Hook::EquipItemInLoadout" ) , XorStr( "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 89 54 24 ? 57 41 54 41 55 41 56 41 57 48 83 EC ? 0F B7 FA" ) , CLIENT_DLL } ,& Hook_EquipItemInLoadout , reinterpret_cast<LPVOID*>( &EquipItemInLoadout_o ) },
 	};
 
 	return InstallHooks();
