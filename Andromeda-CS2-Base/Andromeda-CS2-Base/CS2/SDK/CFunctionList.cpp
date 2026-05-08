@@ -60,7 +60,7 @@ auto CFunctionList::OnInit() -> bool
 		&C_CSWeaponBase_UpdateSubclass,
 		&C_CSWeaponBase_UpdateSkin,
 		&C_CSWeaponBase_UpdateCompositeMaterial,
-		&C_BaseEntity_SetBodyGroup,
+		&C_CSPlayerPawn_SetBodyGroup,
 		&GetCUserCmdTick,
 		&GetCUserCmdArray,
 		&GetCUserCmdBySequenceNumber,
@@ -70,7 +70,8 @@ auto CFunctionList::OnInit() -> bool
 		&CCSGO_HudWeaponSelection_ClearHudWeaponIcon,
 		&C_BaseEntity_GetHitBoxSet,
 		&C_BaseEntity_UpdateBodyGroupChoice,
-		&C_EconItemView_set_attribute_value_by_name,
+		&C_EconItemView_SetAttributeValueByName,
+		&C_CSWeaponBase_UpdateCompositeMaterialSet,
 	};
 
 	auto Searched = true;

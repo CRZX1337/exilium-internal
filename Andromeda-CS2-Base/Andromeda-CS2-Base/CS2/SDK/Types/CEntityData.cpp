@@ -181,9 +181,9 @@ auto C_BaseEntity::ComputeHitboxSurroundingBox( Vector3& mins , Vector3& maxs ) 
 	return C_BaseEntity_ComputeHitboxSurroundingBox( this , mins , maxs );
 }
 
-auto C_BaseEntity::SetBodyGroup() -> void
+auto C_CSPlayerPawn::SetBodyGroup() -> void
 {
-	return C_BaseEntity_SetBodyGroup( this , m_iTeamNum() == TEAM_TT ? 0 : 1 , 1 );
+	return C_CSPlayerPawn_SetBodyGroup( this , "first_or_third_person" , 1 );
 }
 
 auto C_BaseEntity::GetBoneIdByName( const char* szName ) -> int
@@ -304,6 +304,11 @@ auto CGameSceneNode::SetMeshGroupMask( uint64_t meshGroupMask ) -> void
 auto C_CSWeaponBase::UpdateCompositeMaterial( CCompositeMaterialOwner* pCCompositeMaterialOwner ) -> void
 {
 	C_CSWeaponBase_UpdateCompositeMaterial( pCCompositeMaterialOwner , true );
+}
+
+auto C_CSWeaponBase::UpdateCompositeMaterialSet() -> void
+{
+	C_CSWeaponBase_UpdateCompositeMaterialSet( this , false );
 }
 
 auto C_CSWeaponBase::UpdateSubclass() -> void

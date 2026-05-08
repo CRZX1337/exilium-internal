@@ -463,6 +463,7 @@ public:
 	auto GetViewModels() -> std::vector<C_CS2HudModelWeapon*>;
 	auto GetViewModel() -> C_CS2HudModelWeapon*;
 	auto GetKnifeModel() -> C_CS2HudModelWeapon*;
+	auto SetBodyGroup() -> void;
 
 public:
 	inline auto IsAlive() -> bool
@@ -534,6 +535,7 @@ public:
 
 public:
 	auto UpdateCompositeMaterial( CCompositeMaterialOwner* pCCompositeMaterialOwner ) -> void;
+	auto UpdateCompositeMaterialSet() -> void;
 	auto UpdateSubclass() -> void;
 	auto UpdateSkin() -> void;
 };

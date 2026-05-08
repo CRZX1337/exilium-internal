@@ -132,7 +132,7 @@ public:
 	CBasePattern C_CSWeaponBase_UpdateSubclass = { VmpStr( "C_CSWeaponBase::UpdateSubclass" ) , VmpStr( "4C 8B DC 53 48 81 EC ? ? ? ? 48 8B 41" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern C_CSWeaponBase_UpdateSkin = { VmpStr( "C_CSWeaponBase::UpdateSkin" ) , VmpStr( "48 89 5C 24 08 57 48 83 EC 20 8B DA 48 8B F9 E8 ? ? ? ? F6 C3 01 74 0A 33 D2 48 8B CF E8 ? ? ? ? 48 8D 8F 60 19 00 00" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern C_CSWeaponBase_UpdateCompositeMaterial = { VmpStr( "C_CSWeaponBase::UpdateCompositeMaterial" ) , VmpStr( "E8 ? ? ? ? 48 8D 8B ? ? ? ? 48 89 BC 24" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
-	CBasePattern C_BaseEntity_SetBodyGroup = { VmpStr( "C_BaseEntity::SetBodyGroup" ) , VmpStr( "85 D2 0F 88 CB 01 00 00" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern C_CSPlayerPawn_SetBodyGroup = { VmpStr( "C_CSPlayerPawn::SetBodyGroup" ) , VmpStr( "E8 ? ? ? ? EB 0C 48 8B CF" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
 	CBasePattern GetCUserCmdTick = { VmpStr( "GetCUserCmdTick" ) , VmpStr( "48 83 EC ? 4C 8B 0D ? ? ? ? 4C 8B DA" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern GetCUserCmdArray = { VmpStr( "GetCUserCmdArray" ) , VmpStr( "48 89 4C 24 ? 41 56 41 57" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern GetCUserCmdBySequenceNumber = { VmpStr( "GetCUserCmdBySequenceNumber" ) , VmpStr( "40 53 48 83 EC ? 8B DA E8 ? ? ? ? 4C 8B C0" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
@@ -142,7 +142,8 @@ public:
 	CBasePattern CCSGO_HudWeaponSelection_ClearHudWeaponIcon = { VmpStr( "CCSGO_HudWeaponSelection::ClearHudWeaponIcon" ) , VmpStr( "E8 ? ? ? ? 8B F8 C6 84 24" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
 	CBasePattern C_BaseEntity_GetHitBoxSet = { VmpStr( "C_BaseEntity::GetHitBoxSet" ) , VmpStr( "48 89 5C 24 ? 48 89 74 24 ? 57 48 81 EC ? ? ? ? 8B DA 48 8B F9 E8 ? ? ? ? 48 8B F0" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern C_BaseEntity_UpdateBodyGroupChoice = { VmpStr( "C_BaseEntity::UpdateBodyGroupChoice" ) , VmpStr( "E8 ? ? ? ? 4C 8B AC 24 ? ? ? ? 48 8B BC 24" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
-	CBasePattern C_EconItemView_set_attribute_value_by_name = { VmpStr( "C_EconItemView::set_attribute_value_by_name" ) , VmpStr( "E8 ? ? ? ? 66 41 0F 6E D4" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
+	CBasePattern C_EconItemView_SetAttributeValueByName = { VmpStr( "C_EconItemView::SetAttributeValueByName" ) , VmpStr( "E8 ? ? ? ? 66 41 0F 6E D4" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
+	CBasePattern C_CSWeaponBase_UpdateCompositeMaterialSet = { VmpStr( "C_CSWeaponBase::UpdateCompositeMaterialSet" ) , VmpStr( "40 55 53 41 57 48 8D AC 24 00 FE ? ?" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 
 };
 

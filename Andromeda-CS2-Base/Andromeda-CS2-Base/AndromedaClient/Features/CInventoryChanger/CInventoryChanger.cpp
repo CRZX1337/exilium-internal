@@ -155,7 +155,7 @@ auto CInventoryChanger::OnFrameStageNotify( int FrameStage ) -> void
 
 		pWeapon->m_nFallbackPaintKit() = pWeaponInLoadoutItemView->GetCustomPaintKitIndex();
 
-		C_EconItemView_set_attribute_value_by_name( pWeaponItemView , "set item texture prefab" , pWeaponInLoadoutItemView->GetCustomPaintKitIndex() );
+		C_EconItemView_SetAttributeValueByName( pWeaponItemView , "set item texture prefab" , pWeaponInLoadoutItemView->GetCustomPaintKitIndex() );
 
 		const auto& AddedItems = GetInventoryItemsManager()->GetAddedItems();
 		const auto& Skin = AddedItems.find( pWeaponInLoadoutItemView->m_iItemID() );
@@ -193,6 +193,7 @@ auto CInventoryChanger::OnFrameStageNotify( int FrameStage ) -> void
 			pWeapon->UpdateSubclass();
 
 			pWeapon->UpdateCompositeMaterial( pCompositeMaterial );
+			pWeapon->UpdateCompositeMaterialSet();
 			pWeapon->UpdateSkin();
 			pWeapon->m_pGameSceneNode()->PostDataUpdate();
 
@@ -289,18 +290,6 @@ auto CInventoryChanger::OnEquipItemInLoadout( int iTeam , int iSlot , uint64_t i
 
 auto CInventoryChanger::OnFireEventClientSide( IGameEvent* pGameEvent ) -> void
 {
-	if ( _strcmpi( pGameEvent->GetName() , XorStr( "item_pickup" ) ) == 0 )
-	{
-		if ( const auto* pItemPickupController = pGameEvent->GetPlayerController( XorStr( "userid" ) ); pItemPickupController )
-		{
-			if ( pItemPickupController == GetCL_Players()->GetLocalPlayerController() )
-			{
-				if ( _strcmpi( pGameEvent->GetString( "item" ) , XorStr( "defuser" ) ) == 0 )
-					m_bApplyGloves = true;
-			}
-		}
-	}
-
 	if ( _strcmpi( pGameEvent->GetName() , XorStr( "player_death" ) ) == 0 )
 	{
 		if ( auto* pPlayerInventory = CCSPlayerInventory::Get(); pPlayerInventory )

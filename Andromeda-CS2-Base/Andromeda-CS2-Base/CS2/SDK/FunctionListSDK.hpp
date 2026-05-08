@@ -109,7 +109,7 @@ DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , CGameSceneNode_SetMeshGroupMask , ( 
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , C_CSWeaponBase_UpdateSubclass , ( C_CSWeaponBase* pWeaponBase ) , ( C_CSWeaponBase* ) , ( pWeaponBase ) );
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , C_CSWeaponBase_UpdateSkin , ( C_CSWeaponBase* pWeaponBase , bool Update ) , ( C_CSWeaponBase* , bool ) , ( pWeaponBase , Update ) );
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , C_CSWeaponBase_UpdateCompositeMaterial , ( CCompositeMaterialOwner* pCompositeMaterialOwner , bool unk1 ) , ( CCompositeMaterialOwner* , bool ) , ( pCompositeMaterialOwner , unk1 ) );
-DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , C_BaseEntity_SetBodyGroup , ( C_BaseEntity* pC_BaseEntity , int unk1 , unsigned int unk2 ) , ( C_BaseEntity* , int , unsigned int ) , ( pC_BaseEntity , unk1 , unk2 ) );
+DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , C_CSPlayerPawn_SetBodyGroup , ( C_CSPlayerPawn* pC_CSPlayerPawn , const char* Group , int unk1 ) , ( C_CSPlayerPawn* , const char* , int ) , ( pC_CSPlayerPawn , Group , unk1 ) );
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , GetCUserCmdTick , ( CCSPlayerController* pPlayerController , int32_t* pOutputTick ) , ( CCSPlayerController* , int32_t* ) , ( pPlayerController , pOutputTick ) );
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( CUserCmdArray* , GetCUserCmdArray , ( CUserCmd** ppCUserCmd , int Tick ) , ( CUserCmd** , int ) , ( ppCUserCmd , Tick ) );
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( CUserCmd* , GetCUserCmdBySequenceNumber , ( CCSPlayerController* pPlayerController , uint32_t SequenceNumber ) , ( CCSPlayerController* , uint32_t ) , ( pPlayerController , SequenceNumber ) );
@@ -119,7 +119,8 @@ DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , CTraceFilter_Constructor , ( CTraceF
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , CCSGO_HudWeaponSelection_ClearHudWeaponIcon , ( CCSGO_HudWeaponSelection* pCCSGO_HudWeaponSelection , int unk1 , int64_t unk2 ) , ( CCSGO_HudWeaponSelection* , int , int64_t ) , ( pCCSGO_HudWeaponSelection , unk1 , unk2 ) );
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( CHitBoxSet* , C_BaseEntity_GetHitBoxSet , ( C_BaseEntity* pC_BaseEntity , uint32_t Index = 0 ) , ( C_BaseEntity* , uint32_t ) , ( pC_BaseEntity , Index ) );
 DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , C_BaseEntity_UpdateBodyGroupChoice , ( C_BaseEntity* pC_BaseEntity ) , ( C_BaseEntity* ) , ( pC_BaseEntity ) );
-DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , C_EconItemView_set_attribute_value_by_name , ( C_EconItemView* pC_EconItemView , const char* szAttributeName , float flValue ) , ( C_EconItemView* , const char* , float ) , ( pC_EconItemView , szAttributeName , flValue ) );
+DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , C_EconItemView_SetAttributeValueByName , ( C_EconItemView* pC_EconItemView , const char* szAttributeName , float flValue ) , ( C_EconItemView* , const char* , float ) , ( pC_EconItemView , szAttributeName , flValue ) );
+DECLARATE_CS2_FUNCTION_SDK_FASTCALL( void , C_CSWeaponBase_UpdateCompositeMaterialSet , ( C_CSWeaponBase* pC_CSWeaponBase , bool unk1 ) , ( C_CSWeaponBase* , bool ) , ( pC_CSWeaponBase , unk1 ) );
 
 // Helpers:
 
