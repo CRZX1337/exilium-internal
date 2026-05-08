@@ -174,7 +174,7 @@ auto CInventoryItemsManager::ScanAllItems() -> void
 
 				dumpedSkin.m_ID = pPaintKit->nID;
 				dumpedSkin.m_Rarity = pPaintKit->nRarity;
-				dumpedSkin.m_bLegacyModel = pPaintKit->m_use_legacy_model();
+				dumpedSkin.m_bLegacyModel = pPaintKit->IsUseLegacyModel();
 				dumpedSkin.m_PaintKitName = pPaintKit->sName;
 
 				// Get skin name for UI

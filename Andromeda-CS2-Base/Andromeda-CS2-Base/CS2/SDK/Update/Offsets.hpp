@@ -66,3 +66,5 @@ static constexpr auto g_CViewSetup_angView = 0x04B8;
 
 // client.dll -> FF 81 ? ? ? ? 48 85 D2
 static constexpr auto g_OFFSET_CGameEntitySystem_GetHighestEntityIndex = 0x20A0;
+
+static constexpr auto g_CCPaintKit_IsUseLegacyModel = 0xAE;

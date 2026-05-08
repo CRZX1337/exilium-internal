@@ -3,5 +3,4 @@
 auto Hook_IsLoadoutAllowed() -> bool
 {
 	return true;
-	return IsLoadoutAllowed_o();
 }
