@@ -18,7 +18,7 @@ static constexpr auto g_CEconItemSchema_GetPaintKits = 0x2F0;
 00007FFB3AF2FE2B | movsxd r8,dword ptr ds:[rax+0x4]                |
 00007FFB3AF2FE2F | cmp r8d,dword ptr ds:[rbx+0x4D8]                | offset in function call
 */
-static constexpr auto g_CEconItemSchema_GetMusicKitDefinitions = 0x4D8;
+static constexpr auto g_CEconItemSchema_GetMusicKitDefinitions = 0x500;
 
 // Client.dll
 /*

@@ -74,9 +74,6 @@ extern CMsgApplyStickerDefaultTypeInternal _CMsgApplySticker_default_instance_;
 class CMsgApplyStrangePart;
 struct CMsgApplyStrangePartDefaultTypeInternal;
 extern CMsgApplyStrangePartDefaultTypeInternal _CMsgApplyStrangePart_default_instance_;
-class CMsgConVarValue;
-struct CMsgConVarValueDefaultTypeInternal;
-extern CMsgConVarValueDefaultTypeInternal _CMsgConVarValue_default_instance_;
 class CMsgConsumableExhausted;
 struct CMsgConsumableExhaustedDefaultTypeInternal;
 extern CMsgConsumableExhaustedDefaultTypeInternal _CMsgConsumableExhausted_default_instance_;
@@ -215,9 +212,6 @@ extern CMsgPartyInviteResponseDefaultTypeInternal _CMsgPartyInviteResponse_defau
 class CMsgReplayUploadedToYouTube;
 struct CMsgReplayUploadedToYouTubeDefaultTypeInternal;
 extern CMsgReplayUploadedToYouTubeDefaultTypeInternal _CMsgReplayUploadedToYouTube_default_instance_;
-class CMsgReplicateConVars;
-struct CMsgReplicateConVarsDefaultTypeInternal;
-extern CMsgReplicateConVarsDefaultTypeInternal _CMsgReplicateConVars_default_instance_;
 class CMsgRequestInventoryRefresh;
 struct CMsgRequestInventoryRefreshDefaultTypeInternal;
 extern CMsgRequestInventoryRefreshDefaultTypeInternal _CMsgRequestInventoryRefresh_default_instance_;
@@ -306,7 +300,6 @@ template<> ::CMsgApplyPennantUpgrade* Arena::CreateMaybeMessage<::CMsgApplyPenna
 template<> ::CMsgApplyStatTrakSwap* Arena::CreateMaybeMessage<::CMsgApplyStatTrakSwap>(Arena*);
 template<> ::CMsgApplySticker* Arena::CreateMaybeMessage<::CMsgApplySticker>(Arena*);
 template<> ::CMsgApplyStrangePart* Arena::CreateMaybeMessage<::CMsgApplyStrangePart>(Arena*);
-template<> ::CMsgConVarValue* Arena::CreateMaybeMessage<::CMsgConVarValue>(Arena*);
 template<> ::CMsgConsumableExhausted* Arena::CreateMaybeMessage<::CMsgConsumableExhausted>(Arena*);
 template<> ::CMsgDevNewItemRequest* Arena::CreateMaybeMessage<::CMsgDevNewItemRequest>(Arena*);
 template<> ::CMsgGCBannedWord* Arena::CreateMaybeMessage<::CMsgGCBannedWord>(Arena*);
@@ -353,7 +346,6 @@ template<> ::CMsgModifyItemAttribute* Arena::CreateMaybeMessage<::CMsgModifyItem
 template<> ::CMsgOpenCrate* Arena::CreateMaybeMessage<::CMsgOpenCrate>(Arena*);
 template<> ::CMsgPartyInviteResponse* Arena::CreateMaybeMessage<::CMsgPartyInviteResponse>(Arena*);
 template<> ::CMsgReplayUploadedToYouTube* Arena::CreateMaybeMessage<::CMsgReplayUploadedToYouTube>(Arena*);
-template<> ::CMsgReplicateConVars* Arena::CreateMaybeMessage<::CMsgReplicateConVars>(Arena*);
 template<> ::CMsgRequestInventoryRefresh* Arena::CreateMaybeMessage<::CMsgRequestInventoryRefresh>(Arena*);
 template<> ::CMsgSDONoMemcached* Arena::CreateMaybeMessage<::CMsgSDONoMemcached>(Arena*);
 template<> ::CMsgServerAvailable* Arena::CreateMaybeMessage<::CMsgServerAvailable>(Arena*);
@@ -7808,355 +7800,6 @@ class CMsgRequestInventoryRefresh final :
 };
 // -------------------------------------------------------------------
 
-class CMsgConVarValue final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgConVarValue) */ {
- public:
-  inline CMsgConVarValue() : CMsgConVarValue(nullptr) {}
-  ~CMsgConVarValue() override;
-  explicit PROTOBUF_CONSTEXPR CMsgConVarValue(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgConVarValue(const CMsgConVarValue& from);
-  CMsgConVarValue(CMsgConVarValue&& from) noexcept
-    : CMsgConVarValue() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgConVarValue& operator=(const CMsgConVarValue& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgConVarValue& operator=(CMsgConVarValue&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgConVarValue& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgConVarValue* internal_default_instance() {
-    return reinterpret_cast<const CMsgConVarValue*>(
-               &_CMsgConVarValue_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    35;
-
-  friend void swap(CMsgConVarValue& a, CMsgConVarValue& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgConVarValue* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgConVarValue* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgConVarValue* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgConVarValue>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgConVarValue& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgConVarValue& from) {
-    CMsgConVarValue::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgConVarValue* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgConVarValue";
-  }
-  protected:
-  explicit CMsgConVarValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kNameFieldNumber = 1,
-    kValueFieldNumber = 2,
-  };
-  // optional string name = 1;
-  bool has_name() const;
-  private:
-  bool _internal_has_name() const;
-  public:
-  void clear_name();
-  const std::string& name() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_name(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_name();
-  PROTOBUF_NODISCARD std::string* release_name();
-  void set_allocated_name(std::string* name);
-  private:
-  const std::string& _internal_name() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
-  std::string* _internal_mutable_name();
-  public:
-
-  // optional string value = 2;
-  bool has_value() const;
-  private:
-  bool _internal_has_value() const;
-  public:
-  void clear_value();
-  const std::string& value() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_value(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_value();
-  PROTOBUF_NODISCARD std::string* release_value();
-  void set_allocated_value(std::string* value);
-  private:
-  const std::string& _internal_value() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_value(const std::string& value);
-  std::string* _internal_mutable_value();
-  public:
-
-  // @@protoc_insertion_point(class_scope:CMsgConVarValue)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr value_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_base_5fgcmessages_2eproto;
-};
-// -------------------------------------------------------------------
-
-class CMsgReplicateConVars final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgReplicateConVars) */ {
- public:
-  inline CMsgReplicateConVars() : CMsgReplicateConVars(nullptr) {}
-  ~CMsgReplicateConVars() override;
-  explicit PROTOBUF_CONSTEXPR CMsgReplicateConVars(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CMsgReplicateConVars(const CMsgReplicateConVars& from);
-  CMsgReplicateConVars(CMsgReplicateConVars&& from) noexcept
-    : CMsgReplicateConVars() {
-    *this = ::std::move(from);
-  }
-
-  inline CMsgReplicateConVars& operator=(const CMsgReplicateConVars& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CMsgReplicateConVars& operator=(CMsgReplicateConVars&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CMsgReplicateConVars& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CMsgReplicateConVars* internal_default_instance() {
-    return reinterpret_cast<const CMsgReplicateConVars*>(
-               &_CMsgReplicateConVars_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    36;
-
-  friend void swap(CMsgReplicateConVars& a, CMsgReplicateConVars& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CMsgReplicateConVars* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CMsgReplicateConVars* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CMsgReplicateConVars* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgReplicateConVars>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgReplicateConVars& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgReplicateConVars& from) {
-    CMsgReplicateConVars::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgReplicateConVars* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgReplicateConVars";
-  }
-  protected:
-  explicit CMsgReplicateConVars(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kConvarsFieldNumber = 1,
-  };
-  // repeated .CMsgConVarValue convars = 1;
-  int convars_size() const;
-  private:
-  int _internal_convars_size() const;
-  public:
-  void clear_convars();
-  ::CMsgConVarValue* mutable_convars(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgConVarValue >*
-      mutable_convars();
-  private:
-  const ::CMsgConVarValue& _internal_convars(int index) const;
-  ::CMsgConVarValue* _internal_add_convars();
-  public:
-  const ::CMsgConVarValue& convars(int index) const;
-  ::CMsgConVarValue* add_convars();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgConVarValue >&
-      convars() const;
-
-  // @@protoc_insertion_point(class_scope:CMsgReplicateConVars)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgConVarValue > convars_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_base_5fgcmessages_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CMsgUseItem final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgUseItem) */ {
  public:
@@ -8212,7 +7855,7 @@ class CMsgUseItem final :
                &_CMsgUseItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    35;
 
   friend void swap(CMsgUseItem& a, CMsgUseItem& b) {
     a.Swap(&b);
@@ -8441,7 +8084,7 @@ class CMsgReplayUploadedToYouTube final :
                &_CMsgReplayUploadedToYouTube_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    36;
 
   friend void swap(CMsgReplayUploadedToYouTube& a, CMsgReplayUploadedToYouTube& b) {
     a.Swap(&b);
@@ -8641,7 +8284,7 @@ class CMsgConsumableExhausted final :
                &_CMsgConsumableExhausted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    37;
 
   friend void swap(CMsgConsumableExhausted& a, CMsgConsumableExhausted& b) {
     a.Swap(&b);
@@ -8801,7 +8444,7 @@ class CMsgItemAcknowledged__DEPRECATED final :
                &_CMsgItemAcknowledged__DEPRECATED_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    38;
 
   friend void swap(CMsgItemAcknowledged__DEPRECATED& a, CMsgItemAcknowledged__DEPRECATED& b) {
     a.Swap(&b);
@@ -9051,7 +8694,7 @@ class CMsgSetItemPositions_ItemPosition final :
                &_CMsgSetItemPositions_ItemPosition_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    39;
 
   friend void swap(CMsgSetItemPositions_ItemPosition& a, CMsgSetItemPositions_ItemPosition& b) {
     a.Swap(&b);
@@ -9241,7 +8884,7 @@ class CMsgSetItemPositions final :
                &_CMsgSetItemPositions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    40;
 
   friend void swap(CMsgSetItemPositions& a, CMsgSetItemPositions& b) {
     a.Swap(&b);
@@ -9407,7 +9050,7 @@ class CMsgGCReportAbuse final :
                &_CMsgGCReportAbuse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    41;
 
   friend void swap(CMsgGCReportAbuse& a, CMsgGCReportAbuse& b) {
     a.Swap(&b);
@@ -9662,7 +9305,7 @@ class CMsgGCReportAbuseResponse final :
                &_CMsgGCReportAbuseResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    42;
 
   friend void swap(CMsgGCReportAbuseResponse& a, CMsgGCReportAbuseResponse& b) {
     a.Swap(&b);
@@ -9857,7 +9500,7 @@ class CMsgGCNameItemNotification final :
                &_CMsgGCNameItemNotification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    43;
 
   friend void swap(CMsgGCNameItemNotification& a, CMsgGCNameItemNotification& b) {
     a.Swap(&b);
@@ -10052,7 +9695,7 @@ class CMsgGCClientDisplayNotification final :
                &_CMsgGCClientDisplayNotification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    44;
 
   friend void swap(CMsgGCClientDisplayNotification& a, CMsgGCClientDisplayNotification& b) {
     a.Swap(&b);
@@ -10289,7 +9932,7 @@ class CMsgGCShowItemsPickedUp final :
                &_CMsgGCShowItemsPickedUp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    45;
 
   friend void swap(CMsgGCShowItemsPickedUp& a, CMsgGCShowItemsPickedUp& b) {
     a.Swap(&b);
@@ -10449,7 +10092,7 @@ class CMsgGCIncrementKillCountResponse final :
                &_CMsgGCIncrementKillCountResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    46;
 
   friend void swap(CMsgGCIncrementKillCountResponse& a, CMsgGCIncrementKillCountResponse& b) {
     a.Swap(&b);
@@ -10654,7 +10297,7 @@ class CSOEconItemDropRateBonus final :
                &_CSOEconItemDropRateBonus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    49;
+    47;
 
   friend void swap(CSOEconItemDropRateBonus& a, CSOEconItemDropRateBonus& b) {
     a.Swap(&b);
@@ -10889,7 +10532,7 @@ class CSOEconItemLeagueViewPass final :
                &_CSOEconItemLeagueViewPass_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    50;
+    48;
 
   friend void swap(CSOEconItemLeagueViewPass& a, CSOEconItemLeagueViewPass& b) {
     a.Swap(&b);
@@ -11094,7 +10737,7 @@ class CSOEconItemEventTicket final :
                &_CSOEconItemEventTicket_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    51;
+    49;
 
   friend void swap(CSOEconItemEventTicket& a, CSOEconItemEventTicket& b) {
     a.Swap(&b);
@@ -11284,7 +10927,7 @@ class CMsgGCItemPreviewItemBoughtNotification final :
                &_CMsgGCItemPreviewItemBoughtNotification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    52;
+    50;
 
   friend void swap(CMsgGCItemPreviewItemBoughtNotification& a, CMsgGCItemPreviewItemBoughtNotification& b) {
     a.Swap(&b);
@@ -11444,7 +11087,7 @@ class CMsgGCStorePurchaseCancel final :
                &_CMsgGCStorePurchaseCancel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    53;
+    51;
 
   friend void swap(CMsgGCStorePurchaseCancel& a, CMsgGCStorePurchaseCancel& b) {
     a.Swap(&b);
@@ -11604,7 +11247,7 @@ class CMsgGCStorePurchaseCancelResponse final :
                &_CMsgGCStorePurchaseCancelResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    54;
+    52;
 
   friend void swap(CMsgGCStorePurchaseCancelResponse& a, CMsgGCStorePurchaseCancelResponse& b) {
     a.Swap(&b);
@@ -11764,7 +11407,7 @@ class CMsgGCStorePurchaseFinalize final :
                &_CMsgGCStorePurchaseFinalize_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    55;
+    53;
 
   friend void swap(CMsgGCStorePurchaseFinalize& a, CMsgGCStorePurchaseFinalize& b) {
     a.Swap(&b);
@@ -11924,7 +11567,7 @@ class CMsgGCStorePurchaseFinalizeResponse final :
                &_CMsgGCStorePurchaseFinalizeResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    56;
+    54;
 
   friend void swap(CMsgGCStorePurchaseFinalizeResponse& a, CMsgGCStorePurchaseFinalizeResponse& b) {
     a.Swap(&b);
@@ -12108,7 +11751,7 @@ class CMsgGCBannedWordListRequest final :
                &_CMsgGCBannedWordListRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    55;
 
   friend void swap(CMsgGCBannedWordListRequest& a, CMsgGCBannedWordListRequest& b) {
     a.Swap(&b);
@@ -12282,7 +11925,7 @@ class CMsgGCRequestAnnouncements final :
                &_CMsgGCRequestAnnouncements_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    56;
 
   friend void swap(CMsgGCRequestAnnouncements& a, CMsgGCRequestAnnouncements& b) {
     a.Swap(&b);
@@ -12408,7 +12051,7 @@ class CMsgGCRequestAnnouncementsResponse final :
                &_CMsgGCRequestAnnouncementsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    57;
 
   friend void swap(CMsgGCRequestAnnouncementsResponse& a, CMsgGCRequestAnnouncementsResponse& b) {
     a.Swap(&b);
@@ -12633,7 +12276,7 @@ class CMsgGCBannedWord final :
                &_CMsgGCBannedWord_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    58;
 
   friend void swap(CMsgGCBannedWord& a, CMsgGCBannedWord& b) {
     a.Swap(&b);
@@ -12828,7 +12471,7 @@ class CMsgGCBannedWordListResponse final :
                &_CMsgGCBannedWordListResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    59;
 
   friend void swap(CMsgGCBannedWordListResponse& a, CMsgGCBannedWordListResponse& b) {
     a.Swap(&b);
@@ -13008,7 +12651,7 @@ class CMsgGCToGCBannedWordListBroadcast final :
                &_CMsgGCToGCBannedWordListBroadcast_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    60;
 
   friend void swap(CMsgGCToGCBannedWordListBroadcast& a, CMsgGCToGCBannedWordListBroadcast& b) {
     a.Swap(&b);
@@ -13173,7 +12816,7 @@ class CMsgGCToGCBannedWordListUpdated final :
                &_CMsgGCToGCBannedWordListUpdated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    61;
 
   friend void swap(CMsgGCToGCBannedWordListUpdated& a, CMsgGCToGCBannedWordListUpdated& b) {
     a.Swap(&b);
@@ -13333,7 +12976,7 @@ class CMsgGCToGCDirtySDOCache final :
                &_CMsgGCToGCDirtySDOCache_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    62;
 
   friend void swap(CMsgGCToGCDirtySDOCache& a, CMsgGCToGCDirtySDOCache& b) {
     a.Swap(&b);
@@ -13508,7 +13151,7 @@ class CMsgGCToGCDirtyMultipleSDOCache final :
                &_CMsgGCToGCDirtyMultipleSDOCache_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    63;
 
   friend void swap(CMsgGCToGCDirtyMultipleSDOCache& a, CMsgGCToGCDirtyMultipleSDOCache& b) {
     a.Swap(&b);
@@ -13692,7 +13335,7 @@ class CMsgGCCollectItem final :
                &_CMsgGCCollectItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    64;
 
   friend void swap(CMsgGCCollectItem& a, CMsgGCCollectItem& b) {
     a.Swap(&b);
@@ -13866,7 +13509,7 @@ class CMsgSDONoMemcached final :
                &_CMsgSDONoMemcached_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    65;
 
   friend void swap(CMsgSDONoMemcached& a, CMsgSDONoMemcached& b) {
     a.Swap(&b);
@@ -13992,7 +13635,7 @@ class CMsgGCToGCUpdateSQLKeyValue final :
                &_CMsgGCToGCUpdateSQLKeyValue_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    66;
 
   friend void swap(CMsgGCToGCUpdateSQLKeyValue& a, CMsgGCToGCUpdateSQLKeyValue& b) {
     a.Swap(&b);
@@ -14157,7 +13800,7 @@ class CMsgGCToGCIsTrustedServer final :
                &_CMsgGCToGCIsTrustedServer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    67;
 
   friend void swap(CMsgGCToGCIsTrustedServer& a, CMsgGCToGCIsTrustedServer& b) {
     a.Swap(&b);
@@ -14317,7 +13960,7 @@ class CMsgGCToGCIsTrustedServerResponse final :
                &_CMsgGCToGCIsTrustedServerResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    68;
 
   friend void swap(CMsgGCToGCIsTrustedServerResponse& a, CMsgGCToGCIsTrustedServerResponse& b) {
     a.Swap(&b);
@@ -14477,7 +14120,7 @@ class CMsgGCToGCBroadcastConsoleCommand final :
                &_CMsgGCToGCBroadcastConsoleCommand_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    69;
 
   friend void swap(CMsgGCToGCBroadcastConsoleCommand& a, CMsgGCToGCBroadcastConsoleCommand& b) {
     a.Swap(&b);
@@ -14642,7 +14285,7 @@ class CMsgGCServerVersionUpdated final :
                &_CMsgGCServerVersionUpdated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    70;
 
   friend void swap(CMsgGCServerVersionUpdated& a, CMsgGCServerVersionUpdated& b) {
     a.Swap(&b);
@@ -14802,7 +14445,7 @@ class CMsgGCClientVersionUpdated final :
                &_CMsgGCClientVersionUpdated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    71;
 
   friend void swap(CMsgGCClientVersionUpdated& a, CMsgGCClientVersionUpdated& b) {
     a.Swap(&b);
@@ -14961,7 +14604,7 @@ class CMsgGCToGCWebAPIAccountChanged final :
                &_CMsgGCToGCWebAPIAccountChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    72;
 
   friend void swap(CMsgGCToGCWebAPIAccountChanged& a, CMsgGCToGCWebAPIAccountChanged& b) {
     a.Swap(&b);
@@ -15087,7 +14730,7 @@ class CMsgGCToGCRequestPassportItemGrant final :
                &_CMsgGCToGCRequestPassportItemGrant_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    73;
 
   friend void swap(CMsgGCToGCRequestPassportItemGrant& a, CMsgGCToGCRequestPassportItemGrant& b) {
     a.Swap(&b);
@@ -15277,7 +14920,7 @@ class CMsgGameServerInfo final :
                &_CMsgGameServerInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    74;
 
   friend void swap(CMsgGameServerInfo& a, CMsgGameServerInfo& b) {
     a.Swap(&b);
@@ -15729,7 +15372,7 @@ class CSOEconEquipSlot final :
                &_CSOEconEquipSlot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    75;
 
   friend void swap(CSOEconEquipSlot& a, CSOEconEquipSlot& b) {
     a.Swap(&b);
@@ -15949,7 +15592,7 @@ class CMsgAdjustEquipSlot final :
                &_CMsgAdjustEquipSlot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    76;
 
   friend void swap(CMsgAdjustEquipSlot& a, CMsgAdjustEquipSlot& b) {
     a.Swap(&b);
@@ -16139,7 +15782,7 @@ class CMsgAdjustEquipSlots final :
                &_CMsgAdjustEquipSlots_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    77;
 
   friend void swap(CMsgAdjustEquipSlots& a, CMsgAdjustEquipSlots& b) {
     a.Swap(&b);
@@ -16319,7 +15962,7 @@ class CMsgOpenCrate final :
                &_CMsgOpenCrate_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    78;
 
   friend void swap(CMsgOpenCrate& a, CMsgOpenCrate& b) {
     a.Swap(&b);
@@ -16539,7 +16182,7 @@ class CSOEconRentalHistory final :
                &_CSOEconRentalHistory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    79;
 
   friend void swap(CSOEconRentalHistory& a, CSOEconRentalHistory& b) {
     a.Swap(&b);
@@ -16759,7 +16402,7 @@ class CMsgAcknowledgeRentalExpiration final :
                &_CMsgAcknowledgeRentalExpiration_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    80;
 
   friend void swap(CMsgAcknowledgeRentalExpiration& a, CMsgAcknowledgeRentalExpiration& b) {
     a.Swap(&b);
@@ -22233,190 +21876,6 @@ inline void CMsgGCError::set_allocated_error_text(std::string* error_text) {
 
 // -------------------------------------------------------------------
 
-// CMsgConVarValue
-
-// optional string name = 1;
-inline bool CMsgConVarValue::_internal_has_name() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CMsgConVarValue::has_name() const {
-  return _internal_has_name();
-}
-inline void CMsgConVarValue::clear_name() {
-  _impl_.name_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline const std::string& CMsgConVarValue::name() const {
-  // @@protoc_insertion_point(field_get:CMsgConVarValue.name)
-  return _internal_name();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgConVarValue::set_name(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000001u;
- _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgConVarValue.name)
-}
-inline std::string* CMsgConVarValue::mutable_name() {
-  std::string* _s = _internal_mutable_name();
-  // @@protoc_insertion_point(field_mutable:CMsgConVarValue.name)
-  return _s;
-}
-inline const std::string& CMsgConVarValue::_internal_name() const {
-  return _impl_.name_.Get();
-}
-inline void CMsgConVarValue::_internal_set_name(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.name_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgConVarValue::_internal_mutable_name() {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  return _impl_.name_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgConVarValue::release_name() {
-  // @@protoc_insertion_point(field_release:CMsgConVarValue.name)
-  if (!_internal_has_name()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000001u;
-  auto* p = _impl_.name_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgConVarValue::set_allocated_name(std::string* name) {
-  if (name != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000001u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000001u;
-  }
-  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.name_.IsDefault()) {
-    _impl_.name_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgConVarValue.name)
-}
-
-// optional string value = 2;
-inline bool CMsgConVarValue::_internal_has_value() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgConVarValue::has_value() const {
-  return _internal_has_value();
-}
-inline void CMsgConVarValue::clear_value() {
-  _impl_.value_.ClearToEmpty();
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline const std::string& CMsgConVarValue::value() const {
-  // @@protoc_insertion_point(field_get:CMsgConVarValue.value)
-  return _internal_value();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void CMsgConVarValue::set_value(ArgT0&& arg0, ArgT... args) {
- _impl_._has_bits_[0] |= 0x00000002u;
- _impl_.value_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:CMsgConVarValue.value)
-}
-inline std::string* CMsgConVarValue::mutable_value() {
-  std::string* _s = _internal_mutable_value();
-  // @@protoc_insertion_point(field_mutable:CMsgConVarValue.value)
-  return _s;
-}
-inline const std::string& CMsgConVarValue::_internal_value() const {
-  return _impl_.value_.Get();
-}
-inline void CMsgConVarValue::_internal_set_value(const std::string& value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.value_.Set(value, GetArenaForAllocation());
-}
-inline std::string* CMsgConVarValue::_internal_mutable_value() {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  return _impl_.value_.Mutable(GetArenaForAllocation());
-}
-inline std::string* CMsgConVarValue::release_value() {
-  // @@protoc_insertion_point(field_release:CMsgConVarValue.value)
-  if (!_internal_has_value()) {
-    return nullptr;
-  }
-  _impl_._has_bits_[0] &= ~0x00000002u;
-  auto* p = _impl_.value_.Release();
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.value_.IsDefault()) {
-    _impl_.value_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  return p;
-}
-inline void CMsgConVarValue::set_allocated_value(std::string* value) {
-  if (value != nullptr) {
-    _impl_._has_bits_[0] |= 0x00000002u;
-  } else {
-    _impl_._has_bits_[0] &= ~0x00000002u;
-  }
-  _impl_.value_.SetAllocated(value, GetArenaForAllocation());
-#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (_impl_.value_.IsDefault()) {
-    _impl_.value_.Set("", GetArenaForAllocation());
-  }
-#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:CMsgConVarValue.value)
-}
-
-// -------------------------------------------------------------------
-
-// CMsgReplicateConVars
-
-// repeated .CMsgConVarValue convars = 1;
-inline int CMsgReplicateConVars::_internal_convars_size() const {
-  return _impl_.convars_.size();
-}
-inline int CMsgReplicateConVars::convars_size() const {
-  return _internal_convars_size();
-}
-inline void CMsgReplicateConVars::clear_convars() {
-  _impl_.convars_.Clear();
-}
-inline ::CMsgConVarValue* CMsgReplicateConVars::mutable_convars(int index) {
-  // @@protoc_insertion_point(field_mutable:CMsgReplicateConVars.convars)
-  return _impl_.convars_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgConVarValue >*
-CMsgReplicateConVars::mutable_convars() {
-  // @@protoc_insertion_point(field_mutable_list:CMsgReplicateConVars.convars)
-  return &_impl_.convars_;
-}
-inline const ::CMsgConVarValue& CMsgReplicateConVars::_internal_convars(int index) const {
-  return _impl_.convars_.Get(index);
-}
-inline const ::CMsgConVarValue& CMsgReplicateConVars::convars(int index) const {
-  // @@protoc_insertion_point(field_get:CMsgReplicateConVars.convars)
-  return _internal_convars(index);
-}
-inline ::CMsgConVarValue* CMsgReplicateConVars::_internal_add_convars() {
-  return _impl_.convars_.Add();
-}
-inline ::CMsgConVarValue* CMsgReplicateConVars::add_convars() {
-  ::CMsgConVarValue* _add = _internal_add_convars();
-  // @@protoc_insertion_point(field_add:CMsgReplicateConVars.convars)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgConVarValue >&
-CMsgReplicateConVars::convars() const {
-  // @@protoc_insertion_point(field_list:CMsgReplicateConVars.convars)
-  return _impl_.convars_;
-}
-
-// -------------------------------------------------------------------
-
 // CMsgUseItem
 
 // optional uint64 item_id = 1;
@@ -27037,10 +26496,6 @@ inline void CMsgAcknowledgeRentalExpiration::set_crate_item_id(uint64_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

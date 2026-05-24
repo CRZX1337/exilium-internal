@@ -610,34 +610,6 @@ struct CMsgRequestInventoryRefreshDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgRequestInventoryRefreshDefaultTypeInternal _CMsgRequestInventoryRefresh_default_instance_;
-PROTOBUF_CONSTEXPR CMsgConVarValue::CMsgConVarValue(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_._has_bits_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.value_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}} {}
-struct CMsgConVarValueDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CMsgConVarValueDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CMsgConVarValueDefaultTypeInternal() {}
-  union {
-    CMsgConVarValue _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgConVarValueDefaultTypeInternal _CMsgConVarValue_default_instance_;
-PROTOBUF_CONSTEXPR CMsgReplicateConVars::CMsgReplicateConVars(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.convars_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}} {}
-struct CMsgReplicateConVarsDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CMsgReplicateConVarsDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CMsgReplicateConVarsDefaultTypeInternal() {}
-  union {
-    CMsgReplicateConVars _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgReplicateConVarsDefaultTypeInternal _CMsgReplicateConVars_default_instance_;
 PROTOBUF_CONSTEXPR CMsgUseItem::CMsgUseItem(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -1357,7 +1329,7 @@ struct CMsgAcknowledgeRentalExpirationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgAcknowledgeRentalExpirationDefaultTypeInternal _CMsgAcknowledgeRentalExpiration_default_instance_;
-static ::_pb::Metadata file_level_metadata_base_5fgcmessages_2eproto[83];
+static ::_pb::Metadata file_level_metadata_base_5fgcmessages_2eproto[81];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_base_5fgcmessages_2eproto[4];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_base_5fgcmessages_2eproto = nullptr;
 
@@ -1854,23 +1826,6 @@ const uint32_t TableStruct_base_5fgcmessages_2eproto::offsets[] PROTOBUF_SECTION
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CMsgConVarValue, _impl_._has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgConVarValue, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CMsgConVarValue, _impl_.name_),
-  PROTOBUF_FIELD_OFFSET(::CMsgConVarValue, _impl_.value_),
-  0,
-  1,
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::CMsgReplicateConVars, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CMsgReplicateConVars, _impl_.convars_),
   PROTOBUF_FIELD_OFFSET(::CMsgUseItem, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgUseItem, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2439,54 +2394,52 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 466, 475, -1, sizeof(::CMsgUpdateItemSchema)},
   { 478, 485, -1, sizeof(::CMsgGCError)},
   { 486, -1, -1, sizeof(::CMsgRequestInventoryRefresh)},
-  { 492, 500, -1, sizeof(::CMsgConVarValue)},
-  { 502, -1, -1, sizeof(::CMsgReplicateConVars)},
-  { 509, 520, -1, sizeof(::CMsgUseItem)},
-  { 525, 534, -1, sizeof(::CMsgReplayUploadedToYouTube)},
-  { 537, 544, -1, sizeof(::CMsgConsumableExhausted)},
-  { 545, 558, -1, sizeof(::CMsgItemAcknowledged__DEPRECATED)},
-  { 565, 574, -1, sizeof(::CMsgSetItemPositions_ItemPosition)},
-  { 577, -1, -1, sizeof(::CMsgSetItemPositions)},
-  { 584, 597, -1, sizeof(::CMsgGCReportAbuse)},
-  { 604, 613, -1, sizeof(::CMsgGCReportAbuseResponse)},
-  { 616, 625, -1, sizeof(::CMsgGCNameItemNotification)},
-  { 628, 638, -1, sizeof(::CMsgGCClientDisplayNotification)},
-  { 642, 649, -1, sizeof(::CMsgGCShowItemsPickedUp)},
-  { 650, 660, -1, sizeof(::CMsgGCIncrementKillCountResponse)},
-  { 664, 676, -1, sizeof(::CSOEconItemDropRateBonus)},
-  { 682, 692, -1, sizeof(::CSOEconItemLeagueViewPass)},
-  { 696, 705, -1, sizeof(::CSOEconItemEventTicket)},
-  { 708, 715, -1, sizeof(::CMsgGCItemPreviewItemBoughtNotification)},
-  { 716, 723, -1, sizeof(::CMsgGCStorePurchaseCancel)},
-  { 724, 731, -1, sizeof(::CMsgGCStorePurchaseCancelResponse)},
-  { 732, 739, -1, sizeof(::CMsgGCStorePurchaseFinalize)},
-  { 740, 748, -1, sizeof(::CMsgGCStorePurchaseFinalizeResponse)},
-  { 750, 758, -1, sizeof(::CMsgGCBannedWordListRequest)},
-  { 760, -1, -1, sizeof(::CMsgGCRequestAnnouncements)},
-  { 766, 776, -1, sizeof(::CMsgGCRequestAnnouncementsResponse)},
-  { 780, 789, -1, sizeof(::CMsgGCBannedWord)},
-  { 792, 800, -1, sizeof(::CMsgGCBannedWordListResponse)},
-  { 802, 809, -1, sizeof(::CMsgGCToGCBannedWordListBroadcast)},
-  { 810, 817, -1, sizeof(::CMsgGCToGCBannedWordListUpdated)},
-  { 818, 826, -1, sizeof(::CMsgGCToGCDirtySDOCache)},
-  { 828, 836, -1, sizeof(::CMsgGCToGCDirtyMultipleSDOCache)},
-  { 838, 846, -1, sizeof(::CMsgGCCollectItem)},
-  { 848, -1, -1, sizeof(::CMsgSDONoMemcached)},
-  { 854, 861, -1, sizeof(::CMsgGCToGCUpdateSQLKeyValue)},
-  { 862, 869, -1, sizeof(::CMsgGCToGCIsTrustedServer)},
-  { 870, 877, -1, sizeof(::CMsgGCToGCIsTrustedServerResponse)},
-  { 878, 885, -1, sizeof(::CMsgGCToGCBroadcastConsoleCommand)},
-  { 886, 893, -1, sizeof(::CMsgGCServerVersionUpdated)},
-  { 894, 901, -1, sizeof(::CMsgGCClientVersionUpdated)},
-  { 902, -1, -1, sizeof(::CMsgGCToGCWebAPIAccountChanged)},
-  { 908, 917, -1, sizeof(::CMsgGCToGCRequestPassportItemGrant)},
-  { 920, 944, -1, sizeof(::CMsgGameServerInfo)},
-  { 962, 973, -1, sizeof(::CSOEconEquipSlot)},
-  { 978, 987, -1, sizeof(::CMsgAdjustEquipSlot)},
-  { 990, 998, -1, sizeof(::CMsgAdjustEquipSlots)},
-  { 1000, 1011, -1, sizeof(::CMsgOpenCrate)},
-  { 1016, 1027, -1, sizeof(::CSOEconRentalHistory)},
-  { 1032, 1039, -1, sizeof(::CMsgAcknowledgeRentalExpiration)},
+  { 492, 503, -1, sizeof(::CMsgUseItem)},
+  { 508, 517, -1, sizeof(::CMsgReplayUploadedToYouTube)},
+  { 520, 527, -1, sizeof(::CMsgConsumableExhausted)},
+  { 528, 541, -1, sizeof(::CMsgItemAcknowledged__DEPRECATED)},
+  { 548, 557, -1, sizeof(::CMsgSetItemPositions_ItemPosition)},
+  { 560, -1, -1, sizeof(::CMsgSetItemPositions)},
+  { 567, 580, -1, sizeof(::CMsgGCReportAbuse)},
+  { 587, 596, -1, sizeof(::CMsgGCReportAbuseResponse)},
+  { 599, 608, -1, sizeof(::CMsgGCNameItemNotification)},
+  { 611, 621, -1, sizeof(::CMsgGCClientDisplayNotification)},
+  { 625, 632, -1, sizeof(::CMsgGCShowItemsPickedUp)},
+  { 633, 643, -1, sizeof(::CMsgGCIncrementKillCountResponse)},
+  { 647, 659, -1, sizeof(::CSOEconItemDropRateBonus)},
+  { 665, 675, -1, sizeof(::CSOEconItemLeagueViewPass)},
+  { 679, 688, -1, sizeof(::CSOEconItemEventTicket)},
+  { 691, 698, -1, sizeof(::CMsgGCItemPreviewItemBoughtNotification)},
+  { 699, 706, -1, sizeof(::CMsgGCStorePurchaseCancel)},
+  { 707, 714, -1, sizeof(::CMsgGCStorePurchaseCancelResponse)},
+  { 715, 722, -1, sizeof(::CMsgGCStorePurchaseFinalize)},
+  { 723, 731, -1, sizeof(::CMsgGCStorePurchaseFinalizeResponse)},
+  { 733, 741, -1, sizeof(::CMsgGCBannedWordListRequest)},
+  { 743, -1, -1, sizeof(::CMsgGCRequestAnnouncements)},
+  { 749, 759, -1, sizeof(::CMsgGCRequestAnnouncementsResponse)},
+  { 763, 772, -1, sizeof(::CMsgGCBannedWord)},
+  { 775, 783, -1, sizeof(::CMsgGCBannedWordListResponse)},
+  { 785, 792, -1, sizeof(::CMsgGCToGCBannedWordListBroadcast)},
+  { 793, 800, -1, sizeof(::CMsgGCToGCBannedWordListUpdated)},
+  { 801, 809, -1, sizeof(::CMsgGCToGCDirtySDOCache)},
+  { 811, 819, -1, sizeof(::CMsgGCToGCDirtyMultipleSDOCache)},
+  { 821, 829, -1, sizeof(::CMsgGCCollectItem)},
+  { 831, -1, -1, sizeof(::CMsgSDONoMemcached)},
+  { 837, 844, -1, sizeof(::CMsgGCToGCUpdateSQLKeyValue)},
+  { 845, 852, -1, sizeof(::CMsgGCToGCIsTrustedServer)},
+  { 853, 860, -1, sizeof(::CMsgGCToGCIsTrustedServerResponse)},
+  { 861, 868, -1, sizeof(::CMsgGCToGCBroadcastConsoleCommand)},
+  { 869, 876, -1, sizeof(::CMsgGCServerVersionUpdated)},
+  { 877, 884, -1, sizeof(::CMsgGCClientVersionUpdated)},
+  { 885, -1, -1, sizeof(::CMsgGCToGCWebAPIAccountChanged)},
+  { 891, 900, -1, sizeof(::CMsgGCToGCRequestPassportItemGrant)},
+  { 903, 927, -1, sizeof(::CMsgGameServerInfo)},
+  { 945, 956, -1, sizeof(::CSOEconEquipSlot)},
+  { 961, 970, -1, sizeof(::CMsgAdjustEquipSlot)},
+  { 973, 981, -1, sizeof(::CMsgAdjustEquipSlots)},
+  { 983, 994, -1, sizeof(::CMsgOpenCrate)},
+  { 999, 1010, -1, sizeof(::CSOEconRentalHistory)},
+  { 1015, 1022, -1, sizeof(::CMsgAcknowledgeRentalExpiration)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -2525,8 +2478,6 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgUpdateItemSchema_default_instance_._instance,
   &::_CMsgGCError_default_instance_._instance,
   &::_CMsgRequestInventoryRefresh_default_instance_._instance,
-  &::_CMsgConVarValue_default_instance_._instance,
-  &::_CMsgReplicateConVars_default_instance_._instance,
   &::_CMsgUseItem_default_instance_._instance,
   &::_CMsgReplayUploadedToYouTube_default_instance_._instance,
   &::_CMsgConsumableExhausted_default_instance_._instance,
@@ -2678,148 +2629,145 @@ const char descriptor_table_protodef_base_5fgcmessages_2eproto[] PROTOBUF_SECTIO
   "pdateItemSchema\022\022\n\nitems_game\030\001 \001(\014\022\033\n\023i"
   "tem_schema_version\030\002 \001(\007\022\026\n\016items_game_u"
   "rl\030\004 \001(\t\"!\n\013CMsgGCError\022\022\n\nerror_text\030\001 "
-  "\001(\t\"\035\n\033CMsgRequestInventoryRefresh\".\n\017CM"
-  "sgConVarValue\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001"
-  "(\t\"9\n\024CMsgReplicateConVars\022!\n\007convars\030\001 "
-  "\003(\0132\020.CMsgConVarValue\"\216\001\n\013CMsgUseItem\022\017\n"
-  "\007item_id\030\001 \001(\004\022\027\n\017target_steam_id\030\002 \001(\006\022"
-  "\037\n\027gift__potential_targets\030\003 \003(\r\022\030\n\020duel"
-  "__class_lock\030\004 \001(\r\022\032\n\022initiator_steam_id"
-  "\030\005 \001(\006\"d\n\033CMsgReplayUploadedToYouTube\022\023\n"
-  "\013youtube_url\030\001 \001(\t\022\034\n\024youtube_account_na"
-  "me\030\002 \001(\t\022\022\n\nsession_id\030\003 \001(\004\".\n\027CMsgCons"
-  "umableExhausted\022\023\n\013item_def_id\030\001 \001(\005\"\236\001\n"
-  " CMsgItemAcknowledged__DEPRECATED\022\022\n\nacc"
-  "ount_id\030\001 \001(\r\022\021\n\tinventory\030\002 \001(\r\022\021\n\tdef_"
-  "index\030\003 \001(\r\022\017\n\007quality\030\004 \001(\r\022\016\n\006rarity\030\005"
-  " \001(\r\022\016\n\006origin\030\006 \001(\r\022\017\n\007item_id\030\007 \001(\004\"\235\001"
-  "\n\024CMsgSetItemPositions\022:\n\016item_positions"
-  "\030\001 \003(\0132\".CMsgSetItemPositions.ItemPositi"
-  "on\032I\n\014ItemPosition\022\026\n\016legacy_item_id\030\001 \001"
-  "(\r\022\020\n\010position\030\002 \001(\r\022\017\n\007item_id\030\003 \001(\004\"\270\001"
-  "\n\021CMsgGCReportAbuse\022\027\n\017target_steam_id\030\001"
-  " \001(\006\022\023\n\013description\030\004 \001(\t\022\013\n\003gid\030\005 \001(\004\022\022"
-  "\n\nabuse_type\030\002 \001(\r\022\024\n\014content_type\030\003 \001(\r"
-  "\022\035\n\025target_game_server_ip\030\006 \001(\007\022\037\n\027targe"
-  "t_game_server_port\030\007 \001(\r\"[\n\031CMsgGCReport"
-  "AbuseResponse\022\027\n\017target_steam_id\030\001 \001(\006\022\016"
-  "\n\006result\030\002 \001(\r\022\025\n\rerror_message\030\003 \001(\t\"f\n"
-  "\032CMsgGCNameItemNotification\022\026\n\016player_st"
-  "eamid\030\001 \001(\006\022\026\n\016item_def_index\030\002 \001(\r\022\030\n\020i"
-  "tem_name_custom\030\003 \001(\t\"\266\001\n\037CMsgGCClientDi"
-  "splayNotification\022+\n#notification_title_"
-  "localization_key\030\001 \001(\t\022*\n\"notification_b"
-  "ody_localization_key\030\002 \001(\t\022\033\n\023body_subst"
-  "ring_keys\030\003 \003(\t\022\035\n\025body_substring_values"
-  "\030\004 \003(\t\"1\n\027CMsgGCShowItemsPickedUp\022\026\n\016pla"
-  "yer_steamid\030\001 \001(\006\"|\n CMsgGCIncrementKill"
-  "CountResponse\022\037\n\021killer_account_id\030\001 \001(\r"
-  "B\004\200\246\035\001\022\021\n\tnum_kills\030\002 \001(\r\022\020\n\010item_def\030\003 "
-  "\001(\r\022\022\n\nlevel_type\030\004 \001(\r\"\217\001\n\030CSOEconItemD"
-  "ropRateBonus\022\022\n\naccount_id\030\001 \001(\r\022\027\n\017expi"
-  "ration_date\030\002 \001(\007\022\r\n\005bonus\030\003 \001(\002\022\023\n\013bonu"
-  "s_count\030\004 \001(\r\022\017\n\007item_id\030\005 \001(\004\022\021\n\tdef_in"
-  "dex\030\006 \001(\r\"p\n\031CSOEconItemLeagueViewPass\022\030"
-  "\n\naccount_id\030\001 \001(\rB\004\200\246\035\001\022\027\n\tleague_id\030\002 "
-  "\001(\rB\004\200\246\035\001\022\r\n\005admin\030\003 \001(\r\022\021\n\titemindex\030\004 "
-  "\001(\r\"O\n\026CSOEconItemEventTicket\022\022\n\naccount"
-  "_id\030\001 \001(\r\022\020\n\010event_id\030\002 \001(\r\022\017\n\007item_id\030\003"
-  " \001(\004\"A\n\'CMsgGCItemPreviewItemBoughtNotif"
-  "ication\022\026\n\016item_def_index\030\001 \001(\r\"+\n\031CMsgG"
-  "CStorePurchaseCancel\022\016\n\006txn_id\030\001 \001(\004\"3\n!"
-  "CMsgGCStorePurchaseCancelResponse\022\016\n\006res"
-  "ult\030\001 \001(\r\"-\n\033CMsgGCStorePurchaseFinalize"
-  "\022\016\n\006txn_id\030\001 \001(\004\"G\n#CMsgGCStorePurchaseF"
-  "inalizeResponse\022\016\n\006result\030\001 \001(\r\022\020\n\010item_"
-  "ids\030\002 \003(\004\"I\n\033CMsgGCBannedWordListRequest"
-  "\022\031\n\021ban_list_group_id\030\001 \001(\r\022\017\n\007word_id\030\002"
-  " \001(\r\"\034\n\032CMsgGCRequestAnnouncements\"\202\001\n\"C"
-  "MsgGCRequestAnnouncementsResponse\022\032\n\022ann"
-  "ouncement_title\030\001 \001(\t\022\024\n\014announcement\030\002 "
-  "\001(\t\022\027\n\017nextmatch_title\030\003 \001(\t\022\021\n\tnextmatc"
-  "h\030\004 \001(\t\"u\n\020CMsgGCBannedWord\022\017\n\007word_id\030\001"
-  " \001(\r\022B\n\tword_type\030\002 \001(\0162\022.GC_BannedWordT"
-  "ype:\033GC_BANNED_WORD_DISABLE_WORD\022\014\n\004word"
-  "\030\003 \001(\t\"_\n\034CMsgGCBannedWordListResponse\022\031"
-  "\n\021ban_list_group_id\030\001 \001(\r\022$\n\tword_list\030\002"
-  " \003(\0132\021.CMsgGCBannedWord\"U\n!CMsgGCToGCBan"
-  "nedWordListBroadcast\0220\n\tbroadcast\030\001 \001(\0132"
-  "\035.CMsgGCBannedWordListResponse\"3\n\037CMsgGC"
-  "ToGCBannedWordListUpdated\022\020\n\010group_id\030\001 "
-  "\001(\r\"\?\n\027CMsgGCToGCDirtySDOCache\022\020\n\010sdo_ty"
-  "pe\030\001 \001(\r\022\022\n\nkey_uint64\030\002 \001(\004\"G\n\037CMsgGCTo"
-  "GCDirtyMultipleSDOCache\022\020\n\010sdo_type\030\001 \001("
-  "\r\022\022\n\nkey_uint64\030\002 \003(\004\"H\n\021CMsgGCCollectIt"
-  "em\022\032\n\022collection_item_id\030\001 \001(\004\022\027\n\017subjec"
-  "t_item_id\030\002 \001(\004\"\024\n\022CMsgSDONoMemcached\"/\n"
-  "\033CMsgGCToGCUpdateSQLKeyValue\022\020\n\010key_name"
-  "\030\001 \001(\t\"-\n\031CMsgGCToGCIsTrustedServer\022\020\n\010s"
-  "team_id\030\001 \001(\006\"7\n!CMsgGCToGCIsTrustedServ"
-  "erResponse\022\022\n\nis_trusted\030\001 \001(\010\"8\n!CMsgGC"
-  "ToGCBroadcastConsoleCommand\022\023\n\013con_comma"
-  "nd\030\001 \001(\t\"4\n\032CMsgGCServerVersionUpdated\022\026"
-  "\n\016server_version\030\001 \001(\r\"4\n\032CMsgGCClientVe"
-  "rsionUpdated\022\026\n\016client_version\030\001 \001(\r\" \n\036"
-  "CMsgGCToGCWebAPIAccountChanged\"^\n\"CMsgGC"
-  "ToGCRequestPassportItemGrant\022\020\n\010steam_id"
-  "\030\001 \001(\006\022\021\n\tleague_id\030\002 \001(\r\022\023\n\013reward_flag"
-  "\030\003 \001(\005\"\350\004\n\022CMsgGameServerInfo\022\035\n\025server_"
-  "public_ip_addr\030\001 \001(\007\022\036\n\026server_private_i"
-  "p_addr\030\002 \001(\007\022\023\n\013server_port\030\003 \001(\r\022\026\n\016ser"
-  "ver_tv_port\030\004 \001(\r\022\022\n\nserver_key\030\005 \001(\t\022\032\n"
-  "\022server_hibernation\030\006 \001(\010\022@\n\013server_type"
-  "\030\007 \001(\0162\036.CMsgGameServerInfo.ServerType:\013"
-  "UNSPECIFIED\022\025\n\rserver_region\030\010 \001(\r\022\026\n\016se"
-  "rver_loadavg\030\t \001(\002\022 \n\030server_tv_broadcas"
-  "t_time\030\n \001(\002\022\030\n\020server_game_time\030\013 \001(\002\022\'"
-  "\n\037server_relay_connected_steam_id\030\014 \001(\006\022"
-  "\027\n\017relay_slots_max\030\r \001(\r\022\030\n\020relays_conne"
-  "cted\030\016 \001(\005\022\037\n\027relay_clients_connected\030\017 "
-  "\001(\005\022$\n\034relayed_game_server_steam_id\030\020 \001("
-  "\006\022\032\n\022parent_relay_count\030\021 \001(\r\022\026\n\016tv_secr"
-  "et_code\030\022 \001(\006\"2\n\nServerType\022\017\n\013UNSPECIFI"
-  "ED\020\000\022\010\n\004GAME\020\001\022\t\n\005PROXY\020\002\"\205\001\n\020CSOEconEqu"
-  "ipSlot\022\030\n\naccount_id\030\001 \001(\rB\004\200\246\035\001\022\026\n\010clas"
-  "s_id\030\002 \001(\rB\004\200\246\035\001\022\025\n\007slot_id\030\003 \001(\rB\004\200\246\035\001\022"
-  "\017\n\007item_id\030\004 \001(\004\022\027\n\017item_definition\030\005 \001("
-  "\r\"I\n\023CMsgAdjustEquipSlot\022\020\n\010class_id\030\001 \001"
-  "(\r\022\017\n\007slot_id\030\002 \001(\r\022\017\n\007item_id\030\003 \001(\004\"O\n\024"
-  "CMsgAdjustEquipSlots\022#\n\005slots\030\001 \003(\0132\024.CM"
-  "sgAdjustEquipSlot\022\022\n\nchange_num\030\002 \001(\r\"\204\001"
-  "\n\rCMsgOpenCrate\022\024\n\014tool_item_id\030\001 \001(\004\022\027\n"
-  "\017subject_item_id\030\002 \001(\004\022\022\n\nfor_rental\030\003 \001"
-  "(\010\022\030\n\020points_remaining\030\004 \001(\r\022\026\n\016volatile"
-  "_limit\030\005 \001(\r\"\223\001\n\024CSOEconRentalHistory\022\030\n"
-  "\naccount_id\030\001 \001(\rB\004\200\246\035\001\022\033\n\rcrate_item_id"
-  "\030\002 \001(\004B\004\200\246\035\001\022\027\n\017crate_def_index\030\003 \001(\r\022\022\n"
-  "\nissue_date\030\004 \001(\r\022\027\n\017expiration_date\030\005 \001"
-  "(\r\"8\n\037CMsgAcknowledgeRentalExpiration\022\025\n"
-  "\rcrate_item_id\030\001 \001(\004*\307\003\n\nEGCBaseMsg\022\032\n\025k"
-  "_EMsgGCSystemMessage\020\241\037\022\035\n\030k_EMsgGCRepli"
-  "cateConVars\020\242\037\022\032\n\025k_EMsgGCConVarUpdated\020"
-  "\243\037\022\024\n\017k_EMsgGCInQueue\020\250\037\022\032\n\025k_EMsgGCInvi"
-  "teToParty\020\225#\022\036\n\031k_EMsgGCInvitationCreate"
-  "d\020\226#\022 \n\033k_EMsgGCPartyInviteResponse\020\227#\022\032"
-  "\n\025k_EMsgGCKickFromParty\020\230#\022\027\n\022k_EMsgGCLe"
-  "aveParty\020\231#\022\034\n\027k_EMsgGCServerAvailable\020\232"
-  "#\022\"\n\035k_EMsgGCClientConnectToServer\020\233#\022\033\n"
-  "\026k_EMsgGCGameServerInfo\020\234#\022\022\n\rk_EMsgGCEr"
-  "ror\020\235#\022%\n k_EMsgGCReplay_UploadedToYouTu"
-  "be\020\236#\022\037\n\032k_EMsgGCLANServerAvailable\020\237#*Y"
-  "\n\027EGCBaseProtoObjectTypes\022\036\n\031k_EProtoObj"
-  "ectPartyInvite\020\351\007\022\036\n\031k_EProtoObjectLobby"
-  "Invite\020\352\007*T\n\021GC_BannedWordType\022\037\n\033GC_BAN"
-  "NED_WORD_DISABLE_WORD\020\000\022\036\n\032GC_BANNED_WOR"
-  "D_ENABLE_WORD\020\001"
+  "\001(\t\"\035\n\033CMsgRequestInventoryRefresh\"\216\001\n\013C"
+  "MsgUseItem\022\017\n\007item_id\030\001 \001(\004\022\027\n\017target_st"
+  "eam_id\030\002 \001(\006\022\037\n\027gift__potential_targets\030"
+  "\003 \003(\r\022\030\n\020duel__class_lock\030\004 \001(\r\022\032\n\022initi"
+  "ator_steam_id\030\005 \001(\006\"d\n\033CMsgReplayUploade"
+  "dToYouTube\022\023\n\013youtube_url\030\001 \001(\t\022\034\n\024youtu"
+  "be_account_name\030\002 \001(\t\022\022\n\nsession_id\030\003 \001("
+  "\004\".\n\027CMsgConsumableExhausted\022\023\n\013item_def"
+  "_id\030\001 \001(\005\"\236\001\n CMsgItemAcknowledged__DEPR"
+  "ECATED\022\022\n\naccount_id\030\001 \001(\r\022\021\n\tinventory\030"
+  "\002 \001(\r\022\021\n\tdef_index\030\003 \001(\r\022\017\n\007quality\030\004 \001("
+  "\r\022\016\n\006rarity\030\005 \001(\r\022\016\n\006origin\030\006 \001(\r\022\017\n\007ite"
+  "m_id\030\007 \001(\004\"\235\001\n\024CMsgSetItemPositions\022:\n\016i"
+  "tem_positions\030\001 \003(\0132\".CMsgSetItemPositio"
+  "ns.ItemPosition\032I\n\014ItemPosition\022\026\n\016legac"
+  "y_item_id\030\001 \001(\r\022\020\n\010position\030\002 \001(\r\022\017\n\007ite"
+  "m_id\030\003 \001(\004\"\270\001\n\021CMsgGCReportAbuse\022\027\n\017targ"
+  "et_steam_id\030\001 \001(\006\022\023\n\013description\030\004 \001(\t\022\013"
+  "\n\003gid\030\005 \001(\004\022\022\n\nabuse_type\030\002 \001(\r\022\024\n\014conte"
+  "nt_type\030\003 \001(\r\022\035\n\025target_game_server_ip\030\006"
+  " \001(\007\022\037\n\027target_game_server_port\030\007 \001(\r\"[\n"
+  "\031CMsgGCReportAbuseResponse\022\027\n\017target_ste"
+  "am_id\030\001 \001(\006\022\016\n\006result\030\002 \001(\r\022\025\n\rerror_mes"
+  "sage\030\003 \001(\t\"f\n\032CMsgGCNameItemNotification"
+  "\022\026\n\016player_steamid\030\001 \001(\006\022\026\n\016item_def_ind"
+  "ex\030\002 \001(\r\022\030\n\020item_name_custom\030\003 \001(\t\"\266\001\n\037C"
+  "MsgGCClientDisplayNotification\022+\n#notifi"
+  "cation_title_localization_key\030\001 \001(\t\022*\n\"n"
+  "otification_body_localization_key\030\002 \001(\t\022"
+  "\033\n\023body_substring_keys\030\003 \003(\t\022\035\n\025body_sub"
+  "string_values\030\004 \003(\t\"1\n\027CMsgGCShowItemsPi"
+  "ckedUp\022\026\n\016player_steamid\030\001 \001(\006\"|\n CMsgGC"
+  "IncrementKillCountResponse\022\037\n\021killer_acc"
+  "ount_id\030\001 \001(\rB\004\200\246\035\001\022\021\n\tnum_kills\030\002 \001(\r\022\020"
+  "\n\010item_def\030\003 \001(\r\022\022\n\nlevel_type\030\004 \001(\r\"\217\001\n"
+  "\030CSOEconItemDropRateBonus\022\022\n\naccount_id\030"
+  "\001 \001(\r\022\027\n\017expiration_date\030\002 \001(\007\022\r\n\005bonus\030"
+  "\003 \001(\002\022\023\n\013bonus_count\030\004 \001(\r\022\017\n\007item_id\030\005 "
+  "\001(\004\022\021\n\tdef_index\030\006 \001(\r\"p\n\031CSOEconItemLea"
+  "gueViewPass\022\030\n\naccount_id\030\001 \001(\rB\004\200\246\035\001\022\027\n"
+  "\tleague_id\030\002 \001(\rB\004\200\246\035\001\022\r\n\005admin\030\003 \001(\r\022\021\n"
+  "\titemindex\030\004 \001(\r\"O\n\026CSOEconItemEventTick"
+  "et\022\022\n\naccount_id\030\001 \001(\r\022\020\n\010event_id\030\002 \001(\r"
+  "\022\017\n\007item_id\030\003 \001(\004\"A\n\'CMsgGCItemPreviewIt"
+  "emBoughtNotification\022\026\n\016item_def_index\030\001"
+  " \001(\r\"+\n\031CMsgGCStorePurchaseCancel\022\016\n\006txn"
+  "_id\030\001 \001(\004\"3\n!CMsgGCStorePurchaseCancelRe"
+  "sponse\022\016\n\006result\030\001 \001(\r\"-\n\033CMsgGCStorePur"
+  "chaseFinalize\022\016\n\006txn_id\030\001 \001(\004\"G\n#CMsgGCS"
+  "torePurchaseFinalizeResponse\022\016\n\006result\030\001"
+  " \001(\r\022\020\n\010item_ids\030\002 \003(\004\"I\n\033CMsgGCBannedWo"
+  "rdListRequest\022\031\n\021ban_list_group_id\030\001 \001(\r"
+  "\022\017\n\007word_id\030\002 \001(\r\"\034\n\032CMsgGCRequestAnnoun"
+  "cements\"\202\001\n\"CMsgGCRequestAnnouncementsRe"
+  "sponse\022\032\n\022announcement_title\030\001 \001(\t\022\024\n\014an"
+  "nouncement\030\002 \001(\t\022\027\n\017nextmatch_title\030\003 \001("
+  "\t\022\021\n\tnextmatch\030\004 \001(\t\"u\n\020CMsgGCBannedWord"
+  "\022\017\n\007word_id\030\001 \001(\r\022B\n\tword_type\030\002 \001(\0162\022.G"
+  "C_BannedWordType:\033GC_BANNED_WORD_DISABLE"
+  "_WORD\022\014\n\004word\030\003 \001(\t\"_\n\034CMsgGCBannedWordL"
+  "istResponse\022\031\n\021ban_list_group_id\030\001 \001(\r\022$"
+  "\n\tword_list\030\002 \003(\0132\021.CMsgGCBannedWord\"U\n!"
+  "CMsgGCToGCBannedWordListBroadcast\0220\n\tbro"
+  "adcast\030\001 \001(\0132\035.CMsgGCBannedWordListRespo"
+  "nse\"3\n\037CMsgGCToGCBannedWordListUpdated\022\020"
+  "\n\010group_id\030\001 \001(\r\"\?\n\027CMsgGCToGCDirtySDOCa"
+  "che\022\020\n\010sdo_type\030\001 \001(\r\022\022\n\nkey_uint64\030\002 \001("
+  "\004\"G\n\037CMsgGCToGCDirtyMultipleSDOCache\022\020\n\010"
+  "sdo_type\030\001 \001(\r\022\022\n\nkey_uint64\030\002 \003(\004\"H\n\021CM"
+  "sgGCCollectItem\022\032\n\022collection_item_id\030\001 "
+  "\001(\004\022\027\n\017subject_item_id\030\002 \001(\004\"\024\n\022CMsgSDON"
+  "oMemcached\"/\n\033CMsgGCToGCUpdateSQLKeyValu"
+  "e\022\020\n\010key_name\030\001 \001(\t\"-\n\031CMsgGCToGCIsTrust"
+  "edServer\022\020\n\010steam_id\030\001 \001(\006\"7\n!CMsgGCToGC"
+  "IsTrustedServerResponse\022\022\n\nis_trusted\030\001 "
+  "\001(\010\"8\n!CMsgGCToGCBroadcastConsoleCommand"
+  "\022\023\n\013con_command\030\001 \001(\t\"4\n\032CMsgGCServerVer"
+  "sionUpdated\022\026\n\016server_version\030\001 \001(\r\"4\n\032C"
+  "MsgGCClientVersionUpdated\022\026\n\016client_vers"
+  "ion\030\001 \001(\r\" \n\036CMsgGCToGCWebAPIAccountChan"
+  "ged\"^\n\"CMsgGCToGCRequestPassportItemGran"
+  "t\022\020\n\010steam_id\030\001 \001(\006\022\021\n\tleague_id\030\002 \001(\r\022\023"
+  "\n\013reward_flag\030\003 \001(\005\"\350\004\n\022CMsgGameServerIn"
+  "fo\022\035\n\025server_public_ip_addr\030\001 \001(\007\022\036\n\026ser"
+  "ver_private_ip_addr\030\002 \001(\007\022\023\n\013server_port"
+  "\030\003 \001(\r\022\026\n\016server_tv_port\030\004 \001(\r\022\022\n\nserver"
+  "_key\030\005 \001(\t\022\032\n\022server_hibernation\030\006 \001(\010\022@"
+  "\n\013server_type\030\007 \001(\0162\036.CMsgGameServerInfo"
+  ".ServerType:\013UNSPECIFIED\022\025\n\rserver_regio"
+  "n\030\010 \001(\r\022\026\n\016server_loadavg\030\t \001(\002\022 \n\030serve"
+  "r_tv_broadcast_time\030\n \001(\002\022\030\n\020server_game"
+  "_time\030\013 \001(\002\022\'\n\037server_relay_connected_st"
+  "eam_id\030\014 \001(\006\022\027\n\017relay_slots_max\030\r \001(\r\022\030\n"
+  "\020relays_connected\030\016 \001(\005\022\037\n\027relay_clients"
+  "_connected\030\017 \001(\005\022$\n\034relayed_game_server_"
+  "steam_id\030\020 \001(\006\022\032\n\022parent_relay_count\030\021 \001"
+  "(\r\022\026\n\016tv_secret_code\030\022 \001(\006\"2\n\nServerType"
+  "\022\017\n\013UNSPECIFIED\020\000\022\010\n\004GAME\020\001\022\t\n\005PROXY\020\002\"\205"
+  "\001\n\020CSOEconEquipSlot\022\030\n\naccount_id\030\001 \001(\rB"
+  "\004\200\246\035\001\022\026\n\010class_id\030\002 \001(\rB\004\200\246\035\001\022\025\n\007slot_id"
+  "\030\003 \001(\rB\004\200\246\035\001\022\017\n\007item_id\030\004 \001(\004\022\027\n\017item_de"
+  "finition\030\005 \001(\r\"I\n\023CMsgAdjustEquipSlot\022\020\n"
+  "\010class_id\030\001 \001(\r\022\017\n\007slot_id\030\002 \001(\r\022\017\n\007item"
+  "_id\030\003 \001(\004\"O\n\024CMsgAdjustEquipSlots\022#\n\005slo"
+  "ts\030\001 \003(\0132\024.CMsgAdjustEquipSlot\022\022\n\nchange"
+  "_num\030\002 \001(\r\"\204\001\n\rCMsgOpenCrate\022\024\n\014tool_ite"
+  "m_id\030\001 \001(\004\022\027\n\017subject_item_id\030\002 \001(\004\022\022\n\nf"
+  "or_rental\030\003 \001(\010\022\030\n\020points_remaining\030\004 \001("
+  "\r\022\026\n\016volatile_limit\030\005 \001(\r\"\223\001\n\024CSOEconRen"
+  "talHistory\022\030\n\naccount_id\030\001 \001(\rB\004\200\246\035\001\022\033\n\r"
+  "crate_item_id\030\002 \001(\004B\004\200\246\035\001\022\027\n\017crate_def_i"
+  "ndex\030\003 \001(\r\022\022\n\nissue_date\030\004 \001(\r\022\027\n\017expira"
+  "tion_date\030\005 \001(\r\"8\n\037CMsgAcknowledgeRental"
+  "Expiration\022\025\n\rcrate_item_id\030\001 \001(\004*\307\003\n\nEG"
+  "CBaseMsg\022\032\n\025k_EMsgGCSystemMessage\020\241\037\022\035\n\030"
+  "k_EMsgGCReplicateConVars\020\242\037\022\032\n\025k_EMsgGCC"
+  "onVarUpdated\020\243\037\022\024\n\017k_EMsgGCInQueue\020\250\037\022\032\n"
+  "\025k_EMsgGCInviteToParty\020\225#\022\036\n\031k_EMsgGCInv"
+  "itationCreated\020\226#\022 \n\033k_EMsgGCPartyInvite"
+  "Response\020\227#\022\032\n\025k_EMsgGCKickFromParty\020\230#\022"
+  "\027\n\022k_EMsgGCLeaveParty\020\231#\022\034\n\027k_EMsgGCServ"
+  "erAvailable\020\232#\022\"\n\035k_EMsgGCClientConnectT"
+  "oServer\020\233#\022\033\n\026k_EMsgGCGameServerInfo\020\234#\022"
+  "\022\n\rk_EMsgGCError\020\235#\022%\n k_EMsgGCReplay_Up"
+  "loadedToYouTube\020\236#\022\037\n\032k_EMsgGCLANServerA"
+  "vailable\020\237#*Y\n\027EGCBaseProtoObjectTypes\022\036"
+  "\n\031k_EProtoObjectPartyInvite\020\351\007\022\036\n\031k_EPro"
+  "toObjectLobbyInvite\020\352\007*T\n\021GC_BannedWordT"
+  "ype\022\037\n\033GC_BANNED_WORD_DISABLE_WORD\020\000\022\036\n\032"
+  "GC_BANNED_WORD_ENABLE_WORD\020\001"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_base_5fgcmessages_2eproto_deps[1] = {
   &::descriptor_table_steammessages_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_base_5fgcmessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_base_5fgcmessages_2eproto = {
-    false, false, 9375, descriptor_table_protodef_base_5fgcmessages_2eproto,
+    false, false, 9268, descriptor_table_protodef_base_5fgcmessages_2eproto,
     "base_gcmessages.proto",
-    &descriptor_table_base_5fgcmessages_2eproto_once, descriptor_table_base_5fgcmessages_2eproto_deps, 1, 83,
+    &descriptor_table_base_5fgcmessages_2eproto_once, descriptor_table_base_5fgcmessages_2eproto_deps, 1, 81,
     schemas, file_default_instances, TableStruct_base_5fgcmessages_2eproto::offsets,
     file_level_metadata_base_5fgcmessages_2eproto, file_level_enum_descriptors_base_5fgcmessages_2eproto,
     file_level_service_descriptors_base_5fgcmessages_2eproto,
@@ -13557,475 +13505,6 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgRequestInventoryRefresh::G
 
 // ===================================================================
 
-class CMsgConVarValue::_Internal {
- public:
-  using HasBits = decltype(std::declval<CMsgConVarValue>()._impl_._has_bits_);
-  static void set_has_name(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_value(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-};
-
-CMsgConVarValue::CMsgConVarValue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CMsgConVarValue)
-}
-CMsgConVarValue::CMsgConVarValue(const CMsgConVarValue& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CMsgConVarValue* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){from._impl_._has_bits_}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.name_){}
-    , decltype(_impl_.value_){}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (from._internal_has_name()) {
-    _this->_impl_.name_.Set(from._internal_name(), 
-      _this->GetArenaForAllocation());
-  }
-  _impl_.value_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.value_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (from._internal_has_value()) {
-    _this->_impl_.value_.Set(from._internal_value(), 
-      _this->GetArenaForAllocation());
-  }
-  // @@protoc_insertion_point(copy_constructor:CMsgConVarValue)
-}
-
-inline void CMsgConVarValue::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.name_){}
-    , decltype(_impl_.value_){}
-  };
-  _impl_.name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.value_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.value_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-}
-
-CMsgConVarValue::~CMsgConVarValue() {
-  // @@protoc_insertion_point(destructor:CMsgConVarValue)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void CMsgConVarValue::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.name_.Destroy();
-  _impl_.value_.Destroy();
-}
-
-void CMsgConVarValue::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void CMsgConVarValue::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgConVarValue)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      _impl_.name_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _impl_.value_.ClearNonDefaultToEmpty();
-    }
-  }
-  _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgConVarValue::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // optional string name = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          #ifndef NDEBUG
-          ::_pbi::VerifyUTF8(str, "CMsgConVarValue.name");
-          #endif  // !NDEBUG
-        } else
-          goto handle_unusual;
-        continue;
-      // optional string value = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
-          auto str = _internal_mutable_value();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          #ifndef NDEBUG
-          ::_pbi::VerifyUTF8(str, "CMsgConVarValue.value");
-          #endif  // !NDEBUG
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  _impl_._has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* CMsgConVarValue::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgConVarValue)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _impl_._has_bits_[0];
-  // optional string name = 1;
-  if (cached_has_bits & 0x00000001u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgConVarValue.name");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
-  }
-
-  // optional string value = 2;
-  if (cached_has_bits & 0x00000002u) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->_internal_value().data(), static_cast<int>(this->_internal_value().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
-      "CMsgConVarValue.value");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_value(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgConVarValue)
-  return target;
-}
-
-size_t CMsgConVarValue::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgConVarValue)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional string name = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_name());
-    }
-
-    // optional string value = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_value());
-    }
-
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgConVarValue::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CMsgConVarValue::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgConVarValue::GetClassData() const { return &_class_data_; }
-
-
-void CMsgConVarValue::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CMsgConVarValue*>(&to_msg);
-  auto& from = static_cast<const CMsgConVarValue&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgConVarValue)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_name(from._internal_name());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_internal_set_value(from._internal_value());
-    }
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void CMsgConVarValue::CopyFrom(const CMsgConVarValue& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgConVarValue)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgConVarValue::IsInitialized() const {
-  return true;
-}
-
-void CMsgConVarValue::InternalSwap(CMsgConVarValue* other) {
-  using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.name_, lhs_arena,
-      &other->_impl_.name_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.value_, lhs_arena,
-      &other->_impl_.value_, rhs_arena
-  );
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgConVarValue::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[35]);
-}
-
-// ===================================================================
-
-class CMsgReplicateConVars::_Internal {
- public:
-};
-
-CMsgReplicateConVars::CMsgReplicateConVars(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CMsgReplicateConVars)
-}
-CMsgReplicateConVars::CMsgReplicateConVars(const CMsgReplicateConVars& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CMsgReplicateConVars* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.convars_){from._impl_.convars_}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:CMsgReplicateConVars)
-}
-
-inline void CMsgReplicateConVars::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.convars_){arena}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-}
-
-CMsgReplicateConVars::~CMsgReplicateConVars() {
-  // @@protoc_insertion_point(destructor:CMsgReplicateConVars)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void CMsgReplicateConVars::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.convars_.~RepeatedPtrField();
-}
-
-void CMsgReplicateConVars::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void CMsgReplicateConVars::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgReplicateConVars)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  _impl_.convars_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CMsgReplicateConVars::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // repeated .CMsgConVarValue convars = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_convars(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* CMsgReplicateConVars::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgReplicateConVars)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // repeated .CMsgConVarValue convars = 1;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_convars_size()); i < n; i++) {
-    const auto& repfield = this->_internal_convars(i);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgReplicateConVars)
-  return target;
-}
-
-size_t CMsgReplicateConVars::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgReplicateConVars)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // repeated .CMsgConVarValue convars = 1;
-  total_size += 1UL * this->_internal_convars_size();
-  for (const auto& msg : this->_impl_.convars_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgReplicateConVars::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CMsgReplicateConVars::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgReplicateConVars::GetClassData() const { return &_class_data_; }
-
-
-void CMsgReplicateConVars::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CMsgReplicateConVars*>(&to_msg);
-  auto& from = static_cast<const CMsgReplicateConVars&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgReplicateConVars)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  _this->_impl_.convars_.MergeFrom(from._impl_.convars_);
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void CMsgReplicateConVars::CopyFrom(const CMsgReplicateConVars& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgReplicateConVars)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CMsgReplicateConVars::IsInitialized() const {
-  return true;
-}
-
-void CMsgReplicateConVars::InternalSwap(CMsgReplicateConVars* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.convars_.InternalSwap(&other->_impl_.convars_);
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgReplicateConVars::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[36]);
-}
-
-// ===================================================================
-
 class CMsgUseItem::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgUseItem>()._impl_._has_bits_);
@@ -14351,7 +13830,7 @@ void CMsgUseItem::InternalSwap(CMsgUseItem* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgUseItem::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[37]);
+      file_level_metadata_base_5fgcmessages_2eproto[35]);
 }
 
 // ===================================================================
@@ -14667,7 +14146,7 @@ void CMsgReplayUploadedToYouTube::InternalSwap(CMsgReplayUploadedToYouTube* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgReplayUploadedToYouTube::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[38]);
+      file_level_metadata_base_5fgcmessages_2eproto[36]);
 }
 
 // ===================================================================
@@ -14858,7 +14337,7 @@ void CMsgConsumableExhausted::InternalSwap(CMsgConsumableExhausted* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgConsumableExhausted::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[39]);
+      file_level_metadata_base_5fgcmessages_2eproto[37]);
 }
 
 // ===================================================================
@@ -15235,7 +14714,7 @@ void CMsgItemAcknowledged__DEPRECATED::InternalSwap(CMsgItemAcknowledged__DEPREC
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgItemAcknowledged__DEPRECATED::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[40]);
+      file_level_metadata_base_5fgcmessages_2eproto[38]);
 }
 
 // ===================================================================
@@ -15500,7 +14979,7 @@ void CMsgSetItemPositions_ItemPosition::InternalSwap(CMsgSetItemPositions_ItemPo
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSetItemPositions_ItemPosition::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[41]);
+      file_level_metadata_base_5fgcmessages_2eproto[39]);
 }
 
 // ===================================================================
@@ -15685,7 +15164,7 @@ void CMsgSetItemPositions::InternalSwap(CMsgSetItemPositions* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSetItemPositions::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[42]);
+      file_level_metadata_base_5fgcmessages_2eproto[40]);
 }
 
 // ===================================================================
@@ -16093,7 +15572,7 @@ void CMsgGCReportAbuse::InternalSwap(CMsgGCReportAbuse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCReportAbuse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[43]);
+      file_level_metadata_base_5fgcmessages_2eproto[41]);
 }
 
 // ===================================================================
@@ -16389,7 +15868,7 @@ void CMsgGCReportAbuseResponse::InternalSwap(CMsgGCReportAbuseResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCReportAbuseResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[44]);
+      file_level_metadata_base_5fgcmessages_2eproto[42]);
 }
 
 // ===================================================================
@@ -16685,7 +16164,7 @@ void CMsgGCNameItemNotification::InternalSwap(CMsgGCNameItemNotification* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCNameItemNotification::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[45]);
+      file_level_metadata_base_5fgcmessages_2eproto[43]);
 }
 
 // ===================================================================
@@ -17051,7 +16530,7 @@ void CMsgGCClientDisplayNotification::InternalSwap(CMsgGCClientDisplayNotificati
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCClientDisplayNotification::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[46]);
+      file_level_metadata_base_5fgcmessages_2eproto[44]);
 }
 
 // ===================================================================
@@ -17242,7 +16721,7 @@ void CMsgGCShowItemsPickedUp::InternalSwap(CMsgGCShowItemsPickedUp* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCShowItemsPickedUp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[47]);
+      file_level_metadata_base_5fgcmessages_2eproto[45]);
 }
 
 // ===================================================================
@@ -17535,7 +17014,7 @@ void CMsgGCIncrementKillCountResponse::InternalSwap(CMsgGCIncrementKillCountResp
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCIncrementKillCountResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[48]);
+      file_level_metadata_base_5fgcmessages_2eproto[46]);
 }
 
 // ===================================================================
@@ -17884,7 +17363,7 @@ void CSOEconItemDropRateBonus::InternalSwap(CSOEconItemDropRateBonus* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CSOEconItemDropRateBonus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[49]);
+      file_level_metadata_base_5fgcmessages_2eproto[47]);
 }
 
 // ===================================================================
@@ -18177,7 +17656,7 @@ void CSOEconItemLeagueViewPass::InternalSwap(CSOEconItemLeagueViewPass* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CSOEconItemLeagueViewPass::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[50]);
+      file_level_metadata_base_5fgcmessages_2eproto[48]);
 }
 
 // ===================================================================
@@ -18442,7 +17921,7 @@ void CSOEconItemEventTicket::InternalSwap(CSOEconItemEventTicket* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CSOEconItemEventTicket::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[51]);
+      file_level_metadata_base_5fgcmessages_2eproto[49]);
 }
 
 // ===================================================================
@@ -18633,7 +18112,7 @@ void CMsgGCItemPreviewItemBoughtNotification::InternalSwap(CMsgGCItemPreviewItem
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCItemPreviewItemBoughtNotification::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[52]);
+      file_level_metadata_base_5fgcmessages_2eproto[50]);
 }
 
 // ===================================================================
@@ -18824,7 +18303,7 @@ void CMsgGCStorePurchaseCancel::InternalSwap(CMsgGCStorePurchaseCancel* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCStorePurchaseCancel::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[53]);
+      file_level_metadata_base_5fgcmessages_2eproto[51]);
 }
 
 // ===================================================================
@@ -19015,7 +18494,7 @@ void CMsgGCStorePurchaseCancelResponse::InternalSwap(CMsgGCStorePurchaseCancelRe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCStorePurchaseCancelResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[54]);
+      file_level_metadata_base_5fgcmessages_2eproto[52]);
 }
 
 // ===================================================================
@@ -19206,7 +18685,7 @@ void CMsgGCStorePurchaseFinalize::InternalSwap(CMsgGCStorePurchaseFinalize* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCStorePurchaseFinalize::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[55]);
+      file_level_metadata_base_5fgcmessages_2eproto[53]);
 }
 
 // ===================================================================
@@ -19434,7 +18913,7 @@ void CMsgGCStorePurchaseFinalizeResponse::InternalSwap(CMsgGCStorePurchaseFinali
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCStorePurchaseFinalizeResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[56]);
+      file_level_metadata_base_5fgcmessages_2eproto[54]);
 }
 
 // ===================================================================
@@ -19671,7 +19150,7 @@ void CMsgGCBannedWordListRequest::InternalSwap(CMsgGCBannedWordListRequest* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCBannedWordListRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[57]);
+      file_level_metadata_base_5fgcmessages_2eproto[55]);
 }
 
 // ===================================================================
@@ -19711,7 +19190,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgGCRequestAnnouncements::Ge
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCRequestAnnouncements::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[58]);
+      file_level_metadata_base_5fgcmessages_2eproto[56]);
 }
 
 // ===================================================================
@@ -20109,7 +19588,7 @@ void CMsgGCRequestAnnouncementsResponse::InternalSwap(CMsgGCRequestAnnouncements
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCRequestAnnouncementsResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[59]);
+      file_level_metadata_base_5fgcmessages_2eproto[57]);
 }
 
 // ===================================================================
@@ -20411,7 +19890,7 @@ void CMsgGCBannedWord::InternalSwap(CMsgGCBannedWord* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCBannedWord::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[60]);
+      file_level_metadata_base_5fgcmessages_2eproto[58]);
 }
 
 // ===================================================================
@@ -20636,7 +20115,7 @@ void CMsgGCBannedWordListResponse::InternalSwap(CMsgGCBannedWordListResponse* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCBannedWordListResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[61]);
+      file_level_metadata_base_5fgcmessages_2eproto[59]);
 }
 
 // ===================================================================
@@ -20842,7 +20321,7 @@ void CMsgGCToGCBannedWordListBroadcast::InternalSwap(CMsgGCToGCBannedWordListBro
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToGCBannedWordListBroadcast::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[62]);
+      file_level_metadata_base_5fgcmessages_2eproto[60]);
 }
 
 // ===================================================================
@@ -21033,7 +20512,7 @@ void CMsgGCToGCBannedWordListUpdated::InternalSwap(CMsgGCToGCBannedWordListUpdat
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToGCBannedWordListUpdated::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[63]);
+      file_level_metadata_base_5fgcmessages_2eproto[61]);
 }
 
 // ===================================================================
@@ -21270,7 +20749,7 @@ void CMsgGCToGCDirtySDOCache::InternalSwap(CMsgGCToGCDirtySDOCache* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToGCDirtySDOCache::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[64]);
+      file_level_metadata_base_5fgcmessages_2eproto[62]);
 }
 
 // ===================================================================
@@ -21498,7 +20977,7 @@ void CMsgGCToGCDirtyMultipleSDOCache::InternalSwap(CMsgGCToGCDirtyMultipleSDOCac
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToGCDirtyMultipleSDOCache::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[65]);
+      file_level_metadata_base_5fgcmessages_2eproto[63]);
 }
 
 // ===================================================================
@@ -21735,7 +21214,7 @@ void CMsgGCCollectItem::InternalSwap(CMsgGCCollectItem* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCCollectItem::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[66]);
+      file_level_metadata_base_5fgcmessages_2eproto[64]);
 }
 
 // ===================================================================
@@ -21775,7 +21254,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgSDONoMemcached::GetClassDa
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgSDONoMemcached::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[67]);
+      file_level_metadata_base_5fgcmessages_2eproto[65]);
 }
 
 // ===================================================================
@@ -21995,7 +21474,7 @@ void CMsgGCToGCUpdateSQLKeyValue::InternalSwap(CMsgGCToGCUpdateSQLKeyValue* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToGCUpdateSQLKeyValue::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[68]);
+      file_level_metadata_base_5fgcmessages_2eproto[66]);
 }
 
 // ===================================================================
@@ -22186,7 +21665,7 @@ void CMsgGCToGCIsTrustedServer::InternalSwap(CMsgGCToGCIsTrustedServer* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToGCIsTrustedServer::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[69]);
+      file_level_metadata_base_5fgcmessages_2eproto[67]);
 }
 
 // ===================================================================
@@ -22377,7 +21856,7 @@ void CMsgGCToGCIsTrustedServerResponse::InternalSwap(CMsgGCToGCIsTrustedServerRe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToGCIsTrustedServerResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[70]);
+      file_level_metadata_base_5fgcmessages_2eproto[68]);
 }
 
 // ===================================================================
@@ -22597,7 +22076,7 @@ void CMsgGCToGCBroadcastConsoleCommand::InternalSwap(CMsgGCToGCBroadcastConsoleC
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToGCBroadcastConsoleCommand::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[71]);
+      file_level_metadata_base_5fgcmessages_2eproto[69]);
 }
 
 // ===================================================================
@@ -22788,7 +22267,7 @@ void CMsgGCServerVersionUpdated::InternalSwap(CMsgGCServerVersionUpdated* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCServerVersionUpdated::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[72]);
+      file_level_metadata_base_5fgcmessages_2eproto[70]);
 }
 
 // ===================================================================
@@ -22979,7 +22458,7 @@ void CMsgGCClientVersionUpdated::InternalSwap(CMsgGCClientVersionUpdated* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCClientVersionUpdated::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[73]);
+      file_level_metadata_base_5fgcmessages_2eproto[71]);
 }
 
 // ===================================================================
@@ -23019,7 +22498,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgGCToGCWebAPIAccountChanged
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToGCWebAPIAccountChanged::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[74]);
+      file_level_metadata_base_5fgcmessages_2eproto[72]);
 }
 
 // ===================================================================
@@ -23284,7 +22763,7 @@ void CMsgGCToGCRequestPassportItemGrant::InternalSwap(CMsgGCToGCRequestPassportI
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToGCRequestPassportItemGrant::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[75]);
+      file_level_metadata_base_5fgcmessages_2eproto[73]);
 }
 
 // ===================================================================
@@ -24028,7 +23507,7 @@ void CMsgGameServerInfo::InternalSwap(CMsgGameServerInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGameServerInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[76]);
+      file_level_metadata_base_5fgcmessages_2eproto[74]);
 }
 
 // ===================================================================
@@ -24349,7 +23828,7 @@ void CSOEconEquipSlot::InternalSwap(CSOEconEquipSlot* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CSOEconEquipSlot::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[77]);
+      file_level_metadata_base_5fgcmessages_2eproto[75]);
 }
 
 // ===================================================================
@@ -24614,7 +24093,7 @@ void CMsgAdjustEquipSlot::InternalSwap(CMsgAdjustEquipSlot* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgAdjustEquipSlot::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[78]);
+      file_level_metadata_base_5fgcmessages_2eproto[76]);
 }
 
 // ===================================================================
@@ -24839,7 +24318,7 @@ void CMsgAdjustEquipSlots::InternalSwap(CMsgAdjustEquipSlots* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgAdjustEquipSlots::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[79]);
+      file_level_metadata_base_5fgcmessages_2eproto[77]);
 }
 
 // ===================================================================
@@ -25160,7 +24639,7 @@ void CMsgOpenCrate::InternalSwap(CMsgOpenCrate* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgOpenCrate::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[80]);
+      file_level_metadata_base_5fgcmessages_2eproto[78]);
 }
 
 // ===================================================================
@@ -25481,7 +24960,7 @@ void CSOEconRentalHistory::InternalSwap(CSOEconRentalHistory* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CSOEconRentalHistory::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[81]);
+      file_level_metadata_base_5fgcmessages_2eproto[79]);
 }
 
 // ===================================================================
@@ -25672,7 +25151,7 @@ void CMsgAcknowledgeRentalExpiration::InternalSwap(CMsgAcknowledgeRentalExpirati
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgAcknowledgeRentalExpiration::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_base_5fgcmessages_2eproto_getter, &descriptor_table_base_5fgcmessages_2eproto_once,
-      file_level_metadata_base_5fgcmessages_2eproto[82]);
+      file_level_metadata_base_5fgcmessages_2eproto[80]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -25816,14 +25295,6 @@ Arena::CreateMaybeMessage< ::CMsgGCError >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CMsgRequestInventoryRefresh*
 Arena::CreateMaybeMessage< ::CMsgRequestInventoryRefresh >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgRequestInventoryRefresh >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgConVarValue*
-Arena::CreateMaybeMessage< ::CMsgConVarValue >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgConVarValue >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CMsgReplicateConVars*
-Arena::CreateMaybeMessage< ::CMsgReplicateConVars >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgReplicateConVars >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgUseItem*
 Arena::CreateMaybeMessage< ::CMsgUseItem >(Arena* arena) {
