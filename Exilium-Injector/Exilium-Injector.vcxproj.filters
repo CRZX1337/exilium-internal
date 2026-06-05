@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Exilium-Injector">
+      <UniqueIdentifier>{9c07d84f-e39a-4705-8217-1dbb5ae8bdb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exilium-Injector\Common">
+      <UniqueIdentifier>{59b7c3b3-cff8-4adf-854f-183274448de6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Exilium-Injector\CInjector.cpp">
+      <Filter>Exilium-Injector</Filter>
+    </ClCompile>
+    <ClCompile Include="Exilium-Injector\Main.cpp">
+      <Filter>Exilium-Injector</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Exilium-Injector\CInjector.h">
+      <Filter>Exilium-Injector</Filter>
+    </ClInclude>
+    <ClInclude Include="Exilium-Injector\Main.h">
+      <Filter>Exilium-Injector</Filter>
+    </ClInclude>
+    <ClInclude Include="Exilium-Injector\Common\Common.h">
+      <Filter>Exilium-Injector\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Exilium-Injector\Common\Singleton.h">
+      <Filter>Exilium-Injector\Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.gitattributes" />
+    <None Include="..\.gitignore" />
+  </ItemGroup>
+</Project>
