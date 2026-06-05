@@ -9,7 +9,7 @@ auto Hook_SOCacheSubscribed( CCSPlayerInventory* pCSPlayerInventory , GCSDK::SOI
 
 	if ( pCSPlayerInventory->GetOwner().m_type == owner.m_type && pCSPlayerInventory->GetOwner().m_id == owner.m_id )
 	{
-		GetInventoryItemsManager()->OnAddAllItems();
+		GetInventoryItemsManager()->ScanAllItems();
 	}
 
 	return pResult;
