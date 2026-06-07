@@ -17,6 +17,8 @@
 #include <ExiliumClient/CExiliumClient.hpp>
 #include <ExiliumClient/Settings/Settings.hpp>
 
+#include <ExiliumClient/GUI/custom.h>
+
 static CExiliumGUI g_ExiliumGUI{};
 
 IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler( HWND hwnd , UINT msg , WPARAM wParam , LPARAM lParam );
@@ -108,6 +110,8 @@ auto CExiliumGUI::InitFont() -> void
 	}
 
 	CoTaskMemFree( szWindowsFontPath );
+
+	custom::InitFonts();
 }
 
 void CExiliumGUI::OnPresent( IDXGISwapChain* pSwapChain )

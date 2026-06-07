@@ -18,7 +18,11 @@ auto CExiliumMenu::OnRenderMenu() -> void
 {
 	// Handle INSERT key toggle
 	if ( GetAsyncKeyState( VK_INSERT ) & 1 )
+	{
 		toggled = !toggled;
+		ImGui::GetIO().MouseDrawCursor = toggled;
+		ShowCursor( !toggled );
+	}
 
 	// Alpha animation
 	open_alpha = ImClamp( open_alpha + 2.f * ImGui::GetIO().DeltaTime * ( toggled ? 1.5f : -1.5f ), 0.f, 1.f );

@@ -91,11 +91,11 @@ void custom::BeginStyle()
     ImGui::PushStyleColor(ImGuiCol_TextDisabled,        ImVec4(0.33f, 0.33f, 0.33f, 1.00f));
     ImGui::PushStyleColor(ImGuiCol_WindowBg,            ImVec4(0.10f, 0.10f, 0.10f, 1.00f));
     ImGui::PushStyleColor(ImGuiCol_ChildBg,             ImVec4(0.10f, 0.10f, 0.10f, 1.00f));
-    ImGui::PushStyleColor(ImGuiCol_PopupBg,             ImVec4(0.12f, 0.12f, 0.12f, 1.00f));
-    ImGui::PushStyleColor(ImGuiCol_Border,              ImVec4(0.20f, 0.20f, 0.20f, 1.00f));
-    ImGui::PushStyleColor(ImGuiCol_FrameBg,             ImVec4(0.16f, 0.16f, 0.16f, 1.00f));
-    ImGui::PushStyleColor(ImGuiCol_FrameBgHovered,      ImVec4(0.20f, 0.20f, 0.20f, 1.00f));
-    ImGui::PushStyleColor(ImGuiCol_FrameBgActive,       ImVec4(0.24f, 0.24f, 0.24f, 1.00f));
+    ImGui::PushStyleColor(ImGuiCol_PopupBg,             ImVec4(0.102f, 0.102f, 0.102f, 1.00f));
+    ImGui::PushStyleColor(ImGuiCol_Border,              ImVec4(0.227f, 0.227f, 0.227f, 1.00f));
+    ImGui::PushStyleColor(ImGuiCol_FrameBg,             ImVec4(0.145f, 0.145f, 0.145f, 1.00f));
+    ImGui::PushStyleColor(ImGuiCol_FrameBgHovered,      ImVec4(0.18f, 0.18f, 0.18f, 1.00f));
+    ImGui::PushStyleColor(ImGuiCol_FrameBgActive,       ImVec4(0.20f, 0.20f, 0.20f, 1.00f));
     ImGui::PushStyleColor(ImGuiCol_CheckMark,           accent);
     ImGui::PushStyleColor(ImGuiCol_SliderGrab,          accent);
     ImGui::PushStyleColor(ImGuiCol_SliderGrabActive,    accent_hover);
@@ -111,8 +111,9 @@ void custom::BeginStyle()
     ImGui::PushStyleColor(ImGuiCol_ScrollbarGrabActive,  ImVec4(0.40f, 0.40f, 0.40f, 1.00f));
 
     ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding,    3.0f);
-    ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize,  1.0f);
+    ImGui::PushStyleVar(ImGuiStyleVar_FrameBorderSize,  0.0f);
     ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize,      6.0f);
+    ImGui::PushStyleVar(ImGuiStyleVar_GrabRounding,     4.0f);
     ImGui::PushStyleVar(ImGuiStyleVar_ScrollbarSize,    8.0f);
     ImGui::PushStyleVar(ImGuiStyleVar_ChildRounding,    4.0f);
     ImGui::PushStyleVar(ImGuiStyleVar_ChildBorderSize,  1.0f);
@@ -123,7 +124,7 @@ void custom::BeginStyle()
 
 void custom::EndStyle()
 {
-    ImGui::PopStyleVar(9);
+    ImGui::PopStyleVar(10);
     ImGui::PopStyleColor(22);
 }
 
@@ -175,7 +176,9 @@ bool ImGui::Rendertab(const char* icon, const char* label, bool selected)
     ImU32 icon_col = selected
         ? ImColor(accent.x, accent.y, accent.z, 1.0f)
         : ImColor(ImLerp(ImVec4(0.50f, 0.50f, 0.50f, 1.0f), ImVec4(0.80f, 0.80f, 0.80f, 1.0f), ha));
+    ImGui::PushFont(font_icon);
     draw->AddText(font_icon, 16.0f, ImVec2(bb.Min.x + 10.0f, bb.Min.y + 8.0f), icon_col, icon);
+    ImGui::PopFont();
 
     ImU32 label_col = selected
         ? ImColor(1.0f, 1.0f, 1.0f, 1.0f)
