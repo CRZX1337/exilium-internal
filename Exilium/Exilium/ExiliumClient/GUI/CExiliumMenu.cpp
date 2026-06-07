@@ -30,7 +30,7 @@ auto CExiliumMenu::OnRenderMenu() -> void
 	ImGui::SetNextWindowSize( ImVec2( 838, 535 ), ImGuiCond_Always );
 	ImGui::SetNextWindowPos( ImVec2( 100, 100 ), ImGuiCond_FirstUseEver );
 
-	ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoMove;
+	ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground;
 
 	if ( ImGui::Begin( XorStr( "##Exilium" ), nullptr, window_flags ) )
 	{
@@ -88,12 +88,11 @@ auto CExiliumMenu::OnRenderMenu() -> void
 		draw->AddText( poppins, 17.0f, window_pos + ImVec2( 13, 310 ), IM_COL32( 105, 105, 105, 255 ), XorStr( "Misc" ) );
 
 		// TAB CONTENT - Right Panel
-		ImGui::SetCursorPos( ImVec2( 169, 38 ) );
-
 		switch ( m_tab )
 		{
 		case 0: // Legit Bot
 		{
+			ImGui::SetCursorPos( ImVec2( 169, 38 ) );
 			ImGui::MenuChild( XorStr( "General" ), ImVec2( 320, 220 ) );
 			ImGui::Checkbox( XorStr( "Legit Aimbot" ), &Settings::Aimbot::Active );
 			ImGui::SliderInt( XorStr( "FOV" ), &Settings::Aimbot::Fov, 0, 30 );
@@ -111,6 +110,8 @@ auto CExiliumMenu::OnRenderMenu() -> void
 		}
 
 		case 1: // Triggerbot
+		{
+			ImGui::SetCursorPos( ImVec2( 169, 38 ) );
 			ImGui::MenuChild( XorStr( "Triggerbot" ), ImVec2( 320, 220 ) );
 			ImGui::Checkbox( XorStr( "Enable" ), &Settings::Trigger::Active );
 			ImGui::SliderInt( XorStr( "Delay ms" ), &Settings::Trigger::Delay, 0, 500 );
@@ -119,8 +120,11 @@ auto CExiliumMenu::OnRenderMenu() -> void
 			ImGui::Checkbox( XorStr( "Visible Only" ), &Settings::Trigger::VisibleOnly );
 			ImGui::EndChild();
 			break;
+		}
 
 		case 2: // RCS
+		{
+			ImGui::SetCursorPos( ImVec2( 169, 38 ) );
 			ImGui::MenuChild( XorStr( "Recoil Control" ), ImVec2( 320, 180 ) );
 			ImGui::Checkbox( XorStr( "Enable RCS" ), &Settings::RCS::Active );
 			ImGui::SliderFloat( XorStr( "X Scale" ), &Settings::RCS::ScaleX, 0.0f, 100.0f );
@@ -128,9 +132,11 @@ auto CExiliumMenu::OnRenderMenu() -> void
 			ImGui::Checkbox( XorStr( "Only While Firing" ), &Settings::RCS::OnlyWhileShooting );
 			ImGui::EndChild();
 			break;
+		}
 
 		case 3: // Players (ESP)
 		{
+			ImGui::SetCursorPos( ImVec2( 169, 38 ) );
 			ImGui::MenuChild( XorStr( "Player ESP" ), ImVec2( 320, 240 ) );
 			ImGui::Checkbox( XorStr( "Active" ), &Settings::Visual::Active );
 			ImGui::Checkbox( XorStr( "Enemy" ), &Settings::Visual::Enemy );
@@ -143,7 +149,8 @@ auto CExiliumMenu::OnRenderMenu() -> void
 			ImGui::Checkbox( XorStr( "Glow" ), &Settings::Visual::Glow );
 			ImGui::EndChild();
 
-			ImGui::SetCursorPos( ImVec2( 169, 320 ) );
+			ImGui::SameLine();
+			ImGui::SetCursorPos( ImVec2( 499, 38 ) );
 			ImGui::MenuChild( XorStr( "ESP Extras" ), ImVec2( 320, 160 ) );
 			ImGui::Checkbox( XorStr( "Health Bar" ), &Settings::Visual::HealthBar );
 			ImGui::Checkbox( XorStr( "Name" ), &Settings::Visual::NameESP );
@@ -154,20 +161,28 @@ auto CExiliumMenu::OnRenderMenu() -> void
 		}
 
 		case 4: // World
+		{
+			ImGui::SetCursorPos( ImVec2( 169, 38 ) );
 			ImGui::MenuChild( XorStr( "Misc Visuals" ), ImVec2( 320, 140 ) );
 			ImGui::Checkbox( XorStr( "No Flash" ), &Settings::Misc::NoFlash );
 			ImGui::EndChild();
 			break;
+		}
 
 		case 5: // Movement
+		{
+			ImGui::SetCursorPos( ImVec2( 169, 38 ) );
 			ImGui::MenuChild( XorStr( "Movement" ), ImVec2( 320, 160 ) );
 			ImGui::Checkbox( XorStr( "Bhop" ), &Settings::Movement::Bhop );
 			ImGui::Checkbox( XorStr( "Auto Strafe" ), &Settings::Movement::AutoStrafe );
 			ImGui::Checkbox( XorStr( "Edge Jump" ), &Settings::Movement::EdgeJump );
 			ImGui::EndChild();
 			break;
+		}
 
 		case 6: // Inventory Changer
+		{
+			ImGui::SetCursorPos( ImVec2( 169, 38 ) );
 			ImGui::MenuChild( XorStr( "Inventory Changer" ), ImVec2( 650, 470 ) );
 			{
 				auto* pInventoryManager = GetInventoryItemsManager();
@@ -276,14 +291,18 @@ auto CExiliumMenu::OnRenderMenu() -> void
 			}
 			ImGui::EndChild();
 			break;
+		}
 
 		case 7: // Config
+		{
+			ImGui::SetCursorPos( ImVec2( 169, 38 ) );
 			ImGui::MenuChild( XorStr( "Config" ), ImVec2( 650, 300 ) );
 			ImGui::Text( XorStr( "Config system coming soon..." ) );
 			ImGui::Button( XorStr( "Save Config" ), ImVec2( -1, 30 ) );
 			ImGui::Button( XorStr( "Load Config" ), ImVec2( -1, 30 ) );
 			ImGui::EndChild();
 			break;
+		}
 		}
 	}
 

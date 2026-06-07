@@ -13,4 +13,7 @@ extern float accent_colour[4];
 
 namespace custom {
     bool selected(const char* label, bool tab = false);
+    void InitFonts();
+    void BeginStyle();
+    void EndStyle();
 }
