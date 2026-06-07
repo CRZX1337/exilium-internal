@@ -144,6 +144,8 @@
     <ClCompile Include="Exilium\ExiliumClient\Fonts\CFont.cpp" />
     <ClCompile Include="Exilium\ExiliumClient\Fonts\CFontManager.cpp" />
     <ClCompile Include="Exilium\ExiliumClient\GUI\CExiliumMenu.cpp" />
+    <ClCompile Include="Exilium\ExiliumClient\GUI\custom.cpp" />
+    <ClCompile Include="Exilium\ExiliumClient\GUI\globals.cpp" />
     <ClCompile Include="Exilium\ExiliumClient\Render\CRender.cpp" />
     <ClCompile Include="Exilium\ExiliumClient\Render\CRenderStackSystem.cpp" />
     <ClCompile Include="Exilium\ExiliumClient\Settings\CSettingsJson.cpp" />
@@ -264,6 +266,9 @@
     <ClInclude Include="Exilium\ExiliumClient\Fonts\CFont.hpp" />
     <ClInclude Include="Exilium\ExiliumClient\Fonts\CFontManager.hpp" />
     <ClInclude Include="Exilium\ExiliumClient\GUI\CExiliumMenu.hpp" />
+    <ClInclude Include="Exilium\ExiliumClient\GUI\custom.h" />
+    <ClInclude Include="Exilium\ExiliumClient\GUI\globals.h" />
+    <ClInclude Include="Exilium\ExiliumClient\GUI\bytearray.h" />
     <ClInclude Include="Exilium\ExiliumClient\Render\CRender.hpp" />
     <ClInclude Include="Exilium\ExiliumClient\Render\CRenderStackSystem.hpp" />
     <ClInclude Include="Exilium\ExiliumClient\Settings\CSettingsJson.hpp" />

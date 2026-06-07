@@ -1,337 +1,295 @@
 #include "CExiliumMenu.hpp"
 
 #include <ImGui/imgui.h>
+#include <Common/Include/XorStr/XorStr.hpp>
 
 #include <ExiliumClient/Settings/Settings.hpp>
 #include <ExiliumClient/CExiliumGUI.hpp>
 #include <ExiliumClient/Features/CInventoryChanger/CInventoryItemsManager.hpp>
+#include <ExiliumClient/GUI/custom.h>
+#include <ExiliumClient/GUI/globals.h>
 
 static CExiliumMenu g_CExiliumMenu{};
 
+bool CExiliumMenu::toggled = false;
+float CExiliumMenu::open_alpha = 0.0f;
+
 auto CExiliumMenu::OnRenderMenu() -> void
 {
-	const float MenuAlpha = static_cast<float>( Settings::Menu::MenuAlpha ) / 255.f;
+	// Handle INSERT key toggle
+	if ( GetAsyncKeyState( VK_INSERT ) & 1 )
+		toggled = !toggled;
 
-	ImGui::PushStyleVar( ImGuiStyleVar_Alpha , MenuAlpha );
-	ImGui::SetNextWindowSize( ImVec2( 500 , 500 ) , ImGuiCond_FirstUseEver );
+	// Alpha animation
+	open_alpha = ImClamp( open_alpha + 2.f * ImGui::GetIO().DeltaTime * ( toggled ? 1.5f : -1.5f ), 0.f, 1.f );
 
-	if ( ImGui::Begin( XorStr( CHEAT_NAME ) , 0 ) )
+	if ( open_alpha <= 0.0f )
+		return;
+
+	ImGui::PushStyleVar( ImGuiStyleVar_Alpha, open_alpha );
+	ImGui::SetNextWindowSize( ImVec2( 838, 535 ), ImGuiCond_Always );
+	ImGui::SetNextWindowPos( ImVec2( 100, 100 ), ImGuiCond_FirstUseEver );
+
+	ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoMove;
+
+	if ( ImGui::Begin( XorStr( "##Exilium" ), nullptr, window_flags ) )
 	{
-		if ( ImGui::CollapsingHeader( XorStr( "Visuals" ) ) )
+		ImVec2 window_pos = ImGui::GetWindowPos();
+		ImVec2 window_size = ImGui::GetWindowSize();
+		ImDrawList* draw = ImGui::GetWindowDrawList();
+
+		// Left panel background
+		draw->AddRectFilled( window_pos, window_pos + ImVec2( 161, 535 ), IM_COL32( 32, 32, 32, 255 ), 10.0f, ImDrawFlags_RoundCornersTopLeft | ImDrawFlags_RoundCornersBottomLeft );
+		draw->AddRect( window_pos, window_pos + ImVec2( 161, 535 ), IM_COL32( 50, 50, 50, 255 ), 10.0f, ImDrawFlags_RoundCornersTopLeft | ImDrawFlags_RoundCornersBottomLeft );
+
+		// Right panel background
+		draw->AddRectFilled( window_pos + ImVec2( 161, 0 ), window_pos + ImVec2( 838, 535 ), IM_COL32( 26, 26, 26, 255 ), 10.0f, ImDrawFlags_RoundCornersTopRight | ImDrawFlags_RoundCornersBottomRight );
+		draw->AddRect( window_pos + ImVec2( 161, 0 ), window_pos + ImVec2( 838, 535 ), IM_COL32( 50, 50, 50, 255 ), 10.0f, ImDrawFlags_RoundCornersTopRight | ImDrawFlags_RoundCornersBottomRight );
+
+		// Title
+		draw->AddText( tab_title, 19.0f, window_pos + ImVec2( 20, 15 ), IM_COL32( 255, 255, 255, 255 ), XorStr( "EXILIUM" ) );
+
+		// Bottom user box
+		ImVec2 user_box_min = window_pos + ImVec2( 9, 486 );
+		ImVec2 user_box_max = window_pos + ImVec2( 152, 523 );
+		draw->AddRectFilled( user_box_min, user_box_max, IM_COL32( 41, 41, 41, 255 ), 5.0f );
+		draw->AddRect( user_box_min, user_box_max, IM_COL32( 50, 50, 50, 255 ), 5.0f );
+		draw->AddText( poppins, 14.0f, user_box_min + ImVec2( 10, 10 ), IM_COL32( 255, 255, 255, 255 ), XorStr( "Exilium User" ) );
+		draw->AddText( poppins, 12.0f, user_box_min + ImVec2( 10, 28 ), IM_COL32( 105, 105, 105, 255 ), XorStr( "Lifetime" ) );
+
+		// TABS - Left Panel
+		ImGui::SetCursorPos( ImVec2( 13, 99 ) );
+		if ( ImGui::Rendertab( XorStr( "r" ), XorStr( "Legit Bot" ), m_tab == 0 ) ) m_tab = 0;
+
+		ImGui::SetCursorPos( ImVec2( 13, 137 ) );
+		if ( ImGui::Rendertab( XorStr( "t" ), XorStr( "Triggerbot" ), m_tab == 1 ) ) m_tab = 1;
+
+		ImGui::SetCursorPos( ImVec2( 13, 175 ) );
+		if ( ImGui::Rendertab( XorStr( "a" ), XorStr( "RCS" ), m_tab == 2 ) ) m_tab = 2;
+
+		ImGui::SetCursorPos( ImVec2( 13, 228 ) );
+		if ( ImGui::Rendertab( XorStr( "x" ), XorStr( "Players" ), m_tab == 3 ) ) m_tab = 3;
+
+		ImGui::SetCursorPos( ImVec2( 13, 266 ) );
+		if ( ImGui::Rendertab( XorStr( "w" ), XorStr( "World" ), m_tab == 4 ) ) m_tab = 4;
+
+		ImGui::SetCursorPos( ImVec2( 13, 328 ) );
+		if ( ImGui::Rendertab( XorStr( "z" ), XorStr( "Movement" ), m_tab == 5 ) ) m_tab = 5;
+
+		ImGui::SetCursorPos( ImVec2( 13, 366 ) );
+		if ( ImGui::Rendertab( XorStr( "s" ), XorStr( "Inventory" ), m_tab == 6 ) ) m_tab = 6;
+
+		ImGui::SetCursorPos( ImVec2( 13, 404 ) );
+		if ( ImGui::Rendertab( XorStr( "c" ), XorStr( "Config" ), m_tab == 7 ) ) m_tab = 7;
+
+		// Category labels
+		draw->AddText( poppins, 17.0f, window_pos + ImVec2( 13, 81 ), IM_COL32( 105, 105, 105, 255 ), XorStr( "Aimbot" ) );
+		draw->AddText( poppins, 17.0f, window_pos + ImVec2( 13, 213 ), IM_COL32( 105, 105, 105, 255 ), XorStr( "Visuals" ) );
+		draw->AddText( poppins, 17.0f, window_pos + ImVec2( 13, 310 ), IM_COL32( 105, 105, 105, 255 ), XorStr( "Misc" ) );
+
+		// TAB CONTENT - Right Panel
+		ImGui::SetCursorPos( ImVec2( 169, 38 ) );
+
+		switch ( m_tab )
 		{
-			RenderCheckBox( XorStr( "Active" ) , XorStr( "##Visual.Active" ) , Settings::Visual::Active );
-			RenderCheckBox( XorStr( "Team" ) , XorStr( "##Visual.Team" ) , Settings::Visual::Team );
-			RenderCheckBox( XorStr( "Enemy" ) , XorStr( "##Visual.Enemy" ) , Settings::Visual::Enemy );
-			RenderCheckBox( XorStr( "OnlyVisible" ) , XorStr( "##Visual.OnlyVisible" ) , Settings::Visual::OnlyVisible );
+		case 0: // Legit Bot
+		{
+			ImGui::MenuChild( XorStr( "General" ), ImVec2( 320, 220 ) );
+			ImGui::Checkbox( XorStr( "Legit Aimbot" ), &Settings::Aimbot::Active );
+			ImGui::SliderInt( XorStr( "FOV" ), &Settings::Aimbot::Fov, 0, 30 );
+			ImGui::SliderFloat( XorStr( "Smooth" ), &Settings::Aimbot::Smooth, 0.0f, 20.0f );
+			const char* boneItems[] = { XorStr( "Head" ), XorStr( "Neck" ), XorStr( "Body" ) };
+			ImGui::Combo( XorStr( "Bone" ), &Settings::Aimbot::Bone, boneItems, IM_ARRAYSIZE( boneItems ) );
+			ImGui::Checkbox( XorStr( "Visible Only" ), &Settings::Aimbot::VisibleOnly );
+			ImGui::EndChild();
 
-			RenderCheckBox( XorStr( "Player Box" ) , XorStr( "##Visual.PlayerBox" ) , Settings::Visual::PlayerBox );
-
-			const char* PlayerBoxTypeItems[] = 
-			{ 
-				"Box" , "Outline Box" , "Coal Box" , "Outline Coal Box" 
-			};
-
-			RenderComboBox( XorStr( "PlayerBox Type" ) , XorStr( "##Visual.PlayerBoxType" ) , Settings::Visual::PlayerBoxType , PlayerBoxTypeItems , IM_ARRAYSIZE( PlayerBoxTypeItems ) );
-
-			RenderCheckBox( XorStr( "Bone ESP" ) , XorStr( "##Visual.BoneESP" ) , Settings::Visual::BoneESP );
-			if ( Settings::Visual::BoneESP )
-			{
-				ImGui::Indent();
-				RenderCheckBox( XorStr( "  Bone ESP Team" ) , XorStr( "##Visual.BoneESPTeam" ) , Settings::Visual::BoneESPTeam );
-				RenderCheckBox( XorStr( "  Bone ESP Enemy" ) , XorStr( "##Visual.BoneESPEnemy" ) , Settings::Visual::BoneESPEnemy );
-				ImGui::Unindent();
-			}
-
-			RenderCheckBox( XorStr( "Glow" ) , XorStr( "##Visual.Glow" ) , Settings::Visual::Glow );
-			if ( Settings::Visual::Glow )
-			{
-				ImGui::Indent();
-				RenderCheckBox( XorStr( "  Glow Team" ) , XorStr( "##Visual.GlowTeam" ) , Settings::Visual::GlowTeam );
-				RenderCheckBox( XorStr( "  Glow Enemy" ) , XorStr( "##Visual.GlowEnemy" ) , Settings::Visual::GlowEnemy );
-				ImGui::Unindent();
-			}
+			ImGui::SetCursorPos( ImVec2( 169, 300 ) );
+			ImGui::MenuChild( XorStr( "Keys" ), ImVec2( 320, 100 ) );
+			ImGui::Checkbox( XorStr( "Hold to Aim" ), &Settings::Aimbot::HoldMode );
+			ImGui::EndChild();
+			break;
 		}
 
-		if ( ImGui::CollapsingHeader( XorStr( "Colors" ) ) )
+		case 1: // Triggerbot
+			ImGui::MenuChild( XorStr( "Triggerbot" ), ImVec2( 320, 220 ) );
+			ImGui::Checkbox( XorStr( "Enable" ), &Settings::Trigger::Active );
+			ImGui::SliderInt( XorStr( "Delay ms" ), &Settings::Trigger::Delay, 0, 500 );
+			ImGui::SliderInt( XorStr( "Release ms" ), &Settings::Trigger::PostDelay, 0, 300 );
+			ImGui::Checkbox( XorStr( "Head Only" ), &Settings::Trigger::HeadOnly );
+			ImGui::Checkbox( XorStr( "Visible Only" ), &Settings::Trigger::VisibleOnly );
+			ImGui::EndChild();
+			break;
+
+		case 2: // RCS
+			ImGui::MenuChild( XorStr( "Recoil Control" ), ImVec2( 320, 180 ) );
+			ImGui::Checkbox( XorStr( "Enable RCS" ), &Settings::RCS::Active );
+			ImGui::SliderFloat( XorStr( "X Scale" ), &Settings::RCS::ScaleX, 0.0f, 100.0f );
+			ImGui::SliderFloat( XorStr( "Y Scale" ), &Settings::RCS::ScaleY, 0.0f, 100.0f );
+			ImGui::Checkbox( XorStr( "Only While Firing" ), &Settings::RCS::OnlyWhileShooting );
+			ImGui::EndChild();
+			break;
+
+		case 3: // Players (ESP)
 		{
-			RenderColorEdit( XorStr( "Player Box TT" ) , XorStr( "##Colors.Visual.PlayerBoxTT" ) , &Settings::Colors::Visual::PlayerBoxTT.x );
-			RenderColorEdit( XorStr( "Player Box TT Visible" ) , XorStr( "##Colors.Visual.PlayerBoxTT_Visible" ) , &Settings::Colors::Visual::PlayerBoxTT_Visible.x );
-			RenderColorEdit( XorStr( "Player Box CT" ) , XorStr( "##Colors.Visual.PlayerBoxCT" ) , &Settings::Colors::Visual::PlayerBoxCT.x );
-			RenderColorEdit( XorStr( "Player Box CT Visible" ) , XorStr( "##Colors.Visual.PlayerBoxCT_Visible" ) , &Settings::Colors::Visual::PlayerBoxCT_Visible.x );
+			ImGui::MenuChild( XorStr( "Player ESP" ), ImVec2( 320, 240 ) );
+			ImGui::Checkbox( XorStr( "Active" ), &Settings::Visual::Active );
+			ImGui::Checkbox( XorStr( "Enemy" ), &Settings::Visual::Enemy );
+			ImGui::Checkbox( XorStr( "Team" ), &Settings::Visual::Team );
+			ImGui::Checkbox( XorStr( "Visible Only" ), &Settings::Visual::OnlyVisible );
+			ImGui::Checkbox( XorStr( "Player Box" ), &Settings::Visual::PlayerBox );
+			const char* boxTypeItems[] = { XorStr( "Box" ), XorStr( "Outline Box" ), XorStr( "Coal Box" ), XorStr( "Outline Coal Box" ) };
+			ImGui::Combo( XorStr( "Box Type" ), &Settings::Visual::PlayerBoxType, boxTypeItems, IM_ARRAYSIZE( boxTypeItems ) );
+			ImGui::Checkbox( XorStr( "Bone ESP" ), &Settings::Visual::BoneESP );
+			ImGui::Checkbox( XorStr( "Glow" ), &Settings::Visual::Glow );
+			ImGui::EndChild();
 
-			RenderColorEdit( XorStr( "Bone ESP TT" ) , XorStr( "##Colors.Visual.BoneESPTT" ) , &Settings::Colors::Visual::BoneESPTT.x );
-			RenderColorEdit( XorStr( "Bone ESP TT Visible" ) , XorStr( "##Colors.Visual.BoneESPTT_Visible" ) , &Settings::Colors::Visual::BoneESPTT_Visible.x );
-			RenderColorEdit( XorStr( "Bone ESP CT" ) , XorStr( "##Colors.Visual.BoneESPCT" ) , &Settings::Colors::Visual::BoneESPCT.x );
-			RenderColorEdit( XorStr( "Bone ESP CT Visible" ) , XorStr( "##Colors.Visual.BoneESPCT_Visible" ) , &Settings::Colors::Visual::BoneESPCT_Visible.x );
-
-			RenderColorEdit( XorStr( "Glow TT" ) , XorStr( "##Colors.Visual.GlowTT" ) , &Settings::Colors::Visual::GlowTT.x );
-			RenderColorEdit( XorStr( "Glow TT Visible" ) , XorStr( "##Colors.Visual.GlowTT_Visible" ) , &Settings::Colors::Visual::GlowTT_Visible.x );
-			RenderColorEdit( XorStr( "Glow CT" ) , XorStr( "##Colors.Visual.GlowCT" ) , &Settings::Colors::Visual::GlowCT.x );
-			RenderColorEdit( XorStr( "Glow CT Visible" ) , XorStr( "##Colors.Visual.GlowCT_Visible" ) , &Settings::Colors::Visual::GlowCT_Visible.x );
+			ImGui::SetCursorPos( ImVec2( 169, 320 ) );
+			ImGui::MenuChild( XorStr( "ESP Extras" ), ImVec2( 320, 160 ) );
+			ImGui::Checkbox( XorStr( "Health Bar" ), &Settings::Visual::HealthBar );
+			ImGui::Checkbox( XorStr( "Name" ), &Settings::Visual::NameESP );
+			ImGui::Checkbox( XorStr( "Distance" ), &Settings::Visual::Distance );
+			ImGui::Checkbox( XorStr( "Weapon Label" ), &Settings::Visual::WeaponLabel );
+			ImGui::EndChild();
+			break;
 		}
 
-		if ( ImGui::CollapsingHeader( XorStr( "Menu" ) ) )
-		{
-			RenderSliderInt( XorStr( "Menu Alpha" ) , XorStr( "##Menu.MenuAlpha" ) , Settings::Menu::MenuAlpha , 100 , 255 );
+		case 4: // World
+			ImGui::MenuChild( XorStr( "Misc Visuals" ), ImVec2( 320, 140 ) );
+			ImGui::Checkbox( XorStr( "No Flash" ), &Settings::Misc::NoFlash );
+			ImGui::EndChild();
+			break;
 
-			const char* MenuStyleItems[] =
+		case 5: // Movement
+			ImGui::MenuChild( XorStr( "Movement" ), ImVec2( 320, 160 ) );
+			ImGui::Checkbox( XorStr( "Bhop" ), &Settings::Movement::Bhop );
+			ImGui::Checkbox( XorStr( "Auto Strafe" ), &Settings::Movement::AutoStrafe );
+			ImGui::Checkbox( XorStr( "Edge Jump" ), &Settings::Movement::EdgeJump );
+			ImGui::EndChild();
+			break;
+
+		case 6: // Inventory Changer
+			ImGui::MenuChild( XorStr( "Inventory Changer" ), ImVec2( 650, 470 ) );
 			{
-				"Indigo" , "Vermillion" , "Classic Steam"
-			};
+				auto* pInventoryManager = GetInventoryItemsManager();
+				auto& dumpedItems = pInventoryManager->GetDumpedItems();
 
-			if ( RenderComboBox( XorStr( "Menu Style" ) , XorStr( "##Menu.MenuStyle" ) , Settings::Menu::MenuStyle , MenuStyleItems , IM_ARRAYSIZE( MenuStyleItems ) ) )
-				GetExiliumGUI()->UpdateStyle();
-		}
+				const char* CategoryItems[] = { XorStr( "Weapons" ), XorStr( "Knives" ), XorStr( "Gloves" ), XorStr( "Agents" ), XorStr( "Music Kits" ) };
+				ImGui::Combo( XorStr( "Category" ), &m_SelectedCategory, CategoryItems, IM_ARRAYSIZE( CategoryItems ) );
 
-		if ( ImGui::CollapsingHeader( XorStr( "Inventory Changer" ) ) )
-		{
-			auto* pInventoryManager = GetInventoryItemsManager();
-			auto& dumpedItems = pInventoryManager->GetDumpedItems();
+				CInventoryItemsManager::EDumpedItemType_t targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_NONE;
+				if ( m_SelectedCategory == 0 ) targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_WEAPON;
+				else if ( m_SelectedCategory == 1 ) targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_KNIFE;
+				else if ( m_SelectedCategory == 2 ) targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_GLOVE;
+				else if ( m_SelectedCategory == 3 ) targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_AGENT;
+				else if ( m_SelectedCategory == 4 ) targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_MUSIC;
 
-			const char* CategoryItems[] = { "Weapons", "Knives", "Gloves", "Agents", "Music Kits" };
-			ImGui::Combo( XorStr( "Category" ), &m_SelectedCategory, CategoryItems, IM_ARRAYSIZE( CategoryItems ) );
-
-			CInventoryItemsManager::EDumpedItemType_t targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_NONE;
-			if ( m_SelectedCategory == 0 ) targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_WEAPON;
-			else if ( m_SelectedCategory == 1 ) targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_KNIFE;
-			else if ( m_SelectedCategory == 2 ) targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_GLOVE;
-			else if ( m_SelectedCategory == 3 ) targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_AGENT;
-			else if ( m_SelectedCategory == 4 ) targetType = CInventoryItemsManager::DUMPED_ITEM_TYPE_MUSIC;
-
-			// Filter items by selected category
-			std::vector<CInventoryItemsManager::DumpedItem_t*> filteredItems;
-			for ( auto& item : dumpedItems )
-			{
-				if ( item.m_ItemType == targetType )
-					filteredItems.push_back( &item );
-			}
-
-			if ( !filteredItems.empty() )
-			{
-				if ( m_SelectedItemIndex >= filteredItems.size() )
-					m_SelectedItemIndex = 0;
-
-				auto* pSelectedItem = filteredItems[m_SelectedItemIndex];
-
-				if ( ImGui::BeginCombo( XorStr( "Item" ), pSelectedItem->m_DisplayName.c_str() ) )
+				std::vector<CInventoryItemsManager::DumpedItem_t*> filteredItems;
+				for ( auto& item : dumpedItems )
 				{
-					for ( size_t i = 0; i < filteredItems.size(); ++i )
-					{
-						ImGui::PushID( static_cast<int>( i ) );
-						bool is_selected = ( m_SelectedItemIndex == i );
-						if ( ImGui::Selectable( filteredItems[i]->m_DisplayName.c_str(), is_selected ) )
-						{
-							m_SelectedItemIndex = static_cast<int>( i );
-							m_SelectedSkinIndex = 0; // Reset skin index when item changes
-						}
-						if ( is_selected )
-							ImGui::SetItemDefaultFocus();
-						ImGui::PopID();
-					}
-					ImGui::EndCombo();
+					if ( item.m_ItemType == targetType )
+						filteredItems.push_back( &item );
 				}
 
-				// Skins
-				if ( targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_AGENT || targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_MUSIC )
+				if ( !filteredItems.empty() )
 				{
-					// Agents don't have skins in the same way, Music kits are handled differently
-				}
-				else
-				{
-					if ( pSelectedItem->m_DumpedSkins.size() > 0 )
+					if ( m_SelectedItemIndex >= filteredItems.size() )
+						m_SelectedItemIndex = 0;
+
+					auto* pSelectedItem = filteredItems[m_SelectedItemIndex];
+
+					if ( ImGui::BeginCombo( XorStr( "Item" ), pSelectedItem->m_DisplayName.c_str() ) )
 					{
-						if ( m_SelectedSkinIndex >= pSelectedItem->m_DumpedSkins.size() )
-							m_SelectedSkinIndex = 0;
-
-						auto& selectedSkin = pSelectedItem->m_DumpedSkins[m_SelectedSkinIndex];
-
-						if ( ImGui::BeginCombo( XorStr( "Skin" ), selectedSkin.m_DisplayName.c_str() ) )
+						for ( size_t i = 0; i < filteredItems.size(); ++i )
 						{
-							for ( size_t i = 0; i < pSelectedItem->m_DumpedSkins.size(); ++i )
+							ImGui::PushID( static_cast<int>( i ) );
+							bool is_selected = ( m_SelectedItemIndex == i );
+							if ( ImGui::Selectable( filteredItems[i]->m_DisplayName.c_str(), is_selected ) )
 							{
-								ImGui::PushID( static_cast<int>( i ) );
-								bool is_selected = ( m_SelectedSkinIndex == i );
-								if ( ImGui::Selectable( pSelectedItem->m_DumpedSkins[i].m_DisplayName.c_str(), is_selected ) )
-									m_SelectedSkinIndex = static_cast<int>( i );
-								if ( is_selected )
-									ImGui::SetItemDefaultFocus();
-								ImGui::PopID();
+								m_SelectedItemIndex = static_cast<int>( i );
+								m_SelectedSkinIndex = 0;
 							}
-							ImGui::EndCombo();
+							if ( is_selected )
+								ImGui::SetItemDefaultFocus();
+							ImGui::PopID();
 						}
+						ImGui::EndCombo();
 					}
-				}
 
-				// Additional options
-				if ( targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_WEAPON || targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_KNIFE || targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_GLOVE )
-				{
-					ImGui::SliderFloat( XorStr( "Wear" ), &m_Wear, 0.0f, 1.0f, "%.5f" );
-					ImGui::SliderInt( XorStr( "Seed" ), &m_Seed, 0, 1000 );
-					ImGui::SliderInt( XorStr( "StatTrak" ), &m_StatTrak, -1, 999999, m_StatTrak == -1 ? "Off" : "%d" );
-				}
-
-				if ( ImGui::Button( XorStr( "Add Item" ), ImVec2( -1, 30 ) ) )
-				{
-					if ( targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_AGENT )
+					if ( targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_AGENT || targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_MUSIC )
 					{
-						pInventoryManager->AddSelectedSkinToInventory( pSelectedItem->m_DefIdx, 0, 0.0f, false, 0, -1 );
-					}
-					else if ( targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_MUSIC )
-					{
-						if ( pSelectedItem->m_DumpedSkins.size() > 0 )
-							pInventoryManager->AddMusicToInventory( pSelectedItem->m_DefIdx, pSelectedItem->m_DumpedSkins[m_SelectedSkinIndex].m_ID, false );
 					}
 					else
 					{
 						if ( pSelectedItem->m_DumpedSkins.size() > 0 )
-							pInventoryManager->AddSelectedSkinToInventory( pSelectedItem->m_DefIdx, pSelectedItem->m_DumpedSkins[m_SelectedSkinIndex].m_ID, m_Wear, false, m_Seed, m_StatTrak );
-					}
-				}
-			}
-			else
-			{
-				ImGui::Text( XorStr( "No items found. Please join a game first to scan items." ) );
-			}
-		}
-		if ( ImGui::CollapsingHeader( XorStr( "Inventory Manager" ) ) )
-		{
-			auto* pInventoryManager = GetInventoryItemsManager();
-			auto& addedItems = pInventoryManager->GetAddedItems();
-
-			if ( addedItems.empty() )
-			{
-				ImGui::Text( XorStr( "No items added to inventory yet." ) );
-			}
-			else
-			{
-				if ( ImGui::BeginTable( XorStr( "InventoryManagerTable" ), 3, ImGuiTableFlags_Borders | ImGuiTableFlags_RowBg ) )
-				{
-					ImGui::TableSetupColumn( XorStr( "ID" ), ImGuiTableColumnFlags_WidthFixed, 50.0f );
-					ImGui::TableSetupColumn( XorStr( "Item" ), ImGuiTableColumnFlags_WidthStretch );
-					ImGui::TableSetupColumn( XorStr( "Action" ), ImGuiTableColumnFlags_WidthFixed, 80.0f );
-					ImGui::TableHeadersRow();
-
-					// We need to store IDs to delete to avoid modifying map while iterating
-					std::vector<uint64_t> idsToDelete;
-
-					for ( auto& [id, addedItem] : addedItems )
-					{
-						ImGui::TableNextRow();
-						ImGui::TableSetColumnIndex( 0 );
-						ImGui::Text( "%llu", id );
-
-						ImGui::TableSetColumnIndex( 1 );
-						std::string fullItemName;
-						
-						// Get the base weapon name since addedItem doesn't store it if it's a skin
-						std::string baseName = pInventoryManager->GetWeaponName( addedItem.m_DefIdx );
-						
-						if ( addedItem.m_ItemType == CInventoryItemsManager::DUMPED_ITEM_TYPE_AGENT || addedItem.m_ItemType == CInventoryItemsManager::DUMPED_ITEM_TYPE_MUSIC )
 						{
-							fullItemName = addedItem.m_DisplayName;
+							if ( m_SelectedSkinIndex >= pSelectedItem->m_DumpedSkins.size() )
+								m_SelectedSkinIndex = 0;
+
+							auto& selectedSkin = pSelectedItem->m_DumpedSkins[m_SelectedSkinIndex];
+
+							if ( ImGui::BeginCombo( XorStr( "Skin" ), selectedSkin.m_DisplayName.c_str() ) )
+							{
+								for ( size_t i = 0; i < pSelectedItem->m_DumpedSkins.size(); ++i )
+								{
+									ImGui::PushID( static_cast<int>( i ) );
+									bool is_selected = ( m_SelectedSkinIndex == i );
+									if ( ImGui::Selectable( pSelectedItem->m_DumpedSkins[i].m_DisplayName.c_str(), is_selected ) )
+										m_SelectedSkinIndex = static_cast<int>( i );
+									if ( is_selected )
+										ImGui::SetItemDefaultFocus();
+									ImGui::PopID();
+								}
+								ImGui::EndCombo();
+							}
+						}
+					}
+
+					if ( targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_WEAPON || targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_KNIFE || targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_GLOVE )
+					{
+						ImGui::SliderFloat( XorStr( "Wear" ), &m_Wear, 0.0f, 1.0f, XorStr( "%.5f" ) );
+						ImGui::SliderInt( XorStr( "Seed" ), &m_Seed, 0, 1000 );
+						ImGui::SliderInt( XorStr( "StatTrak" ), &m_StatTrak, -1, 999999, m_StatTrak == -1 ? XorStr( "Off" ) : XorStr( "%d" ) );
+					}
+
+					if ( ImGui::Button( XorStr( "Add Item" ), ImVec2( -1, 30 ) ) )
+					{
+						if ( targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_AGENT )
+						{
+							pInventoryManager->AddSelectedSkinToInventory( pSelectedItem->m_DefIdx, 0, 0.0f, false, 0, -1 );
+						}
+						else if ( targetType == CInventoryItemsManager::DUMPED_ITEM_TYPE_MUSIC )
+						{
+							if ( pSelectedItem->m_DumpedSkins.size() > 0 )
+								pInventoryManager->AddMusicToInventory( pSelectedItem->m_DefIdx, pSelectedItem->m_DumpedSkins[m_SelectedSkinIndex].m_ID, false );
 						}
 						else
 						{
-							if ( baseName != "Unknown" )
-								fullItemName = baseName + " | " + addedItem.m_DisplayName;
-							else
-								fullItemName = addedItem.m_DisplayName;
+							if ( pSelectedItem->m_DumpedSkins.size() > 0 )
+								pInventoryManager->AddSelectedSkinToInventory( pSelectedItem->m_DefIdx, pSelectedItem->m_DumpedSkins[m_SelectedSkinIndex].m_ID, m_Wear, false, m_Seed, m_StatTrak );
 						}
-
-						ImGui::Text( "%s", fullItemName.c_str() );
-
-						ImGui::TableSetColumnIndex( 2 );
-						ImGui::PushID( static_cast<int>( id ) );
-						if ( ImGui::Button( XorStr( "Delete" ), ImVec2( -1, 0 ) ) )
-						{
-							idsToDelete.push_back( id );
-						}
-						ImGui::PopID();
-					}
-
-					ImGui::EndTable();
-
-					// Delete items after iteration
-					for ( uint64_t id : idsToDelete )
-					{
-						pInventoryManager->RemoveItemFromInventoryByID( id );
 					}
 				}
+				else
+				{
+					ImGui::Text( XorStr( "No items found. Please join a game first to scan items." ) );
+				}
 			}
+			ImGui::EndChild();
+			break;
+
+		case 7: // Config
+			ImGui::MenuChild( XorStr( "Config" ), ImVec2( 650, 300 ) );
+			ImGui::Text( XorStr( "Config system coming soon..." ) );
+			ImGui::Button( XorStr( "Save Config" ), ImVec2( -1, 30 ) );
+			ImGui::Button( XorStr( "Load Config" ), ImVec2( -1, 30 ) );
+			ImGui::EndChild();
+			break;
 		}
 	}
 
 	ImGui::End();
 
 	ImGui::PopStyleVar();
-}
-
-auto CExiliumMenu::RenderCheckBox( const char* szTitle , const char* szStrID , bool& SettingsItem ) -> bool
-{
-	if ( szTitle )
-	{
-		ImGui::AlignTextToFramePadding();
-		ImGui::Text( szTitle );
-		ImGui::SameLine( ImGui::CalcTextSize( szTitle ).x + 10.f );
-	}
-
-	const auto LeftPadding = ImGui::GetStyle().FramePadding.x;
-
-	ImGui::Dummy( ImVec2( ImGui::GetContentRegionAvail().x - 27.f - LeftPadding , 0.f ) );
-	ImGui::SameLine();
-
-	const auto Ret = ImGui::Checkbox( szStrID , &SettingsItem );
-
-	return Ret;
-}
-
-auto CExiliumMenu::RenderComboBox( const char* szTitle , const char* szStrID , int& v , const char* Items[] , int ItemsCount ) -> bool
-{
-	if ( szTitle )
-	{
-		ImGui::AlignTextToFramePadding();
-		ImGui::Text( szTitle );
-	}
-
-	ImGui::SameLine();
-
-	ImGui::PushItemWidth( -1.f );
-	const auto Ret = ImGui::Combo( szStrID , &v , Items , ItemsCount );
-	ImGui::PopItemWidth();
-
-	return Ret;
-}
-
-auto CExiliumMenu::RenderColorEdit( const char* szTitle , const char* szStrID , float* Color ) -> bool
-{
-	if ( szTitle )
-	{
-		ImGui::AlignTextToFramePadding();
-		ImGui::Text( szTitle );
-	}
-
-	ImGui::SameLine();
-
-	const auto Ret = ImGui::ColorEdit4( szStrID , Color );
-
-	return Ret;
-}
-
-auto CExiliumMenu::RenderSliderInt( const char* szTitle , const char* szStrID , int& Value , int Min , int Max ) -> bool
-{
-	if ( szTitle )
-	{
-		ImGui::AlignTextToFramePadding();
-		ImGui::Text( szTitle );
-	}
-
-	ImGui::SameLine();
-
-	ImGui::PushItemWidth( -1.f );
-	const auto Ret = ImGui::SliderInt( szStrID , &Value , Min , Max );
-	ImGui::PopItemWidth();
-
-	return Ret;
 }
 
 auto GetExiliumMenu() -> CExiliumMenu*

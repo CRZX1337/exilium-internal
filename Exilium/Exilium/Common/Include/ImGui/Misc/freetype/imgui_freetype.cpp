@@ -222,7 +222,8 @@ namespace
         if (UserFlags & ImGuiFreeTypeBuilderFlags_LoadColor)
             LoadFlags |= FT_LOAD_COLOR;
 
-        RasterizationDensity = src.RasterizerDensity;
+        // RasterizationDensity field was added in newer ImGui versions, use default if not available
+        RasterizationDensity = 1.0f;
         InvRasterizationDensity = 1.0f / RasterizationDensity;
 
         memset(&Info, 0, sizeof(Info));
@@ -443,7 +444,7 @@ struct ImFontBuildDstDataFT
 
 bool ImFontAtlasBuildWithFreeTypeEx(FT_Library ft_library, ImFontAtlas* atlas, unsigned int extra_flags)
 {
-    IM_ASSERT(atlas->Sources.Size > 0);
+    IM_ASSERT(atlas->ConfigData.Size > 0);
 
     ImFontAtlasBuildInit(atlas);
 
@@ -458,16 +459,16 @@ bool ImFontAtlasBuildWithFreeTypeEx(FT_Library ft_library, ImFontAtlas* atlas, u
     bool src_load_color = false;
     ImVector<ImFontBuildSrcDataFT> src_tmp_array;
     ImVector<ImFontBuildDstDataFT> dst_tmp_array;
-    src_tmp_array.resize(atlas->Sources.Size);
+    src_tmp_array.resize(atlas->ConfigData.Size);
     dst_tmp_array.resize(atlas->Fonts.Size);
     memset((void*)src_tmp_array.Data, 0, (size_t)src_tmp_array.size_in_bytes());
     memset((void*)dst_tmp_array.Data, 0, (size_t)dst_tmp_array.size_in_bytes());
 
     // 1. Initialize font loading structure, check font data validity
-    for (int src_i = 0; src_i < atlas->Sources.Size; src_i++)
+    for (int src_i = 0; src_i < atlas->ConfigData.Size; src_i++)
     {
         ImFontBuildSrcDataFT& src_tmp = src_tmp_array[src_i];
-        ImFontConfig& src = atlas->Sources[src_i];
+        ImFontConfig& src = atlas->ConfigData[src_i];
         FreeTypeFont& font_face = src_tmp.Font;
         IM_ASSERT(src.DstFont && (!src.DstFont->IsLoaded() || src.DstFont->ContainerAtlas == atlas));
 
@@ -577,7 +578,7 @@ bool ImFontAtlasBuildWithFreeTypeEx(FT_Library ft_library, ImFontAtlas* atlas, u
     for (int src_i = 0; src_i < src_tmp_array.Size; src_i++)
     {
         ImFontBuildSrcDataFT& src_tmp = src_tmp_array[src_i];
-        ImFontConfig& src = atlas->Sources[src_i];
+        ImFontConfig& src = atlas->ConfigData[src_i];
         if (src_tmp.GlyphsCount == 0)
             continue;
 
@@ -688,7 +689,7 @@ bool ImFontAtlasBuildWithFreeTypeEx(FT_Library ft_library, ImFontAtlas* atlas, u
         // When merging fonts with MergeMode=true:
         // - We can have multiple input fonts writing into a same destination font.
         // - dst_font->Sources is != from src which is our source configuration.
-        ImFontConfig& src = atlas->Sources[src_i];
+        ImFontConfig& src = atlas->ConfigData[src_i];
         ImFont* dst_font = src.DstFont;
 
         const float ascent = src_tmp.Font.Info.Ascender;
@@ -967,3 +968,4 @@ static FT_Error ImGuiLunasvgPortPresetSlot(FT_GlyphSlot slot, FT_Bool cache, FT_
 #endif
 
 #endif // #ifndef IMGUI_DISABLE
+

@@ -5,6 +5,40 @@
 
 namespace Settings
 {
+	namespace Aimbot
+	{
+		inline auto Active = false;
+		inline auto Fov = 10;
+		inline auto Smooth = 5.0f;
+		inline auto Bone = 0;
+		inline auto VisibleOnly = true;
+		inline auto HoldMode = true;
+	}
+	namespace Trigger
+	{
+		inline auto Active = false;
+		inline auto Delay = 50;
+		inline auto PostDelay = 100;
+		inline auto HeadOnly = true;
+		inline auto VisibleOnly = true;
+	}
+	namespace RCS
+	{
+		inline auto Active = false;
+		inline auto ScaleX = 50.0f;
+		inline auto ScaleY = 50.0f;
+		inline auto OnlyWhileShooting = true;
+	}
+	namespace Movement
+	{
+		inline auto Bhop = false;
+		inline auto AutoStrafe = false;
+		inline auto EdgeJump = false;
+	}
+	namespace Misc
+	{
+		inline auto NoFlash = false;
+	}
 	namespace Visual
 	{
 		inline auto Active = true;
@@ -18,6 +52,10 @@ namespace Settings
 		inline auto Glow = true;
 		inline auto GlowTeam = true;
 		inline auto GlowEnemy = true;
+		inline auto HealthBar = true;
+		inline auto NameESP = true;
+		inline auto Distance = false;
+		inline auto WeaponLabel = true;
 
 		inline auto PlayerBoxType = 3;
 	}

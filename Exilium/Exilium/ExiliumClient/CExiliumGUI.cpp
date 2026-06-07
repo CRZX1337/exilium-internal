@@ -185,7 +185,7 @@ auto CExiliumGUI::OnReopenGUI() -> void
 	if ( m_bVisible )
 	{
 		if ( m_vecMousePosSave.x == 0.f && m_vecMousePosSave.y == 0.f )
-			m_vecMousePosSave = ImGui::GetIO().DisplaySize / 2.f;
+			m_vecMousePosSave = ImVec2( ImGui::GetIO().DisplaySize.x / 2.f, ImGui::GetIO().DisplaySize.y / 2.f );
 
 		ImGui::GetIO().MousePos = m_vecMousePosSave;
 
@@ -443,7 +443,7 @@ auto CExiliumGUI::SetClassicSteamStyle() -> void
 	style.GrabRounding = 0.0f;
 	style.TabRounding = 0.0f;
 	style.TabBorderSize = 0.0f;
-	style.TabCloseButtonMinWidthUnselected = 0.0f;
+	// style.TabCloseButtonMinWidthUnselected = 0.0f; // Not available in this ImGui version
 	style.ColorButtonPosition = ImGuiDir_Right;
 	style.ButtonTextAlign = ImVec2( 0.5f , 0.5f );
 	style.SelectableTextAlign = ImVec2( 0.0f , 0.0f );
@@ -523,8 +523,8 @@ bool CExiliumGUI::FreeTypeBuild::PreNewFrame()
 
 	ImFontAtlas* atlas = ImGui::GetIO().Fonts;
 
-	for ( int n = 0; n < atlas->Sources.Size; n++ )
-		( (ImFontConfig*)&atlas->Sources[n] )->RasterizerMultiply = RasterizerMultiply;
+	for ( int n = 0; n < atlas->ConfigData.Size; n++ )
+		( (ImFontConfig*)&atlas->ConfigData[n] )->RasterizerMultiply = RasterizerMultiply;
 
 #ifdef IMGUI_ENABLE_FREETYPE
 	if ( BuildMode == FontBuildMode::FreeType )
